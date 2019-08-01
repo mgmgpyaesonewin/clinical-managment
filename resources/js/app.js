@@ -9,7 +9,8 @@ const routes = [
     { path: '/bar', component: Bar }
   ]
   const router = new VueRouter({
-    // mode:'history',
+    mode:'history',
+    base:"/home",
     routes // short for `routes: routes`
   })
     
