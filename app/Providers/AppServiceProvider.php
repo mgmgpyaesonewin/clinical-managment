@@ -11,9 +11,10 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
+    public $data=0;
     public function register()
     {
-        //
+
     }
 
     /**
