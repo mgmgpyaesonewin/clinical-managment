@@ -60,7 +60,7 @@ export default {
     props:['patient'],
     methods: {
         formsubmit(){
-            axios.put('/api/patients/4', this.patient)
+            axios.post('/api/patients', this.patient)
             .then( (response) => {
                 console.log(response.data);
             })
