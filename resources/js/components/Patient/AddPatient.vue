@@ -35,7 +35,7 @@ export default {
                 city: null,
                 phone_number: null,
                 dob: null,
-                gender: null,
+                gender: 'Male',
             }
         }
     },

@@ -31,8 +31,8 @@ class PatientRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required',
-            'dob'   =>  'required',
+            'name'  =>  'required|String',
+            'dob'   =>  'required|String',
             'gender'=>  'required',
             'address'=> 'required',
             'city'  =>  'required',

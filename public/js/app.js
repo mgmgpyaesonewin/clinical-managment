@@ -1914,7 +1914,7 @@ __webpack_require__.r(__webpack_exports__);
         city: null,
         phone_number: null,
         dob: null,
-        gender: null
+        gender: 'Male'
       }
     };
   },
@@ -1934,6 +1934,24 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* WEBPACK VAR INJECTION */(function(process) {//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1993,16 +2011,32 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['patient'],
+  data: function data() {
+    return {
+      errors: {}
+    };
+  },
   methods: {
     formsubmit: function formsubmit() {
-      axios.put('/api/patients/4', this.patient).then(function (response) {
+      var _this = this;
+
+      axios.post('patients', this.patient).then(function (response) {
         console.log(response.data);
       })["catch"](function (error) {
+        _this.errors = error.response.data;
         console.log(error.response.data);
       });
     }
+  },
+  mounted: function mounted() {
+    console.log(process.env.API_URL); // console.log('asdasd');
+    // console.log('est')
+    // console.log('last')
+
+    console.log(axios.defaults);
   }
 });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -21289,12 +21323,14 @@ var render = function() {
                 directives: [
                   {
                     name: "model",
-                    rawName: "v-model",
+                    rawName: "v-model.number",
                     value: _vm.patient.name,
-                    expression: "patient.name"
+                    expression: "patient.name",
+                    modifiers: { number: true }
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.errors.name ? true : false },
                 attrs: { type: "text", placeholder: "Enter Patient Name" },
                 domProps: { value: _vm.patient.name },
                 on: {
@@ -21302,10 +21338,21 @@ var render = function() {
                     if ($event.target.composing) {
                       return
                     }
-                    _vm.$set(_vm.patient, "name", $event.target.value)
+                    _vm.$set(_vm.patient, "name", _vm._n($event.target.value))
+                  },
+                  blur: function($event) {
+                    return _vm.$forceUpdate()
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                            " +
+                    _vm._s(_vm.errors.name && _vm.errors.name[0]) +
+                    "\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -21327,6 +21374,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.errors.dob ? true : false },
                 attrs: {
                   type: "text",
                   placeholder: "Enter Patient Date of Birth"
@@ -21340,51 +21388,71 @@ var render = function() {
                     _vm.$set(_vm.patient, "dob", $event.target.value)
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                           " +
+                    _vm._s(_vm.errors.dob && _vm.errors.dob[0]) +
+                    "\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "form-group" }, [
-            _c("div", { staticClass: "col-md-12" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.gender,
-                    expression: "patient.gender"
+            _c("div", { staticClass: "col-md-12 " }, [
+              _c("div", { staticClass: "form-control" }, [
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.gender,
+                      expression: "patient.gender"
+                    }
+                  ],
+                  attrs: {
+                    name: "rad",
+                    type: "radio",
+                    id: "one",
+                    value: "Male"
+                  },
+                  domProps: { checked: _vm._q(_vm.patient.gender, "Male") },
+                  on: {
+                    change: function($event) {
+                      return _vm.$set(_vm.patient, "gender", "Male")
+                    }
                   }
-                ],
-                attrs: { type: "radio", id: "one", value: "Male" },
-                domProps: { checked: _vm._q(_vm.patient.gender, "Male") },
-                on: {
-                  change: function($event) {
-                    return _vm.$set(_vm.patient, "gender", "Male")
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { checfor: "one" } }, [_vm._v("Male")]),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.patient.gender,
+                      expression: "patient.gender"
+                    }
+                  ],
+                  attrs: {
+                    name: "rad",
+                    type: "radio",
+                    id: "two",
+                    value: "Female"
+                  },
+                  domProps: { checked: _vm._q(_vm.patient.gender, "Female") },
+                  on: {
+                    change: function($event) {
+                      return _vm.$set(_vm.patient, "gender", "Female")
+                    }
                   }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "one" } }, [_vm._v("Male")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.patient.gender,
-                    expression: "patient.gender"
-                  }
-                ],
-                attrs: { type: "radio", id: "two", value: "Female" },
-                domProps: { checked: _vm._q(_vm.patient.gender, "Female") },
-                on: {
-                  change: function($event) {
-                    return _vm.$set(_vm.patient, "gender", "Female")
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("label", { attrs: { for: "two" } }, [_vm._v("Female")])
+                }),
+                _vm._v(" "),
+                _c("label", { attrs: { for: "two" } }, [_vm._v("Female")])
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -21406,6 +21474,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.errors.phone_number ? true : false },
                 attrs: { type: "text", placeholder: "Enter Patient Phone No:" },
                 domProps: { value: _vm.patient.phone_number },
                 on: {
@@ -21416,7 +21485,17 @@ var render = function() {
                     _vm.$set(_vm.patient, "phone_number", $event.target.value)
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                           " +
+                    _vm._s(
+                      _vm.errors.phone_number && _vm.errors.phone_number[0]
+                    ) +
+                    "\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -21438,6 +21517,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.errors.city ? true : false },
                 attrs: { type: "text", placeholder: "Enter City of Patient" },
                 domProps: { value: _vm.patient.city },
                 on: {
@@ -21448,7 +21528,15 @@ var render = function() {
                     _vm.$set(_vm.patient, "city", $event.target.value)
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                            " +
+                    _vm._s(_vm.errors.city && _vm.errors.city[0]) +
+                    "\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -21470,6 +21558,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-control",
+                class: { "is-invalid": _vm.errors.address ? true : false },
                 attrs: {
                   placeholder: "Enter Patient Address",
                   id: "",
@@ -21485,7 +21574,15 @@ var render = function() {
                     _vm.$set(_vm.patient, "address", $event.target.value)
                   }
                 }
-              })
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "invalid-feedback" }, [
+                _vm._v(
+                  "\n                            " +
+                    _vm._s(_vm.errors.address && _vm.errors.address[0]) +
+                    "\n                        "
+                )
+              ])
             ])
           ]),
           _vm._v(" "),
@@ -39083,6 +39180,8 @@ var app = new Vue({
  * for JavaScript based Bootstrap features such as modals and tabs. This
  * code may be modified to fit the specific needs of your application.
  */
+var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
 try {
   window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
@@ -39096,7 +39195,9 @@ try {
  */
 
 
-window.axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+window.axios = axios.create({
+  baseURL: "".concat("http://localhost:8000/api")
+});
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
  * Next we will register the CSRF Token as a common header with Axios so that

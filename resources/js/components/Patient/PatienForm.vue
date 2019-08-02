@@ -8,43 +8,61 @@
                         <label class="col-md-12" for="example-email"> Name </span>
                         </label>
                         <div class="col-md-12">
-                            <input type="text" v-model="patient.name" class="form-control" placeholder="Enter Patient Name">
+                            <input type="text" v-model.number="patient.name" :class="{'is-invalid':  errors.name ? true : false}" class="form-control" placeholder="Enter Patient Name">
+                            <div class="invalid-feedback">
+                                {{errors.name && errors.name[0]}}
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-12" for="example-email"> DOB </span>
                         </label>
                         <div class="col-md-12">
-                            <input type="text" v-model="patient.dob" class="form-control" placeholder="Enter Patient Date of Birth">
+                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="patient.dob" class="form-control" placeholder="Enter Patient Date of Birth">
+                             <div class="invalid-feedback">
+                               {{errors.dob && errors.dob[0]}}
+                            </div>
                         </div>
                     </div>
                      <div class="form-group">
-                        <div class="col-md-12">
-                            <input type="radio" id="one" value="Male" v-model="patient.gender">
-                            <label for="one">Male</label>
-                            <input type="radio" id="two" value="Female" v-model="patient.gender">
+                        <div class="col-md-12 ">
+                            <div class="form-control">
+                            <input name="rad"  type="radio" id="one" value="Male" v-model="patient.gender">
+                            <label checfor="one">Male</label>
+                            <input name="rad" type="radio" id="two" value="Female" v-model="patient.gender">
                             <label for="two">Female</label>
+                            </div>
                         </div>
                     </div>
                    <div class="form-group">
                         <label class="col-md-12" for="example-email"> Phone No: </span>
                         </label>
                         <div class="col-md-12">
-                            <input type="text" v-model="patient.phone_number" class="form-control" placeholder="Enter Patient Phone No:">
+                            <input type="text"  :class="{'is-invalid':  errors.phone_number ? true : false}" v-model="patient.phone_number" class="form-control" placeholder="Enter Patient Phone No:">
+                             <div class="invalid-feedback">
+                               {{errors.phone_number && errors.phone_number[0]}}
+                            </div>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-12" for="example-email"> City </span>
                         </label>
                         <div class="col-md-12">
-                            <input type="text" v-model="patient.city" class="form-control" placeholder="Enter City of Patient">
+                            <input  :class="{'is-invalid':  errors.city ? true : false}" type="text" v-model="patient.city" class="form-control" placeholder="Enter City of Patient">
+                           <div class="invalid-feedback">
+                                {{errors.city && errors.city[0]}}
+                            </div>
                         </div>
                     </div>
                      <div class="form-group">
                         <label class="col-md-12" for="example-email"> Address </span>
                         </label>
                         <div class="col-md-12">
-                            <textarea class="form-control" placeholder="Enter Patient Address" id=""  v-model="patient.address"  cols="20" rows="5"></textarea>
+                            
+                            <textarea  :class="{'is-invalid':  errors.address ? true : false}" class="form-control" placeholder="Enter Patient Address" id=""  v-model="patient.address"  cols="20" rows="5"></textarea>
+                           <div class="invalid-feedback">
+                                {{errors.address && errors.address[0]}}
+                            </div>
                         </div>
                     </div>
                     <button @click.prevent="formsubmit()" type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
@@ -58,16 +76,29 @@
 <script>
 export default {
     props:['patient'],
+    data(){
+        return{
+            errors:{},
+        }
+    },
     methods: {
         formsubmit(){
-            axios.post('/api/patients', this.patient)
+            axios.post('patients', this.patient)
             .then( (response) => {
                 console.log(response.data);
             })
             .catch((error) => {
+                this.errors=error.response.data;
                 console.log(error.response.data);
             });
         }
     },
+    mounted(){
+        console.log(process.env.API_URL)
+        // console.log('asdasd');
+        // console.log('est')
+        // console.log('last')
+        console.log(axios.defaults);
+    }
 }
 </script>
