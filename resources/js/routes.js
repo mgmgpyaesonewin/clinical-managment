@@ -1,7 +1,5 @@
-import TopNav from './components/Nav.vue';
-import SideBar from './components/Sidebar.vue';
+import addpatient from './components/Patient/AddPatient.vue';
 
 export const routes = [
-    { path: '/foo', component: TopNav },
-    { path: '/bar', component: SideBar }
+    { path: '/patient/add', component: addpatient },
   ]

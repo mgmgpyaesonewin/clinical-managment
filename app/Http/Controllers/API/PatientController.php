@@ -1,8 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\PatientRequest;
+use App\Repositories\Frontend\PatientRepository;
 
 class PatientController extends Controller
 {
@@ -11,19 +14,14 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public $patientrepo;
+    public function __construct(PatientRepository $repo)
     {
-        //
+        $this->patientrepo=$repo;
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        return $this->patientrepo->all();
     }
 
     /**
@@ -32,9 +30,11 @@ class PatientController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PatientRequest $request)
     {
-        //
+        $patient = $this->patientrepo->create($request->validated());
+
+        return $patient;
     }
 
     /**
@@ -45,18 +45,8 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
+        $patient = $this->patientrepo->getById($id);
+        return $patient;
     }
 
     /**
@@ -66,9 +56,10 @@ class PatientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PatientRequest $request, $id)
     {
-        //
+       $patient = $this->patientrepo->updateById($id,$request->validated());
+       return $patient;
     }
 
     /**
@@ -79,6 +70,6 @@ class PatientController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->patientrepo->deleteById($id);
     }
 }

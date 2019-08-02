@@ -3,9 +3,8 @@
        <Topnav></Topnav>
        <Sidebar></Sidebar>
         <div class="page-wrapper">
-       
           <div class="container-fluid">
-              asdasd
+              <router-view></router-view>
           </div>
         </div>
     </div>
@@ -21,7 +20,7 @@ import Sidebar from './Sidebar.vue';
             Sidebar,
         },
         mounted() {
-            console.log(this.$router.history)
+
             console.log('Component mounted.')
         }
     }
