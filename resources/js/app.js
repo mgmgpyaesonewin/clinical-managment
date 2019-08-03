@@ -4,6 +4,22 @@ import VueRouter from 'vue-router';
 import mainComponent from './components/Main.vue';
 import {router} from './router';
 import store from "./store";
+import Toasted from 'vue-toasted';
+import Vue from "vue";
+import { ClientTable} from 'vue-tables-2';
+Vue.use(ClientTable, {}, false, 'bootstrap4');
+Vue.use(Toasted,{ 
+  theme: "outline", 
+  type:'success',
+  position: "top-right", 
+  iconPack:'fontawesome',
+  icon : {
+    name : 'fa-check-circle',
+    color: 'blue',
+    after : false // this will append the icon to the end of content
+  },
+  duration : 2000
+})
 Vue.use(VueRouter)
 /**
  * Next, we will create a fresh Vue application instance and attach it to

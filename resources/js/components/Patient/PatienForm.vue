@@ -75,30 +75,18 @@
 
 <script>
 export default {
-    props:['patient'],
+    props:['patient','errors'],
     data(){
         return{
-            errors:{},
         }
     },
-    methods: {
+    methods: { 
         formsubmit(){
-            axios.post('patients', this.patient)
-            .then( (response) => {
-                console.log(response.data);
-            })
-            .catch((error) => {
-                this.errors=error.response.data;
-                console.log(error.response.data);
-            });
+            this.$emit('formsubmit')
         }
+       
     },
     mounted(){
-        console.log(process.env.API_URL)
-        // console.log('asdasd');
-        // console.log('est')
-        // console.log('last')
-        console.log(axios.defaults);
     }
 }
 </script>

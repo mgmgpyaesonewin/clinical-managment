@@ -32,7 +32,7 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        dd($request->validated());
+        // dd($request->validated());
         $patient = $this->patientrepo->create($request->validated());
 
         return $patient;
