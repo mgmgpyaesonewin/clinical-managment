@@ -7,7 +7,6 @@
     <div class="col-md-7 col-12  align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
            <breadcrum />
-            <button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button>
         </div>
     </div>
     </div>
@@ -23,11 +22,10 @@
 </template>
 
 <script>
-import breadcrum from '../breadcrum'
-import patientform from './PatienForm'
+import patientform from './PatientForm'
 export default {
     components:{
-        patientform,breadcrum
+        patientform
     },
     data(){
         return {
@@ -47,7 +45,7 @@ export default {
             axios.post('patients', this.patient)
             .then( (response) => {
                 this.$toasted.show('Success !')
-                console.log(response.data);
+                // this.$router.push('/patients')
             })
             .catch((error) => {
                 this.errors=error.response.data;

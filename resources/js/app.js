@@ -21,17 +21,18 @@ Vue.use(Toasted,{
   duration : 2000
 })
 Vue.use(VueRouter)
+Vue.component('breadcrum', require('./components/breadcrum.vue').default); 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+// console.log(breadcrum)
 const app = new Vue({
     router,
     el: '#app',
     store,
     components: {
-      mainComponent
+      mainComponent,
     }
 });

@@ -21,7 +21,7 @@ class PatientController extends Controller
     }
     public function index(Request $request)
     {
-        return $this->patientrepo->all();
+        return $this->patientrepo->where('hospital_id','=',1)->get();
     }
 
     /**
