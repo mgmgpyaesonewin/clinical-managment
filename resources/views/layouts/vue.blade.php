@@ -18,17 +18,17 @@
       @stack('styles')
     </head>
     <body class="skin-blue fixed-layout">
-      {{-- @include('includes.preloader') --}}
+      @include('includes.preloader')
       <!-- ============================================================== -->
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
             @yield('content')
 
-        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/custom.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/dashboard1.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/flot-data.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
 
     </body>
   </html>
