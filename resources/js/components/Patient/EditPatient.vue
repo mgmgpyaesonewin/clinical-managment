@@ -37,15 +37,17 @@ export default {
                 dob: null,
                 gender: 'Male',
             },
-            errors:{}
+            errors:{},
         }
     },
     methods:{
-         formsubmit(){
-            axios.post('patients', this.patient)
+        formsubmit(){
+            const id = this.$route.params.id
+            axios.put(`patients/${id}`, this.patient)
             .then( (response) => {
-                this.$toasted.show('Success !')
-                // this.$router.push('/patients')
+            this.$toasted.show('Success !')
+            this.$router.push('/patients')
+            console.log(response.data);
             })
             .catch((error) => {
                 this.errors=error.response.data;
@@ -53,7 +55,17 @@ export default {
             });
         }
     },
-    mounted() {
-    },
+     mounted() {
+        const id = this.$route.params.id
+        console.log(id)
+        axios.get(`patients/${id}`)
+        .then((res)=>{
+            this.patient= res.data
+            console.log(this.patient)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        },
 }
 </script>
