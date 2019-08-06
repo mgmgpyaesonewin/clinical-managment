@@ -18,8 +18,20 @@
                         <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
                     </ul>
                 </li>
-                <li class="nav-small-cap">--- PERSONAL</li>
-                <li> <a class="waves-effect waves-dark" href="index.html"><i class="icon-speedometer"></i><span class="hide-menu">Dashboard</span></a>
+                <!-- <li class="nav-small-cap">--- PERSONAL</li> -->
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false">
+                        <i class="fa fa-user-md"></i>
+                        <span class="hide-menu">Users</span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li>
+                            <router-link to="/users">Users</router-link>
+                        </li>
+                        <li>
+                            <router-link to="/users/add">Add User</router-link>
+                        </li>
+                    </ul>
                 </li>
                 <li> <a class="has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="ti-layout-grid2"></i><span class="hide-menu">Apps</span></a>
                     <ul aria-expanded="false" class="collapse">

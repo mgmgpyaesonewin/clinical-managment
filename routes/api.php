@@ -13,6 +13,17 @@ use Illuminate\Http\Request;
 |
 */
 // Route::get('/patient','API\PatientController@index');
+Route::group([
+    'middleware' => 'api',
+    'prefix' => 'auth'
+], function ($router) {
+
+    Route::post('login', 'API\AuthController@login');
+    Route::post('logout', 'API\AuthController@logout');
+    Route::post('refresh', 'API\AuthController@refresh');
+    Route::post('me', 'API\AuthController@me');
+
+});
 Route::apiResources([
     'patients' => 'API\PatientController',
 ]);

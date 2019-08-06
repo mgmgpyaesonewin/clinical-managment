@@ -30564,1626 +30564,1551 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", {}, [
+    _c("aside", { staticClass: "left-sidebar" }, [
+      _c("div", { staticClass: "scroll-sidebar" }, [
+        _c("nav", { staticClass: "sidebar-nav" }, [
+          _c("ul", { attrs: { id: "sidebarnav" } }, [
+            _vm._m(0),
+            _vm._v(" "),
+            _c("li", [
+              _vm._m(1),
+              _vm._v(" "),
+              _c(
+                "ul",
+                {
+                  staticClass: "collapse",
+                  attrs: { "aria-expanded": "false" }
+                },
+                [
+                  _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/users" } }, [
+                        _vm._v("Users")
+                      ])
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "li",
+                    [
+                      _c("router-link", { attrs: { to: "/users/add" } }, [
+                        _vm._v("Add User")
+                      ])
+                    ],
+                    1
+                  )
+                ]
+              )
+            ]),
+            _vm._v(" "),
+            _vm._m(2),
+            _vm._v(" "),
+            _vm._m(3),
+            _vm._v(" "),
+            _vm._m(4),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-small-cap" }, [
+              _vm._v("--- PROFESSIONAL")
+            ]),
+            _vm._v(" "),
+            _vm._m(5),
+            _vm._v(" "),
+            _vm._m(6),
+            _vm._v(" "),
+            _vm._m(7),
+            _vm._v(" "),
+            _vm._m(8),
+            _vm._v(" "),
+            _vm._m(9),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-small-cap" }, [
+              _vm._v("--- FORMS, TABLE & WIDGETS")
+            ]),
+            _vm._v(" "),
+            _vm._m(10),
+            _vm._v(" "),
+            _vm._m(11),
+            _vm._v(" "),
+            _vm._m(12),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-small-cap" }, [
+              _vm._v("--- EXTRA COMPONENTS")
+            ]),
+            _vm._v(" "),
+            _vm._m(13),
+            _vm._v(" "),
+            _vm._m(14),
+            _vm._v(" "),
+            _vm._m(15),
+            _vm._v(" "),
+            _vm._m(16),
+            _vm._v(" "),
+            _vm._m(17),
+            _vm._v(" "),
+            _vm._m(18),
+            _vm._v(" "),
+            _c("li", { staticClass: "nav-small-cap" }, [_vm._v("--- SUPPORT")]),
+            _vm._v(" "),
+            _vm._m(19),
+            _vm._v(" "),
+            _vm._m(20),
+            _vm._v(" "),
+            _vm._m(21)
+          ])
+        ])
+      ])
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", {}, [
-      _c("aside", { staticClass: "left-sidebar" }, [
-        _c("div", { staticClass: "scroll-sidebar" }, [
-          _c("nav", { staticClass: "sidebar-nav" }, [
-            _c("ul", { attrs: { id: "sidebarnav" } }, [
-              _c("li", { staticClass: "user-pro" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("img", {
-                      staticClass: "img-circle",
-                      attrs: { src: "/images/users/1.jpg", alt: "user-img" }
-                    }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Mark Jeckson")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _c("i", { staticClass: "ti-user" }),
-                        _vm._v(" My Profile")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _c("i", { staticClass: "ti-wallet" }),
-                        _vm._v(" My Balance")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _c("i", { staticClass: "ti-email" }),
-                        _vm._v(" Inbox")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _c("i", { staticClass: "ti-settings" }),
-                        _vm._v(" Account Setting")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _c("i", { staticClass: "fa fa-power-off" }),
-                        _vm._v(" Logout")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-small-cap" }, [
-                _vm._v("--- PERSONAL")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "waves-effect waves-dark",
-                    attrs: { href: "index.html" }
-                  },
-                  [
-                    _c("i", { staticClass: "icon-speedometer" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Dashboard")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-layout-grid2" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Apps")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-calendar.html" } }, [
-                        _vm._v("Calendar")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-chat.html" } }, [
-                        _vm._v("Chat app")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-ticket.html" } }, [
-                        _vm._v("Support Ticket")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-contact.html" } }, [
-                        _vm._v("Contact / Employee")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-contact2.html" } }, [
-                        _vm._v("Contact Grid")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-contact-detail.html" } }, [
-                        _vm._v("Contact Detail")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-email" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Inbox")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-email.html" } }, [
-                        _vm._v("Mailbox")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-email-detail.html" } }, [
-                        _vm._v("Mailbox Detail")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "app-compose.html" } }, [
-                        _vm._v("Compose Mail")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-palette" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Ui Elements "),
-                      _c(
-                        "span",
-                        {
-                          staticClass:
-                            "badge badge-pill badge-primary text-white ml-auto"
-                        },
-                        [_vm._v("25")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-cards.html" } }, [
-                        _vm._v("Cards")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-user-card.html" } }, [
-                        _vm._v("User Cards")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-buttons.html" } }, [
-                        _vm._v("Buttons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-modals.html" } }, [
-                        _vm._v("Modals")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-tab.html" } }, [
-                        _vm._v("Tab")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-tooltip-popover.html" } }, [
-                        _vm._v("Tooltip & Popover")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-tooltip-stylish.html" } }, [
-                        _vm._v("Tooltip stylish")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-sweetalert.html" } }, [
-                        _vm._v("Sweet Alert")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-notification.html" } }, [
-                        _vm._v("Notification")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-progressbar.html" } }, [
-                        _vm._v("Progressbar")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-nestable.html" } }, [
-                        _vm._v("Nestable")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-range-slider.html" } }, [
-                        _vm._v("Range slider")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-timeline.html" } }, [
-                        _vm._v("Timeline")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-typography.html" } }, [
-                        _vm._v("Typography")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "ui-horizontal-timeline.html" } },
-                        [_vm._v("Horizontal Timeline")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-session-timeout.html" } }, [
-                        _vm._v("Session Timeout")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "ui-session-ideal-timeout.html" } },
-                        [_vm._v("Session Ideal Timeout")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-bootstrap.html" } }, [
-                        _vm._v("Bootstrap Ui")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-breadcrumb.html" } }, [
-                        _vm._v("Breadcrumb")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-bootstrap-switch.html" } }, [
-                        _vm._v("Bootstrap Switch")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-list-media.html" } }, [
-                        _vm._v("List Media")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-ribbons.html" } }, [
-                        _vm._v("Ribbons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-grid.html" } }, [
-                        _vm._v("Grid")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-carousel.html" } }, [
-                        _vm._v("Carousel")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-date-paginator.html" } }, [
-                        _vm._v("Date-paginator")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-dragable-portlet.html" } }, [
-                        _vm._v("Dragable Portlet")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-spinner.html" } }, [
-                        _vm._v("Spinner")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-scrollspy.html" } }, [
-                        _vm._v("Scrollspy")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "ui-toasts.html" } }, [
-                        _vm._v("Toasts")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-small-cap" }, [
-                _vm._v("--- PROFESSIONAL")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-calendar" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Appointment")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "doctor-schedule.html" } }, [
-                        _vm._v("Doctor Schedule")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "book-appointment.html" } }, [
-                        _vm._v("Book Appointment")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "fa fa-user-md" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Doctors")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "doctors.html" } }, [
-                        _vm._v("All Doctors")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "add-doctor.html" } }, [
-                        _vm._v("Add Doctor")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "edit-doctor.html" } }, [
-                        _vm._v("Edit Doctor")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "doctor-profile.html" } }, [
-                        _vm._v("Doctor Profile")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "icon-people" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Patients")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "patients.html" } }, [
-                        _vm._v("All Patients")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "add-patient.html" } }, [
-                        _vm._v("Add Patients")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "edit-patient.html" } }, [
-                        _vm._v("Edit Patients")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "patient-profile.html" } }, [
-                        _vm._v("Patient Profile")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "icon-chart" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Reports")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "payment-report.html" } }, [
-                        _vm._v("Payment Report")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "income-report.html" } }, [
-                        _vm._v("Income Report")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "sales-report.html" } }, [
-                        _vm._v("Sales Report")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "fas fa-rupee-sign" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Payments")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "payments.html" } }, [
-                        _vm._v("Payments")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "add-payments.html" } }, [
-                        _vm._v("Add Payment")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "patient-invoice.html" } }, [
-                        _vm._v("Invoice")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-small-cap" }, [
-                _vm._v("--- FORMS, TABLE & WIDGETS")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-layout-media-right-alt" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Forms")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-basic.html" } }, [
-                        _vm._v("Basic Forms")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-layout.html" } }, [
-                        _vm._v("Form Layouts")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-addons.html" } }, [
-                        _vm._v("Form Addons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-material.html" } }, [
-                        _vm._v("Form Material")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-float-input.html" } }, [
-                        _vm._v("Floating Lable")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-pickers.html" } }, [
-                        _vm._v("Form Pickers")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-upload.html" } }, [
-                        _vm._v("File Upload")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-mask.html" } }, [
-                        _vm._v("Form Mask")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-validation.html" } }, [
-                        _vm._v("Form Validation")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "form-bootstrap-validation.html" } },
-                        [_vm._v("Form Bootstrap Validation")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-dropzone.html" } }, [
-                        _vm._v("File Dropzone")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-icheck.html" } }, [
-                        _vm._v("Icheck control")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-img-cropper.html" } }, [
-                        _vm._v("Image Cropper")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "form-bootstrapwysihtml5.html" } },
-                        [_vm._v("HTML5 Editor")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-typehead.html" } }, [
-                        _vm._v("Form Typehead")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-wizard.html" } }, [
-                        _vm._v("Form Wizard")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-xeditable.html" } }, [
-                        _vm._v("Xeditable Editor")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-summernote.html" } }, [
-                        _vm._v("Summernote Editor")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "form-tinymce.html" } }, [
-                        _vm._v("Tinymce Editor")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-layout-accordion-merged" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Tables")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-basic.html" } }, [
-                        _vm._v("Basic Tables")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-layout.html" } }, [
-                        _vm._v("Table Layouts")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-data-table.html" } }, [
-                        _vm._v("Data Tables")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-footable.html" } }, [
-                        _vm._v("Footable")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-jsgrid.html" } }, [
-                        _vm._v("Js Grid Table")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-responsive.html" } }, [
-                        _vm._v("Responsive Table")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "table-bootstrap.html" } }, [
-                        _vm._v("Bootstrap Tables")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "table-editable-table.html" } },
-                        [_vm._v("Editable Table")]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-settings" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Widgets")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "widget-data.html" } }, [
-                        _vm._v("Data Widgets")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "widget-apps.html" } }, [
-                        _vm._v("Apps Widgets")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "widget-charts.html" } }, [
-                        _vm._v("Charts Widgets")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-small-cap" }, [
-                _vm._v("--- EXTRA COMPONENTS")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-gallery" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Page Layout")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "layout-single-column.html" } },
-                        [_vm._v("1 Column")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "layout-fix-header.html" } }, [
-                        _vm._v("Fix header")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "layout-fix-sidebar.html" } }, [
-                        _vm._v("Fix sidebar")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "layout-fix-header-sidebar.html" } },
-                        [_vm._v("Fixe header & Sidebar")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "layout-boxed.html" } }, [
-                        _vm._v("Boxed Layout")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "layout-logo-center.html" } }, [
-                        _vm._v("Logo in Center")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-files" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Sample Pages "),
-                      _c(
-                        "span",
-                        { staticClass: "badge badge-pill badge-info" },
-                        [_vm._v("25")]
-                      )
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "starter-kit.html" } }, [
-                        _vm._v("Starter Kit")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-blank.html" } }, [
-                        _vm._v("Blank page")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "has-arrow",
-                          attrs: { href: "javascript:void(0)" }
-                        },
-                        [
-                          _vm._v("Authentication "),
-                          _c(
-                            "span",
-                            {
-                              staticClass:
-                                "badge badge-pill badge-success pull-right"
-                            },
-                            [_vm._v("6")]
-                          )
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "collapse",
-                          attrs: { "aria-expanded": "false" }
-                        },
-                        [
-                          _c("li", [
-                            _c("a", { attrs: { href: "pages-login.html" } }, [
-                              _vm._v("Login 1")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "pages-login-2.html" } }, [
-                              _vm._v("Login 2")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-register.html" } },
-                              [_vm._v("Register")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-register2.html" } },
-                              [_vm._v("Register 2")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-register3.html" } },
-                              [_vm._v("Register 3")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-lockscreen.html" } },
-                              [_vm._v("Lockscreen")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              {
-                                attrs: { href: "pages-recover-password.html" }
-                              },
-                              [_vm._v("Recover password")]
-                            )
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-profile.html" } }, [
-                        _vm._v("Profile page")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-animation.html" } }, [
-                        _vm._v("Animation")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "pages-fix-innersidebar.html" } },
-                        [_vm._v("Sticky Left sidebar")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          attrs: { href: "pages-fix-inner-right-sidebar.html" }
-                        },
-                        [_vm._v("Sticky Right sidebar")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-invoice.html" } }, [
-                        _vm._v("Invoice")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-treeview.html" } }, [
-                        _vm._v("Treeview")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "pages-utility-classes.html" } },
-                        [_vm._v("Helper Classes")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-search-result.html" } }, [
-                        _vm._v("Search result")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-scroll.html" } }, [
-                        _vm._v("Scrollbar")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-pricing.html" } }, [
-                        _vm._v("Pricing")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "pages-lightbox-popup.html" } },
-                        [_vm._v("Lighbox popup")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-gallery.html" } }, [
-                        _vm._v("Gallery")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "pages-faq.html" } }, [
-                        _vm._v("Faqs")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "has-arrow",
-                          attrs: { href: "javascript:void(0)" }
-                        },
-                        [_vm._v("Error Pages")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "collapse",
-                          attrs: { "aria-expanded": "false" }
-                        },
-                        [
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-error-400.html" } },
-                              [_vm._v("400")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-error-403.html" } },
-                              [_vm._v("403")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-error-404.html" } },
-                              [_vm._v("404")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-error-500.html" } },
-                              [_vm._v("500")]
-                            )
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c(
-                              "a",
-                              { attrs: { href: "pages-error-503.html" } },
-                              [_vm._v("503")]
-                            )
-                          ])
-                        ]
-                      )
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-pie-chart" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Charts")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-morris.html" } }, [
-                        _vm._v("Morris Chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-chartist.html" } }, [
-                        _vm._v("Chartis Chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-echart.html" } }, [
-                        _vm._v("Echarts")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-flot.html" } }, [
-                        _vm._v("Flot Chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-knob.html" } }, [
-                        _vm._v("Knob Chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-chart-js.html" } }, [
-                        _vm._v("Chartjs")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-sparkline.html" } }, [
-                        _vm._v("Sparkline Chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-extra-chart.html" } }, [
-                        _vm._v("Extra chart")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "chart-peity.html" } }, [
-                        _vm._v("Peity Charts")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-light-bulb" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Icons")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-material.html" } }, [
-                        _vm._v("Material Icons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-fontawesome.html" } }, [
-                        _vm._v("Fontawesome Icons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-themify.html" } }, [
-                        _vm._v("Themify Icons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-weather.html" } }, [
-                        _vm._v("Weather Icons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        { attrs: { href: "icon-simple-lineicon.html" } },
-                        [_vm._v("Simple Line icons")]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-flag.html" } }, [
-                        _vm._v("Flag Icons")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "icon-iconmind.html" } }, [
-                        _vm._v("Mind Icons")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-location-pin" }),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("Maps")])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "map-google.html" } }, [
-                        _vm._v("Google Maps")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "map-vector.html" } }, [
-                        _vm._v("Vector Maps")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "has-arrow waves-effect waves-dark",
-                    attrs: {
-                      href: "javascript:void(0)",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "ti-align-left" }),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Multi level dd")
-                    ])
-                  ]
-                ),
-                _vm._v(" "),
-                _c(
-                  "ul",
-                  {
-                    staticClass: "collapse",
-                    attrs: { "aria-expanded": "false" }
-                  },
-                  [
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _vm._v("item 1.1")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _vm._v("item 1.2")
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c(
-                        "a",
-                        {
-                          staticClass: "has-arrow",
-                          attrs: {
-                            href: "javascript:void(0)",
-                            "aria-expanded": "false"
-                          }
-                        },
-                        [_vm._v("Menu 1.3")]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "ul",
-                        {
-                          staticClass: "collapse",
-                          attrs: { "aria-expanded": "false" }
-                        },
-                        [
-                          _c("li", [
-                            _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                              _vm._v("item 1.3.1")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                              _vm._v("item 1.3.2")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                              _vm._v("item 1.3.3")
-                            ])
-                          ]),
-                          _vm._v(" "),
-                          _c("li", [
-                            _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                              _vm._v("item 1.3.4")
-                            ])
-                          ])
-                        ]
-                      )
-                    ]),
-                    _vm._v(" "),
-                    _c("li", [
-                      _c("a", { attrs: { href: "javascript:void(0)" } }, [
-                        _vm._v("item 1.4")
-                      ])
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", { staticClass: "nav-small-cap" }, [
-                _vm._v("--- SUPPORT")
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "waves-effect waves-dark",
-                    attrs: {
-                      href: "../documentation/documentation.html",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle text-danger" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Documentation")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "waves-effect waves-dark",
-                    attrs: {
-                      href: "pages-login.html",
-                      "aria-expanded": "false"
-                    }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle text-success" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "hide-menu" }, [
-                      _vm._v("Log Out")
-                    ])
-                  ]
-                )
-              ]),
-              _vm._v(" "),
-              _c("li", [
-                _c(
-                  "a",
-                  {
-                    staticClass: "waves-effect waves-dark",
-                    attrs: { href: "pages-faq.html", "aria-expanded": "false" }
-                  },
-                  [
-                    _c("i", { staticClass: "far fa-circle text-info" }),
-                    _vm._v(" "),
-                    _c("span", { staticClass: "hide-menu" }, [_vm._v("FAQs")])
-                  ]
-                )
-              ])
+    return _c("li", { staticClass: "user-pro" }, [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("img", {
+            staticClass: "img-circle",
+            attrs: { src: "/images/users/1.jpg", alt: "user-img" }
+          }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Mark Jeckson")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _c("i", { staticClass: "ti-user" }),
+              _vm._v(" My Profile")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _c("i", { staticClass: "ti-wallet" }),
+              _vm._v(" My Balance")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _c("i", { staticClass: "ti-email" }),
+              _vm._v(" Inbox")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _c("i", { staticClass: "ti-settings" }),
+              _vm._v(" Account Setting")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _c("i", { staticClass: "fa fa-power-off" }),
+              _vm._v(" Logout")
             ])
           ])
-        ])
-      ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "a",
+      {
+        staticClass: "has-arrow waves-effect waves-dark",
+        attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+      },
+      [
+        _c("i", { staticClass: "fa fa-user-md" }),
+        _vm._v(" "),
+        _c("span", { staticClass: "hide-menu" }, [_vm._v("Users")])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-layout-grid2" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Apps")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "app-calendar.html" } }, [
+              _vm._v("Calendar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-chat.html" } }, [_vm._v("Chat app")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-ticket.html" } }, [
+              _vm._v("Support Ticket")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-contact.html" } }, [
+              _vm._v("Contact / Employee")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-contact2.html" } }, [
+              _vm._v("Contact Grid")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-contact-detail.html" } }, [
+              _vm._v("Contact Detail")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-email" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Inbox")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "app-email.html" } }, [_vm._v("Mailbox")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-email-detail.html" } }, [
+              _vm._v("Mailbox Detail")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "app-compose.html" } }, [
+              _vm._v("Compose Mail")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-palette" }),
+          _c("span", { staticClass: "hide-menu" }, [
+            _vm._v("Ui Elements "),
+            _c(
+              "span",
+              {
+                staticClass: "badge badge-pill badge-primary text-white ml-auto"
+              },
+              [_vm._v("25")]
+            )
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "ui-cards.html" } }, [_vm._v("Cards")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-user-card.html" } }, [
+              _vm._v("User Cards")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-buttons.html" } }, [_vm._v("Buttons")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-modals.html" } }, [_vm._v("Modals")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-tab.html" } }, [_vm._v("Tab")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-tooltip-popover.html" } }, [
+              _vm._v("Tooltip & Popover")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-tooltip-stylish.html" } }, [
+              _vm._v("Tooltip stylish")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-sweetalert.html" } }, [
+              _vm._v("Sweet Alert")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-notification.html" } }, [
+              _vm._v("Notification")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-progressbar.html" } }, [
+              _vm._v("Progressbar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-nestable.html" } }, [
+              _vm._v("Nestable")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-range-slider.html" } }, [
+              _vm._v("Range slider")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-timeline.html" } }, [
+              _vm._v("Timeline")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-typography.html" } }, [
+              _vm._v("Typography")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-horizontal-timeline.html" } }, [
+              _vm._v("Horizontal Timeline")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-session-timeout.html" } }, [
+              _vm._v("Session Timeout")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-session-ideal-timeout.html" } }, [
+              _vm._v("Session Ideal Timeout")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-bootstrap.html" } }, [
+              _vm._v("Bootstrap Ui")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-breadcrumb.html" } }, [
+              _vm._v("Breadcrumb")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-bootstrap-switch.html" } }, [
+              _vm._v("Bootstrap Switch")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-list-media.html" } }, [
+              _vm._v("List Media")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-ribbons.html" } }, [_vm._v("Ribbons")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-grid.html" } }, [_vm._v("Grid")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-carousel.html" } }, [
+              _vm._v("Carousel")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-date-paginator.html" } }, [
+              _vm._v("Date-paginator")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-dragable-portlet.html" } }, [
+              _vm._v("Dragable Portlet")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-spinner.html" } }, [_vm._v("Spinner")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-scrollspy.html" } }, [
+              _vm._v("Scrollspy")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "ui-toasts.html" } }, [_vm._v("Toasts")])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-calendar" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Appointment")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "doctor-schedule.html" } }, [
+              _vm._v("Doctor Schedule")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "book-appointment.html" } }, [
+              _vm._v("Book Appointment")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "fa fa-user-md" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Doctors")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "doctors.html" } }, [
+              _vm._v("All Doctors")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "add-doctor.html" } }, [
+              _vm._v("Add Doctor")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "edit-doctor.html" } }, [
+              _vm._v("Edit Doctor")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "doctor-profile.html" } }, [
+              _vm._v("Doctor Profile")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "icon-people" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Patients")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "patients.html" } }, [
+              _vm._v("All Patients")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "add-patient.html" } }, [
+              _vm._v("Add Patients")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "edit-patient.html" } }, [
+              _vm._v("Edit Patients")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "patient-profile.html" } }, [
+              _vm._v("Patient Profile")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "icon-chart" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Reports")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "payment-report.html" } }, [
+              _vm._v("Payment Report")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "income-report.html" } }, [
+              _vm._v("Income Report")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "sales-report.html" } }, [
+              _vm._v("Sales Report")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "fas fa-rupee-sign" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Payments")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "payments.html" } }, [_vm._v("Payments")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "add-payments.html" } }, [
+              _vm._v("Add Payment")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "patient-invoice.html" } }, [
+              _vm._v("Invoice")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-layout-media-right-alt" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Forms")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "form-basic.html" } }, [
+              _vm._v("Basic Forms")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-layout.html" } }, [
+              _vm._v("Form Layouts")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-addons.html" } }, [
+              _vm._v("Form Addons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-material.html" } }, [
+              _vm._v("Form Material")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-float-input.html" } }, [
+              _vm._v("Floating Lable")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-pickers.html" } }, [
+              _vm._v("Form Pickers")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-upload.html" } }, [
+              _vm._v("File Upload")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-mask.html" } }, [
+              _vm._v("Form Mask")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-validation.html" } }, [
+              _vm._v("Form Validation")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-bootstrap-validation.html" } }, [
+              _vm._v("Form Bootstrap Validation")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-dropzone.html" } }, [
+              _vm._v("File Dropzone")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-icheck.html" } }, [
+              _vm._v("Icheck control")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-img-cropper.html" } }, [
+              _vm._v("Image Cropper")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-bootstrapwysihtml5.html" } }, [
+              _vm._v("HTML5 Editor")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-typehead.html" } }, [
+              _vm._v("Form Typehead")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-wizard.html" } }, [
+              _vm._v("Form Wizard")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-xeditable.html" } }, [
+              _vm._v("Xeditable Editor")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-summernote.html" } }, [
+              _vm._v("Summernote Editor")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "form-tinymce.html" } }, [
+              _vm._v("Tinymce Editor")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-layout-accordion-merged" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Tables")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "table-basic.html" } }, [
+              _vm._v("Basic Tables")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-layout.html" } }, [
+              _vm._v("Table Layouts")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-data-table.html" } }, [
+              _vm._v("Data Tables")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-footable.html" } }, [
+              _vm._v("Footable")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-jsgrid.html" } }, [
+              _vm._v("Js Grid Table")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-responsive.html" } }, [
+              _vm._v("Responsive Table")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-bootstrap.html" } }, [
+              _vm._v("Bootstrap Tables")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "table-editable-table.html" } }, [
+              _vm._v("Editable Table")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-settings" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Widgets")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "widget-data.html" } }, [
+              _vm._v("Data Widgets")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "widget-apps.html" } }, [
+              _vm._v("Apps Widgets")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "widget-charts.html" } }, [
+              _vm._v("Charts Widgets")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-gallery" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Page Layout")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "layout-single-column.html" } }, [
+              _vm._v("1 Column")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "layout-fix-header.html" } }, [
+              _vm._v("Fix header")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "layout-fix-sidebar.html" } }, [
+              _vm._v("Fix sidebar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "layout-fix-header-sidebar.html" } }, [
+              _vm._v("Fixe header & Sidebar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "layout-boxed.html" } }, [
+              _vm._v("Boxed Layout")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "layout-logo-center.html" } }, [
+              _vm._v("Logo in Center")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-files" }),
+          _c("span", { staticClass: "hide-menu" }, [
+            _vm._v("Sample Pages "),
+            _c("span", { staticClass: "badge badge-pill badge-info" }, [
+              _vm._v("25")
+            ])
+          ])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "starter-kit.html" } }, [
+              _vm._v("Starter Kit")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-blank.html" } }, [
+              _vm._v("Blank page")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "has-arrow",
+                attrs: { href: "javascript:void(0)" }
+              },
+              [
+                _vm._v("Authentication "),
+                _c(
+                  "span",
+                  { staticClass: "badge badge-pill badge-success pull-right" },
+                  [_vm._v("6")]
+                )
+              ]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+              [
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-login.html" } }, [
+                    _vm._v("Login 1")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-login-2.html" } }, [
+                    _vm._v("Login 2")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-register.html" } }, [
+                    _vm._v("Register")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-register2.html" } }, [
+                    _vm._v("Register 2")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-register3.html" } }, [
+                    _vm._v("Register 3")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-lockscreen.html" } }, [
+                    _vm._v("Lockscreen")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-recover-password.html" } }, [
+                    _vm._v("Recover password")
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-profile.html" } }, [
+              _vm._v("Profile page")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-animation.html" } }, [
+              _vm._v("Animation")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-fix-innersidebar.html" } }, [
+              _vm._v("Sticky Left sidebar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-fix-inner-right-sidebar.html" } }, [
+              _vm._v("Sticky Right sidebar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-invoice.html" } }, [
+              _vm._v("Invoice")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-treeview.html" } }, [
+              _vm._v("Treeview")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-utility-classes.html" } }, [
+              _vm._v("Helper Classes")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-search-result.html" } }, [
+              _vm._v("Search result")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-scroll.html" } }, [
+              _vm._v("Scrollbar")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-pricing.html" } }, [
+              _vm._v("Pricing")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-lightbox-popup.html" } }, [
+              _vm._v("Lighbox popup")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-gallery.html" } }, [
+              _vm._v("Gallery")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "pages-faq.html" } }, [_vm._v("Faqs")])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "has-arrow",
+                attrs: { href: "javascript:void(0)" }
+              },
+              [_vm._v("Error Pages")]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+              [
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-error-400.html" } }, [
+                    _vm._v("400")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-error-403.html" } }, [
+                    _vm._v("403")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-error-404.html" } }, [
+                    _vm._v("404")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-error-500.html" } }, [
+                    _vm._v("500")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "pages-error-503.html" } }, [
+                    _vm._v("503")
+                  ])
+                ])
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-pie-chart" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Charts")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "chart-morris.html" } }, [
+              _vm._v("Morris Chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-chartist.html" } }, [
+              _vm._v("Chartis Chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-echart.html" } }, [
+              _vm._v("Echarts")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-flot.html" } }, [
+              _vm._v("Flot Chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-knob.html" } }, [
+              _vm._v("Knob Chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-chart-js.html" } }, [
+              _vm._v("Chartjs")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-sparkline.html" } }, [
+              _vm._v("Sparkline Chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-extra-chart.html" } }, [
+              _vm._v("Extra chart")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "chart-peity.html" } }, [
+              _vm._v("Peity Charts")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-light-bulb" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Icons")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "icon-material.html" } }, [
+              _vm._v("Material Icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-fontawesome.html" } }, [
+              _vm._v("Fontawesome Icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-themify.html" } }, [
+              _vm._v("Themify Icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-weather.html" } }, [
+              _vm._v("Weather Icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-simple-lineicon.html" } }, [
+              _vm._v("Simple Line icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-flag.html" } }, [
+              _vm._v("Flag Icons")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "icon-iconmind.html" } }, [
+              _vm._v("Mind Icons")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-location-pin" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Maps")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "map-google.html" } }, [
+              _vm._v("Google Maps")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "map-vector.html" } }, [
+              _vm._v("Vector Maps")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-arrow waves-effect waves-dark",
+          attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "ti-align-left" }),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Multi level dd")])
+        ]
+      ),
+      _vm._v(" "),
+      _c(
+        "ul",
+        { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+        [
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _vm._v("item 1.1")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _vm._v("item 1.2")
+            ])
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c(
+              "a",
+              {
+                staticClass: "has-arrow",
+                attrs: { href: "javascript:void(0)", "aria-expanded": "false" }
+              },
+              [_vm._v("Menu 1.3")]
+            ),
+            _vm._v(" "),
+            _c(
+              "ul",
+              { staticClass: "collapse", attrs: { "aria-expanded": "false" } },
+              [
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                    _vm._v("item 1.3.1")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                    _vm._v("item 1.3.2")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                    _vm._v("item 1.3.3")
+                  ])
+                ]),
+                _vm._v(" "),
+                _c("li", [
+                  _c("a", { attrs: { href: "javascript:void(0)" } }, [
+                    _vm._v("item 1.3.4")
+                  ])
+                ])
+              ]
+            )
+          ]),
+          _vm._v(" "),
+          _c("li", [
+            _c("a", { attrs: { href: "javascript:void(0)" } }, [
+              _vm._v("item 1.4")
+            ])
+          ])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "waves-effect waves-dark",
+          attrs: {
+            href: "../documentation/documentation.html",
+            "aria-expanded": "false"
+          }
+        },
+        [
+          _c("i", { staticClass: "far fa-circle text-danger" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Documentation")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "waves-effect waves-dark",
+          attrs: { href: "pages-login.html", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "far fa-circle text-success" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("Log Out")])
+        ]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "waves-effect waves-dark",
+          attrs: { href: "pages-faq.html", "aria-expanded": "false" }
+        },
+        [
+          _c("i", { staticClass: "far fa-circle text-info" }),
+          _vm._v(" "),
+          _c("span", { staticClass: "hide-menu" }, [_vm._v("FAQs")])
+        ]
+      )
     ])
   }
 ]
@@ -54567,12 +54492,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   linkActiveClass: "active",
   routes: _routes_js__WEBPACK_IMPORTED_MODULE_2__["routes"] // short for `routes: routes`
 
-});
-router.afterEach(function (to, from) {
-  console.log(to);
-  var breadcrum = to.fullPath.split("/").slice(1);
-  _store__WEBPACK_IMPORTED_MODULE_3__["default"].commit('setBreadcrum', breadcrum);
-});
+}); // router.afterEach((to, from) => {
+//     console.log(to.matched)
+//     const breadcrum = to.fullPath.split("/").slice(1);
+//     store.commit('setBreadcrum',breadcrum);
+// })
 
 /***/ }),
 
@@ -54587,8 +54511,42 @@ router.afterEach(function (to, from) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
 /* harmony import */ var _routes_patientroute__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes/patientroute */ "./resources/js/routes/patientroute.js");
+/* harmony import */ var _routes_UserRoute__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./routes/UserRoute */ "./resources/js/routes/UserRoute.js");
 
-var routes = [_routes_patientroute__WEBPACK_IMPORTED_MODULE_0__["patientroute"]];
+
+var routes = [_routes_patientroute__WEBPACK_IMPORTED_MODULE_0__["patientroute"], _routes_UserRoute__WEBPACK_IMPORTED_MODULE_1__["UserRoute"]];
+
+/***/ }),
+
+/***/ "./resources/js/routes/UserRoute.js":
+/*!******************************************!*\
+  !*** ./resources/js/routes/UserRoute.js ***!
+  \******************************************/
+/*! exports provided: patientroute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patientroute", function() { return patientroute; });
+/* harmony import */ var _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Patient/AddPatient.vue */ "./resources/js/components/Patient/AddPatient.vue");
+/* harmony import */ var _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/EmptyRouterView.vue */ "./resources/js/components/EmptyRouterView.vue");
+
+
+var patientroute = {
+  path: '/users',
+  component: _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+  meta: {
+    name: 'Users'
+  },
+  children: [{
+    path: 'add',
+    name: 'addpatient',
+    component: _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    meta: {
+      name: 'Add'
+    }
+  }]
+};
 
 /***/ }),
 
