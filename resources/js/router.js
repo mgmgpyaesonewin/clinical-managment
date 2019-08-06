@@ -10,7 +10,8 @@ base:"/home",
 linkActiveClass: "active",
 routes // short for `routes: routes`
 })
-router.afterEach((to, from) => {
-    const breadcrum = to.fullPath.split("/").slice(1);
-    store.commit('setBreadcrum',breadcrum);
-})
+// router.afterEach((to, from) => {
+//     console.log(to.matched)
+//     const breadcrum = to.fullPath.split("/").slice(1);
+//     store.commit('setBreadcrum',breadcrum);
+// })

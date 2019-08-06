@@ -2190,6 +2190,24 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js&":
+/*!**************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js& ***!
+  \**************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Main.vue?vue&type=script&lang=js&":
 /*!***************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Main.vue?vue&type=script&lang=js& ***!
@@ -2668,7 +2686,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ __webpack_exports__["default"] = ({});
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  mounted: function mounted() {// console.log(this.$route.matched)
+  }
+});
 
 /***/ }),
 
@@ -28937,6 +28960,30 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0&":
+/*!******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0& ***!
+  \******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [_c("router-view")], 1)
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Main.vue?vue&type=template&id=b9c20fb8&":
 /*!*******************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Main.vue?vue&type=template&id=b9c20fb8& ***!
@@ -32167,13 +32214,13 @@ var render = function() {
     _c(
       "ol",
       { staticClass: "breadcrumb" },
-      _vm._l(this.$store.state.breadcrum, function(link, index) {
+      _vm._l(this.$route.matched, function(link, index) {
         return _c(
           "li",
           { key: index, staticClass: "breadcrumb-item " },
           [
-            _c("router-link", { attrs: { to: "/" + link } }, [
-              _vm._v(_vm._s(link.toUpperCase()))
+            _c("router-link", { attrs: { to: link.path } }, [
+              _vm._v(_vm._s(link.meta.name))
             ])
           ],
           1
@@ -53839,6 +53886,75 @@ if (token) {
 
 /***/ }),
 
+/***/ "./resources/js/components/EmptyRouterView.vue":
+/*!*****************************************************!*\
+  !*** ./resources/js/components/EmptyRouterView.vue ***!
+  \*****************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EmptyRouterView.vue?vue&type=template&id=1dacd4c0& */ "./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0&");
+/* harmony import */ var _EmptyRouterView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EmptyRouterView.vue?vue&type=script&lang=js& */ "./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _EmptyRouterView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/EmptyRouterView.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js&":
+/*!******************************************************************************!*\
+  !*** ./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js& ***!
+  \******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyRouterView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./EmptyRouterView.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EmptyRouterView.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyRouterView_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0&":
+/*!************************************************************************************!*\
+  !*** ./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0& ***!
+  \************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./EmptyRouterView.vue?vue&type=template&id=1dacd4c0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/EmptyRouterView.vue?vue&type=template&id=1dacd4c0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_EmptyRouterView_vue_vue_type_template_id_1dacd4c0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/Main.vue":
 /*!******************************************!*\
   !*** ./resources/js/components/Main.vue ***!
@@ -54453,11 +54569,11 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   linkActiveClass: "active",
   routes: _routes_js__WEBPACK_IMPORTED_MODULE_2__["routes"] // short for `routes: routes`
 
-});
-router.afterEach(function (to, from) {
-  var breadcrum = to.fullPath.split("/").slice(1);
-  _store__WEBPACK_IMPORTED_MODULE_3__["default"].commit('setBreadcrum', breadcrum);
-});
+}); // router.afterEach((to, from) => {
+//     console.log(to.matched)
+//     const breadcrum = to.fullPath.split("/").slice(1);
+//     store.commit('setBreadcrum',breadcrum);
+// })
 
 /***/ }),
 
@@ -54471,22 +54587,67 @@ router.afterEach(function (to, from) {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "routes", function() { return routes; });
-/* harmony import */ var _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/Patient/AddPatient.vue */ "./resources/js/components/Patient/AddPatient.vue");
-/* harmony import */ var _components_Patient_EditPatient_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/Patient/EditPatient.vue */ "./resources/js/components/Patient/EditPatient.vue");
-/* harmony import */ var _components_Patient_AllPatient_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Patient/AllPatient.vue */ "./resources/js/components/Patient/AllPatient.vue");
+/* harmony import */ var _routes_patientroute__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes/patientroute */ "./resources/js/routes/patientroute.js");
+
+var routes = [_routes_patientroute__WEBPACK_IMPORTED_MODULE_0__["patientroute"]];
+
+/***/ }),
+
+/***/ "./resources/js/routes/patientroute.js":
+/*!*********************************************!*\
+  !*** ./resources/js/routes/patientroute.js ***!
+  \*********************************************/
+/*! exports provided: patientroute */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patientroute", function() { return patientroute; });
+/* harmony import */ var _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/Patient/AddPatient.vue */ "./resources/js/components/Patient/AddPatient.vue");
+/* harmony import */ var _components_Patient_EditPatient_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../components/Patient/EditPatient.vue */ "./resources/js/components/Patient/EditPatient.vue");
+/* harmony import */ var _components_Patient_AllPatient_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Patient/AllPatient.vue */ "./resources/js/components/Patient/AllPatient.vue");
+/* harmony import */ var _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/EmptyRouterView.vue */ "./resources/js/components/EmptyRouterView.vue");
 
 
 
-var routes = [{
-  path: '/patients/add',
-  component: _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-}, {
-  path: '/patients/edit/:id',
-  component: _components_Patient_EditPatient_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
-}, {
+
+var patientroute = {
   path: '/patients',
-  component: _components_Patient_AllPatient_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-}];
+  component: _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  meta: {
+    name: 'Patients'
+  },
+  children: [{
+    path: 'all',
+    name: 'allpatient',
+    component: _components_Patient_AllPatient_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    meta: {
+      name: 'All'
+    }
+  }, {
+    path: 'add',
+    name: 'addpatient',
+    component: _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    meta: {
+      name: 'Add'
+    }
+  }, {
+    path: 'edit',
+    name: 'editpatient',
+    component: _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    meta: {
+      name: 'Edit'
+    },
+    children: [{
+      path: ':id',
+      name: 'choosepatient',
+      component: _components_Patient_EditPatient_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+      meta: {
+        name: ''
+      }
+    }]
+  }]
+};
 
 /***/ }),
 

@@ -18,6 +18,7 @@ class CreatePatientsTable extends Migration
             $table->string('name');
             $table->string('dob');
             $table->string('gender');
+            $table->string('user_id')->default(1);
             $table->string('hospital_id')->default(1);
             $table->string('address');
             $table->string('city');
