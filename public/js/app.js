@@ -2686,8 +2686,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   mounted: function mounted() {// console.log(this.$route.matched)
   }
@@ -32219,7 +32217,7 @@ var render = function() {
           "li",
           { key: index, staticClass: "breadcrumb-item " },
           [
-            _c("router-link", { attrs: { to: link.path } }, [
+            _c("router-link", { attrs: { to: link.meta.link } }, [
               _vm._v(_vm._s(link.meta.name))
             ])
           ],
@@ -53841,8 +53839,8 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_5___default.a({
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
@@ -54569,11 +54567,12 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   linkActiveClass: "active",
   routes: _routes_js__WEBPACK_IMPORTED_MODULE_2__["routes"] // short for `routes: routes`
 
-}); // router.afterEach((to, from) => {
-//     console.log(to.matched)
-//     const breadcrum = to.fullPath.split("/").slice(1);
-//     store.commit('setBreadcrum',breadcrum);
-// })
+});
+router.afterEach(function (to, from) {
+  console.log(to);
+  var breadcrum = to.fullPath.split("/").slice(1);
+  _store__WEBPACK_IMPORTED_MODULE_3__["default"].commit('setBreadcrum', breadcrum);
+});
 
 /***/ }),
 
@@ -54615,35 +54614,39 @@ var patientroute = {
   path: '/patients',
   component: _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
   meta: {
-    name: 'Patients'
+    name: 'Patients',
+    link: '/patients'
   },
   children: [{
-    path: 'all',
+    path: '',
     name: 'allpatient',
     component: _components_Patient_AllPatient_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     meta: {
-      name: 'All'
+      name: 'All',
+      routename: '/patients'
     }
   }, {
     path: 'add',
     name: 'addpatient',
     component: _components_Patient_AddPatient_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
     meta: {
-      name: 'Add'
+      name: 'Add',
+      link: '/patients/add'
     }
   }, {
-    path: 'edit',
-    name: 'editpatient',
+    path: 'edit/:id',
     component: _components_EmptyRouterView_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     meta: {
-      name: 'Edit'
+      name: 'Edit',
+      link: ''
     },
     children: [{
-      path: ':id',
+      path: '',
       name: 'choosepatient',
       component: _components_Patient_EditPatient_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
       meta: {
-        name: ''
+        name: '',
+        link: ''
       }
     }]
   }]
