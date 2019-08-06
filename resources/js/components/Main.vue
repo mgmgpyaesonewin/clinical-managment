@@ -20,8 +20,7 @@ import Sidebar from './Sidebar.vue';
             Sidebar,
         },
         mounted() {
-
-            console.log('Component mounted.')
+            console.log('Component mounted.');
         }
     }
 </script>

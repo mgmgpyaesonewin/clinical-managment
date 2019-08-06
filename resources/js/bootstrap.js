@@ -7,8 +7,8 @@
  */
 const axios = require('axios');
 try {
-    window.Popper = require('popper.js').default;
     window.$ = window.jQuery = require('jquery');
+    window.Popper = require('popper.js').default;
 
     require('bootstrap');
 } catch (e) {}

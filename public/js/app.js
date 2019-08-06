@@ -39173,7 +39173,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-// window._ = require('lodash');
+/* WEBPACK VAR INJECTION */(function(process) {// window._ = require('lodash');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -39183,8 +39183,8 @@ var app = new Vue({
 var axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
 
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 } catch (e) {}
@@ -39196,7 +39196,7 @@ try {
 
 
 window.axios = axios.create({
-  baseURL: "".concat("http://localhost:8000/api")
+  baseURL: "".concat(process.env.MIX_API_URL)
 });
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /**
@@ -39225,6 +39225,7 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../node_modules/process/browser.js */ "./node_modules/process/browser.js")))
 
 /***/ }),
 
@@ -39640,7 +39641,6 @@ var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
 
 });
 router.afterEach(function (to, from) {
-  console.log(to.fullPath);
   var breadcrum = to.fullPath.split("/").slice(1);
   _store__WEBPACK_IMPORTED_MODULE_3__["default"].commit('setBreadcrum', breadcrum);
 });
@@ -39713,8 +39713,8 @@ var store = new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/pkk/code/clinical-managment/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/pkk/code/clinical-managment/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/pyaesone/Documents/clinicalmanagment/clinical-managment/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /Users/pyaesone/Documents/clinicalmanagment/clinical-managment/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
