@@ -9,8 +9,9 @@ mode:'history',
 base:"/home",
 linkActiveClass: "active",
 routes // short for `routes: routes`
-})
+});
+
 router.afterEach((to, from) => {
     const breadcrum = to.fullPath.split("/").slice(1);
     store.commit('setBreadcrum',breadcrum);
-})
+});
