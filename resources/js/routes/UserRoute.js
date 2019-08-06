@@ -1,9 +1,9 @@
-import addpatient from '../components/Patient/AddPatient.vue'
+import AddUser from '../components/User/AddUser.vue'
 import EmptyView from '../components/EmptyRouterView.vue';
 
-export const patientroute = { path:'/users',  component:EmptyView, meta:{name:'Users'},
+export const UserRoute = { path:'/users',  component:EmptyView, meta:{name:'Users'},
 children:[
-    { path: 'add',  name:'addpatient',  component: addpatient, meta: {name:'Add'} },
+    { path: 'add',  name:'adduser',  component: AddUser, meta: {name:'Add'} },
   ] 
 };
 

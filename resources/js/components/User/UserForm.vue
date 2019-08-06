@@ -34,7 +34,7 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-email">DOB</label>
                         <div class="col-md-12">
-                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="user.dob" class="form-control" placeholder="Enter User Date of Birth">
+                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="user.dob" class="form-control mydatepicker" placeholder="Enter User Date of Birth">
                              <div class="invalid-feedback">
                                {{errors.dob && errors.dob[0]}}
                             </div>
@@ -56,9 +56,9 @@
                    <div class="form-group">
                         <label class="col-md-12" for="example-email">Phone Number</label>
                         <div class="col-md-12">
-                            <input type="text"  :class="{'is-invalid':  errors.phone_number ? true : false}" v-model="user.phone_number" class="form-control" placeholder="Enter User Phone No:">
+                            <input type="text"  :class="{'is-invalid':  errors.phone ? true : false}" v-model="user.phone" class="form-control" placeholder="Enter User Phone No:">
                              <div class="invalid-feedback">
-                               {{errors.phone_number && errors.phone_number[0]}}
+                               {{errors.phone && errors.phone[0]}}
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
                         </div>
                     </div>
                     <button @click.prevent="formsubmit()" type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                    <button type="reset" class="btn btn-inverse waves-effect waves-light">Cancel</button>
                 </form>
             </div>
         </div>
@@ -102,6 +102,7 @@ export default {
        
     },
     mounted(){
+
     }
 }
 </script>

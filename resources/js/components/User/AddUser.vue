@@ -30,18 +30,21 @@ export default {
         return {
             user:{
                 name: null,
-                address: null,
-                city: null,
-                phone_number: null,
+                email: null,
+                nrc: null,
                 dob: null,
                 gender: 'Male',
+                phone: null,
+                organization: null,
+                address: null
             },
             errors:{}
         }
     },
     methods:{
          formsubmit(){
-            axios.post('patients', this.patient)
+            console.log(this.user);
+            axios.post('users', this.user)
             .then( (response) => {
                 this.$toasted.show('Success !')
                 // this.$router.push('/patients')

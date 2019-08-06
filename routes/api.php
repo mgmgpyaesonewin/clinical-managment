@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 // Route::get('/patient','API\PatientController@index');
 Route::apiResources([
     'patients' => 'API\PatientController',
+    'users' => 'API\UserController',
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

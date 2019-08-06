@@ -29,6 +29,5 @@
             <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
             <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
             <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
-
     </body>
   </html>
