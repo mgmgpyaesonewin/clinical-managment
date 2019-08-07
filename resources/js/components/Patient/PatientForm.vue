@@ -1,0 +1,92 @@
+<template>
+     <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Patients's Information</h5>
+                <form class="form-material form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Name </span>
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text" v-model.number="patient.name" :class="{'is-invalid':  errors.name ? true : false}" class="form-control" placeholder="Enter Patient Name">
+                            <div class="invalid-feedback">
+                                {{errors.name && errors.name[0]}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> DOB </span>
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="patient.dob" class="form-control" placeholder="Enter Patient Date of Birth">
+                             <div class="invalid-feedback">
+                               {{errors.dob && errors.dob[0]}}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <div class="col-md-12 ">
+                            <div class="form-control">
+                            <input name="rad"  type="radio" id="one" value="Male" v-model="patient.gender">
+                            <label checfor="one">Male</label>
+                            <input name="rad" type="radio" id="two" value="Female" v-model="patient.gender">
+                            <label for="two">Female</label>
+                            </div>
+                        </div>
+                    </div>
+                   <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Phone No: </span>
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text"  :class="{'is-invalid':  errors.phone_number ? true : false}" v-model="patient.phone_number" class="form-control" placeholder="Enter Patient Phone No:">
+                             <div class="invalid-feedback">
+                               {{errors.phone_number && errors.phone_number[0]}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> City </span>
+                        </label>
+                        <div class="col-md-12">
+                            <input  :class="{'is-invalid':  errors.city ? true : false}" type="text" v-model="patient.city" class="form-control" placeholder="Enter City of Patient">
+                           <div class="invalid-feedback">
+                                {{errors.city && errors.city[0]}}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Address </span>
+                        </label>
+                        <div class="col-md-12">
+                            
+                            <textarea  :class="{'is-invalid':  errors.address ? true : false}" class="form-control" placeholder="Enter Patient Address" id=""  v-model="patient.address"  cols="20" rows="5"></textarea>
+                           <div class="invalid-feedback">
+                                {{errors.address && errors.address[0]}}
+                            </div>
+                        </div>
+                    </div>
+                    <button @click.prevent="formsubmit()" type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
+                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</template>
+
+<script>
+export default {
+    props:['patient','errors'],
+    data(){
+        return{
+        }
+    },
+    methods: { 
+        formsubmit(){
+            this.$emit('formsubmit')
+        }
+       
+    },
+    mounted(){
+    }
+}
+</script>

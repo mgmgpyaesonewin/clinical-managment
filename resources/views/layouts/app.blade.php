@@ -32,22 +32,11 @@
             @yield('content')
           </div>
         </div>
-        {{-- <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script> --}}
-        <script type="text/javascript" src="{{ asset('/js/jquery-3.2.1.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/popper.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/bootstrap.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/perfect-scrollbar.jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/sidebarmenu.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/custom.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/raphael-min.js') }}"></script>
-        {{-- <script type="text/javascript" src="{{ asset('/js/morris.min.js') }}"></script> --}}
-        <script type="text/javascript" src="{{ asset('/js/jquery.sparkline.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/jquery.toast.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/jquery.peity.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/jquery.peity.init.js') }}"></script>
-        {{-- <script type="text/javascript" src="{{ asset('/js/dashboard1.js') }}"></script> --}}
-        
+        <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
 
         @stack('scripts')
     </body>
