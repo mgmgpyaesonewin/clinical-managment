@@ -23,7 +23,7 @@ window.axios = axios.create({
 });
 window.axios.interceptors.request.use(function (config) {
             if (store.getters.isTokenValid) {
-                config.headers.Authorization = `Bearer ${store.state.accessToken}`;
+                config.headers.Authorization = `Bearer ${store.state.user.access_token}`;
             }
             return config;
   }, function (error) {

@@ -47,13 +47,13 @@ export default {
         login(){
             axios.post('auth/login/',this.user)
             .then((res)=>{
-                console.log(res.data);
+                // console.log(res.data);
                 this.$toasted.show('Success! ')
                 this.$store.dispatch('saveUser',res.data);
                 this.$router.push(this.$route.query.redirect || '/patients')
             })
             .catch(err=>{
-                console.log(err.response.data.error)
+                // console.log(err.response.data.error)
                  this.$toasted.show(`${err.response.data.error}`,{
                      type:'error'
                  })

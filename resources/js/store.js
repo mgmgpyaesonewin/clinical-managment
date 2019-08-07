@@ -5,33 +5,29 @@ Vue.use(Vuex)
 
 const store = new Vuex.Store({
     state: {
-        loggedIn: false,
-        accessToken: localStorage.getItem('access_token') || null,
-        expiresIn: localStorage.getItem('expires_in') || null,
+        user: JSON.parse(localStorage.getItem('user')) || {},
     },
     getters:{
-      isLoggedIn: state => state.accessToken !== null,
+      isLoggedIn: state => state.user.access_token !== null,
       isTokenValid: (state,getters) => {
+        console.log(state.user)
         if(getters.isLoggedIn){
-          return state.expiresIn > Date.now() / 1000;
+          return state.user.expires_in > Date.now() / 1000;
         }
         return false;
       },
     },
     mutations: {
-      setToken: (state, value) => {
-        state.accessToken = value;
+      setUser: (state, value) => {
+        state.user = value;
       },
-      setExpiresIn:(state,value)=>{
-        state.expiresIn = value;
-      }
     },
     actions:{
       saveUser: ({ commit }, data) => {
-        commit('setToken', data.access_token);
-        commit('setExpiresIn', data.expires_in);
-        localStorage.setItem('access_token', data.access_token);
-        localStorage.setItem('expires_in', data.expires_in);
+      
+        console.log(data)
+        commit('setUser', data);
+        localStorage.setItem('user', JSON.stringify(data));
       },
     }
   })
