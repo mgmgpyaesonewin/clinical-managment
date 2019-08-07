@@ -14,9 +14,17 @@ Route::get('/home/{vue_capture?}', function () {
     return view('home');
 })->where('vue_capture', '[\/\w\.-]*');
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/roles', function () {
+    return view('role');
+});
+
+Route::get('/permissions', function () {
+    return view('permission');
 });
 

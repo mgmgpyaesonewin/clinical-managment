@@ -16,27 +16,38 @@
         <link rel="stylesheet" href="{{ asset('css/template/variable.css') }}">
       @stack('styles')
     </head>
-    <body class="skin-blue fixed-layout">
-      @include('includes.preloader')
-      @include('includes.nav')
-      @include('includes.sidebar')
-      
-      <!-- ============================================================== -->
-      <!-- Page wrapper  -->
-      <!-- ============================================================== -->
-        <div class="page-wrapper">
-          <!-- ============================================================== -->
-          <!-- Container fluid  -->
-          <!-- ============================================================== -->
-          <div class="container-fluid">
-            @yield('content')
-          </div>
-        </div>
-        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
+      @if (request()->route()->getName() != "login")
+        <body class="skin-blue fixed-layout">
+          @include('includes.preloader')
+          @include('includes.nav')
+          @include('includes.sidebar')
 
-    </body>
+          <!-- ============================================================== -->
+          <!-- Page wrapper  -->
+          <!-- ============================================================== -->
+            <div class="page-wrapper">
+              <!-- ============================================================== -->
+              <!-- Container fluid  -->
+              <!-- ============================================================== -->
+              <div class="container-fluid">
+                @yield('content')
+              </div>
+            </div>
+            <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
+            @stack('scripts')
+          </body>  
+        @else
+        <body class="skin-default card-no-border">
+          @include('includes.preloader')
+          @yield('content')
+          <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
+          <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
+          <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
+          <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
+        </body>
+        @endif
   </html>
