@@ -1,5 +1,5 @@
 // window._ = require('lodash');
-
+import store from './store.js'
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -21,6 +21,15 @@ try {
 window.axios = axios.create({   
     baseURL: `${process.env.MIX_API_URL}`,
 });
+window.axios.interceptors.request.use(function (config) {
+            if (store.getters.isTokenValid) {
+                config.headers.Authorization = `Bearer ${store.state.accessToken}`;
+            }
+            return config;
+  }, function (error) {
+    return Promise.reject(error);
+  });
+
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /**
