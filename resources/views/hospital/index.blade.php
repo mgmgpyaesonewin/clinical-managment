@@ -8,9 +8,9 @@
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Hospital</li>
+                <li class="breadcrumb-item"><a href="{{ route('hospital.index') }}">Hospital</a></li>
+                <li class="breadcrumb-item active">All Hospitals</li>
             </ol>
-            <a href="{{ url('/hospital/create') }}"><button type="button" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> Create New</button></a>
         </div>
     </div>
 </div>
@@ -40,11 +40,11 @@
                                 <td>{{$hospital->start_date->format('d/m/Y')}}</td>
                                 <td>{{$hospital->end_date->format('d/m/Y')}}</td>
                                 <td class="text-nowrap">
-                                    <a href="{{ route('hospital.edit', $hospital->id) }}"><button type="button" class="btn waves-effect waves-light btn-info"><i class="fa fa-check"></i> Edit</button></a> 
+                                    <a href="{{ route('hospital.edit', $hospital->id) }}"><button type="button" class="btn waves-effect waves-light btn-info"><i class="far fa-edit"></i> Edit</button></a> 
                                     <form style="display: inline" action="{{route('hospital.destroy', $hospital->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn waves-effect waves-light btn-danger"><i class="fa fa-check"></i> Delete</button>
+                                        <button type="submit" class="btn waves-effect waves-light btn-danger"><i class=" fas fa-trash"></i> Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -52,6 +52,7 @@
                         </tbody>
                     </table>
                 </div>
+                {{ $hospitals->links() }}
             </div>
         </div>
     </div>

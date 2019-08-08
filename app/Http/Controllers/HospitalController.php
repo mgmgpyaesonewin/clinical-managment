@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Hospital;
 use Illuminate\Http\Request;
+use App\Repositories\Frontend\HospitalRepository;
+use App\Http\Requests\HospitalRequest;
 
 class HospitalController extends Controller
 {
+    public $hospital;
+    public function __construct(HospitalRepository $hospitalRepository)
+    {
+        $this->hospital = $hospitalRepository;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class HospitalController extends Controller
      */
     public function index()
     {
-        $hospitals = Hospital::get();
+        $hospitals = $this->hospital->paginate(15);
         return view('hospital.index', compact('hospitals'));
     }
 
@@ -25,8 +32,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-
-        return view('hospital.create');
+         return view('hospital.create');
     }
 
     /**
@@ -35,10 +41,9 @@ class HospitalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        $hospital = new Hospital($request->all());
-        $hospital->save();
+    public function store(HospitalRequest $request)
+    {  
+        $hospital = $this->hospital->create($request->validated());
         return redirect('hospital')->with('success', 'Hospital has been added');
     }
 
@@ -61,7 +66,7 @@ class HospitalController extends Controller
      */
     public function edit($id)
     {
-        $hospital = Hospital::findorFail($id);
+        $hospital = $this->hospital->getById($id);
         return view('hospital.edit', compact('hospital'));
     }
 
@@ -72,9 +77,9 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Hospital $hospital)
+    public function update(HospitalRequest $request, $id)
     {
-        $hospital->update($request->all());
+        $hospital = $this->hospital->updateById($id, $request->validated());
         return redirect('hospital')->with('success', 'Hospital has been updated');
     }
 
@@ -84,8 +89,9 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Hospital $hospital)
+    public function destroy($id)
     {
-        $hospital->delete();
+        $this->hospital->deleteById($id);
+        return redirect('hospital')->with('success', 'Hospital has been deleted');
     }
 }

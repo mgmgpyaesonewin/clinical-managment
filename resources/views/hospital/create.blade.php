@@ -7,9 +7,9 @@
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Hospital</li>
-                <li class="breadcrumb-item">Create Hospital</li>
+                <li class="breadcrumb-item"><a href="{{ route('') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('hospital.index') }}">Hospital</a></li>
+                <li class="breadcrumb-item active">Create Hospital</li>
             </ol>
         </div>
     </div>

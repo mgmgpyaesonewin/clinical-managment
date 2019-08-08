@@ -7,9 +7,9 @@
     <div class="col-md-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
             <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                <li class="breadcrumb-item active">Hospital</li>
-                <li class="breadcrumb-item">Edit Hospital</li>
+                <li class="breadcrumb-item"><a href="{{ url('') }}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('hospital.index') }}">Hospital</a></li>
+                <li class="breadcrumb-item active">Edit Hospital</li>
             </ol>
         </div>
     </div>
@@ -52,4 +52,11 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('/js/bootstrap-datepicker.min.js') }}"></script>
+    <script type="text/javascript">
+        // Date Picker
+        jQuery('.mydatepicker').datepicker({ format: 'dd/mm/yyyy' });
+    </script>
+@endpush
 @endsection

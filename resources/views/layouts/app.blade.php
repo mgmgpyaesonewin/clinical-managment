@@ -25,7 +25,6 @@
           <!-- ============================================================== -->
           <!-- Page wrapper  -->
           <!-- ============================================================== -->
-<<<<<<< HEAD
             <div class="page-wrapper">
               <!-- ============================================================== -->
               <!-- Container fluid  -->
@@ -51,18 +50,4 @@
           <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
         </body>
         @endif
-=======
-          <div class="container-fluid">
-            @yield('content')
-          </div>
-        </div>
-        <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/sidebarmenu.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
-
-        @stack('scripts')
-    </body>
->>>>>>> hospital_CRUD
   </html>

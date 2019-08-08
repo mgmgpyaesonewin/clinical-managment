@@ -15,15 +15,15 @@ class Hospital extends Model
         return $this->HasMany('App\Patient');
     }
 
-    public function setStartDateAttribute($value)
-    {
-        $this->attributes['start_date'] = Carbon::createFromFormat('d/m/Y', $value);
-    }
+    // public function getStartDateAttribute($value)
+    // {
+    //     $this->attributes['start_date'] = Carbon::createFromFormat('d/m/Y', $value);
+    // }
 
-    public function setEndDateAttribute($value)
-    {
-        $this->attributes['end_date'] = Carbon::createFromFormat('d/m/Y', $value);
-    }
+    // public function getEndDateAttribute($value)
+    // {
+    //     $this->attributes['end_date'] = Carbon::createFromFormat('d/m/Y', $value);
+    // }
 }
 
 
