@@ -26,6 +26,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "bootstrap-vue": "^2.0.0-rc.27",
         "vue-datatables-net": "^1.1.7",
         "vue-router": "^3.0.7",
         "vue-tables-2": "^1.4.70",
