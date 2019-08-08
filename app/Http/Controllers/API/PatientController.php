@@ -17,7 +17,7 @@ class PatientController extends Controller
     public $patientrepo;
     public function __construct(PatientRepository $repo)
     {   
-        $this->middleware('auth:api',['except'=>['login']]);
+        $this->middleware('auth:api');
         $this->patientrepo=$repo;
     }
     public function index(Request $request)

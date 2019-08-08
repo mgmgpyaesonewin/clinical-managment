@@ -5,10 +5,14 @@ import EmptyView from '../components/EmptyRouterView.vue';
 
 export const patientroute = { 
     path:'/patients',  component:EmptyView,
-    meta:{name:'Patients',link:'/patients'},
+    meta:{name:'Patients',link:'/patients',requiresAuth: true},
     children:[
-    { path:'',name:'allpatient',  component:all,
-        meta:{name:'All',routename:'/patients'}},
+    { path:'',  component:all,name:'allpatient',
+        meta:{
+            name:'All',
+            link:'/patients',
+        }
+    },
     { path: 'add',  name:'addpatient',  component: addpatient,
         meta:{name:'Add',link:'/patients/add'}},
     { path:'edit/:id', component:EmptyView ,
