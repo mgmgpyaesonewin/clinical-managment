@@ -28,3 +28,8 @@ Route::get('/permissions', function () {
     return view('permission');
 });
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('/hospital', 'HospitalController');
