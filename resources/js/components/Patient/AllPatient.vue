@@ -4,11 +4,26 @@
       <div class="col-md-5 align-self-center">
         <h4 class="text-themecolor">Information Of All Patients</h4>
     </div>
-      <div class="col-md-7 col-12  align-self-center text-right">
+      <div class="col-md-7 col-7 col-sm-7  align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
            <breadcrum />
-            <router-link type="button" to="/patients/add" class="btn btn-info d-none d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> New Patient</router-link>
+            <button type="button" v-b-modal.create class="btn btn-info  d-lg-block m-l-15"><i class="fa fa-plus-circle"></i> New Patient</button>
         </div>
+    </div>
+    <div class="row">
+   <patientform
+            :errors.sync="errors"
+            :patient.sync="this.patient"
+            modal='create'
+            @resetpatient="resetpatient()"
+            @formsubmit="saveUser()"
+            />
+     <patientform
+            :errors.sync="errors"
+            :patient.sync="patient"
+            modal='edit'
+            @formsubmit="saveEditedUser()"
+            />
     </div>
     </div>
             <div class="col-12 ">
@@ -17,8 +32,8 @@
 <div id="app">
   <v-client-table :columns="columns" :data="patients" :options="options">
     <div slot="action" slot-scope="props" >
-    <router-link  :to="'/patients/edit/'+props.row.id" class="fa fa-edit"></router-link>
-    <delete :patientdata.sync='patients' :index='props.index' :data="props.row"></delete>
+    <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
+    <delete @deleteRow="deleterow($event)" :patients.sync='patients' :index='props.index' :data="props.row"></delete>
       </div>
   </v-client-table>
 </div>
@@ -80,17 +95,46 @@ th:nth-child(3) {
   content: "-";
 }
 
-    
+.modal-backdrop{
+  background-color: #00000085 !important;
+}
 </style>
 <script>
+var patientmodel=()=>
+ {
+    return {
+      name: null,
+    address: null,
+    city: null,
+    phone_number: null,
+    dob: null,
+    gender: 'Male',
+    }
+}
+import { BModal, VBModal,BButton } from 'bootstrap-vue'
+// console.log(Bmodal)
 import Vue from 'vue';
+import patientform from './PatientForm';
 import deletecomponent from './DeletePatient.vue';
 export default {
     components:{
-      delete:deletecomponent
+      delete:deletecomponent,BModal,BButton,patientform
+    },
+    directives:{
+      'b-modal':VBModal
     },
     data(){
         return{
+          modal: 'create',
+          patient:{
+                name: null,
+                address: null,
+                city: null,
+                phone_number: null,
+                dob: null,
+                gender: 'Male',
+            },
+          errors:{},
           columns: ['id','name','dob' ,'gender','address','city','phone_number','created_at','action'],
           patients:[],
           options: {
@@ -104,13 +148,50 @@ export default {
                 erase: 'delete'
             },
 
-          sortable:['name','dob' ,'gender','address','city','phone_number','created_at'],
-          filterable:['name','dob' ,'gender','address','city','phone_number','created_at'],
+          sortable:['id','name','dob' ,'gender','address','city','phone_number','created_at'],
+          filterable:['id','name','dob' ,'gender','address','city','phone_number','created_at'],
          }
         }
     },
-    mounted(){
-      console.log(this.$toasted)
+    methods:{
+      deleterow(id){
+        console.log('here')
+        console.log(id)
+        this.patients=this.patients.filter(p=>p.id!==id)
+        console.log(id)
+      },
+      binddata(id){
+       this.patient = this.patients.find((p)=>p.id === id)
+      },
+      resetpatient(){
+        this.patient=patientmodel()
+      },
+       saveUser(){
+            axios.post('patients', this.patient)
+            .then( (response) => {
+                this.$toasted.show('Success !')
+                this.$router.push('/patients')
+                this.fetchData()
+                this.resetpatient()
+            })
+            .catch((error) => {
+                this.errors=error.response.data;
+                console.log(error.response.data);
+            });
+        },
+      saveEditedUser(){
+            axios.put(`patients/${this.patient.id}`, this.patient)
+            .then( (response) => {
+            this.$toasted.show('Success !')
+            this.$router.push('/patients')
+            console.log(response.data);
+            })
+            .catch((error) => {
+                this.errors=error.response.data;
+                console.log(error.response.data);
+            });
+      },
+      fetchData(){
         axios.get('patients/')
         .then((res)=>{
             this.patients=res.data
@@ -119,6 +200,11 @@ export default {
         .catch((err)=>{
             console.log(err)
         })
+      }
+    },
+    mounted(){
+    this.fetchData()
+    
     }
 }
 </script>
