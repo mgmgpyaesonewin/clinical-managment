@@ -17,7 +17,7 @@ Route::get('/home/{vue_capture?}', function () {
 Auth::routes(['register' => false]);
 
 Route::get('/', function () {
-    return view('index');
+    return view('landing_page');
 });
 
 Route::get('/roles', function () {

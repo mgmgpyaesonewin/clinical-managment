@@ -6,6 +6,7 @@ use App\Hospital;
 use Illuminate\Http\Request;
 use App\Repositories\Frontend\HospitalRepository;
 use App\Http\Requests\HospitalRequest;
+use Illuminate\Support\Facades\Log;
 
 class HospitalController extends Controller
 {
@@ -55,7 +56,7 @@ class HospitalController extends Controller
      */
     public function show(Hospital $hospital)
     {
-        //
+
     }
 
     /**
@@ -79,6 +80,7 @@ class HospitalController extends Controller
      */
     public function update(HospitalRequest $request, $id)
     {
+        Log::emergency('Showing user profile for user: '.$id);
         $hospital = $this->hospital->updateById($id, $request->validated());
         return redirect('hospital')->with('success', 'Hospital has been updated');
     }
