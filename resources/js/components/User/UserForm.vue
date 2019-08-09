@@ -34,7 +34,10 @@
                     <div class="form-group">
                         <label class="col-md-12" for="example-email">DOB</label>
                         <div class="col-md-12">
-                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="user.dob" class="form-control mydatepicker" placeholder="Enter User Date of Birth">
+                            <!-- <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="user.dob" class="form-control mydatepicker" placeholder="Enter User Date of Birth"> -->
+                            <date-picker
+                                :error="errors.dob"
+                                :date.sync="user.dob" />
                              <div class="invalid-feedback">
                                {{errors.dob && errors.dob[0]}}
                             </div>
@@ -89,7 +92,11 @@
 </template>
 
 <script>
+import DatePicker from '../DatePicker'
 export default {
+    components:{
+        'date-picker': DatePicker
+    },
     props:['user','errors'],
     data(){
         return{
@@ -102,7 +109,10 @@ export default {
        
     },
     mounted(){
-
+        // $(this.$el).datepicker();
+    },
+    beforeDestroy() {
+        // $(this.$el).datepicker('hide').datepicker('destroy');
     }
 }
 </script>

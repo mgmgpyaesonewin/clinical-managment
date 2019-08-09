@@ -2,7 +2,7 @@
     <div>
     <ol class="breadcrumb">
         <li v-for="(link,index) in this.$route.matched" :key="index" class="breadcrumb-item ">
-            <router-link  :to='link.meta.link'>{{link.meta.name}}</router-link>
+            <router-link  :to='link.path'>{{link.meta.name}}</router-link>
         </li>
     </ol>
     </div>

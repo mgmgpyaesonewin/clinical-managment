@@ -9,8 +9,8 @@ const axios = require('axios');
 try {
     window.$ = window.jQuery = require('jquery');
     window.Popper = require('popper.js').default;
-
     require('bootstrap');
+    require('bootstrap-datepicker');
 } catch (e) {}
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests

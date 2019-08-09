@@ -8,7 +8,7 @@ export const patientroute = {
     meta:{name:'Patients',link:'/patients'},
     children:[
     { path:'',name:'allpatient',  component:all,
-        meta:{name:'All',routename:'/patients'}},
+        meta:{name:'All',link:'/patients'}},
     { path: 'add',  name:'addpatient',  component: addpatient,
         meta:{name:'Add',link:'/patients/add'}},
     { path:'edit/:id', component:EmptyView ,

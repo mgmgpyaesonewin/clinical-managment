@@ -23,7 +23,6 @@
       <!-- Page wrapper  -->
       <!-- ============================================================== -->
             @yield('content')
-
             <script type="text/javascript" src="{{ asset('/js/app.js') }}"></script>
             <script type="text/javascript" src="{{ asset('/js/template/perfect-scrollbar.jquery.min.js') }}"></script>
             <script type="text/javascript" src="{{ asset('/js/waves.js') }}"></script>

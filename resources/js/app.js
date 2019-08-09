@@ -28,7 +28,7 @@ Vue.component('breadcrum', require('./components/breadcrum.vue').default);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 // console.log(breadcrum)
-const app = new Vue({
+new Vue({
     router,
     el: '#app',
     store,
