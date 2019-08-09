@@ -21,7 +21,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = $this->user->paginate(15);
+        return $users;
     }
 
     /**
@@ -44,7 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -54,9 +55,10 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserRequest $request, $id)
     {
-        //
+        $user = $this->user->updateById($id, $request->validated());
+        return $user;
     }
 
     /**
@@ -67,6 +69,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->user->deleteById($id);
     }
 }

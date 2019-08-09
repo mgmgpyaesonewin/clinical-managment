@@ -1,7 +1,61 @@
 @extends('layouts.app')
-
+@push('styles')
+    <link href="{{ asset('/css/template/pages/login-register-lock.css') }}" rel="stylesheet">
+@endpush
 @section('content')
-<div class="container">
+<section id="wrapper">
+    <div class="login-register">
+        <div class="login-box card">
+            <div class="card-body">
+                <form class="form-horizontal form-material" id="loginform" method="POST" action="{{ route('login') }}">
+                    @csrf
+                    <h3 class="text-center m-b-20">Sign In</h3>
+                    <div class="form-group ">
+                        <div class="col-xs-12">
+                            <input id="email" class="form-control @error('email') is-invalid @enderror" type="email"  name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="email" autofocus> 
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            <input id="password" class="form-control @error('password') is-invalid @enderror" type="password" name="password" required placeholder="Password" autocomplete="current-password">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <div class="d-flex no-block align-items-center">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <label class="custom-control-label" for="remember">Remember me</label>
+                                </div> 
+                                <div class="ml-auto">
+                                    <a href="javascript:void(0)" id="to-recover" class="text-muted"><i class="fas fa-lock m-r-5"></i> Forgot pwd?</a> 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <div class="col-xs-12 p-b-20">
+                            <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">Log In</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+@endsection
+
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -69,5 +123,7 @@
             </div>
         </div>
     </div>
-</div>
-@endsection
+</div> --}}
+
+
+

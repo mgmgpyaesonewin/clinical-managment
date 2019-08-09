@@ -1,8 +1,9 @@
 <template>
-     <div class="col-sm-6">
+  <b-modal hide-footer  :id="this.modal" title="Patients's Information">
+           <div class="col-sm-12">
         <div class="card">
             <div class="card-body">
-                <h5 class="card-title">Patients's Information</h5>
+                <h5 class="card-title"></h5>
                 <form class="form-material form-horizontal">
                     <div class="form-group">
                         <label class="col-md-12" for="example-email"> Name </span>
@@ -65,17 +66,33 @@
                             </div>
                         </div>
                     </div>
-                    <button @click.prevent="formsubmit()" type="submit" class="btn btn-info waves-effect waves-light m-r-10">Submit</button>
-                    <button type="submit" class="btn btn-inverse waves-effect waves-light">Cancel</button>
-                </form>
+                    <div class="col-12  text-center">                 
+                       <button @click.prevent="formsubmit()" type="submit" class="btn  btn-info waves-effect waves-light m-r-10">Submit</button>            
+                    </div>
+                        </form>
             </div>
         </div>
     </div>
+  </b-modal>
+
 </template>
 
 <script>
+var patientmodel= {
+    name: null,
+    address: null,
+    city: null,
+    phone_number: null,
+    dob: null,
+    gender: 'Male',
+}
+import { BModal, VBModal,BButton } from 'bootstrap-vue'
+
 export default {
-    props:['patient','errors'],
+    components:{
+        BModal
+    },
+    props:['patient','errors','modal'],
     data(){
         return{
         }
@@ -87,6 +104,11 @@ export default {
        
     },
     mounted(){
+        this.$root.$on('bv::modal::show', (bvEvent, modalId) => {
+            if(modalId==='create'){
+                this.$emit('resetpatient')
+            }
+    })
     }
 }
 </script>

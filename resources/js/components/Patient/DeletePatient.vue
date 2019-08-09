@@ -1,6 +1,6 @@
 <script>
 export default {
-    props: ['data', 'index', 'patientdata'],
+    props: ['data', 'index', 'patients'],
     template: `<a href="#" class='fa fa-trash' @click.prevent='erase'></a>`,
     methods: {
         erase() {
@@ -8,8 +8,7 @@ export default {
         const id = this.data.id
         axios.delete(`/patients/${id}`)
         .then((res)=>{
-         console.log(res)
-        this.patientdata.splice(this.index-1,1);
+        this.$emit('deleteRow',id)
         this.$toasted.show('Deleted Successfully !')
         
         })
