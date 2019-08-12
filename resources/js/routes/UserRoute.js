@@ -1,9 +1,9 @@
 import AddUser from '../components/User/AddUser.vue'
 import Auth from '../components/User/Auth.vue'
 import EmptyView from '../components/EmptyRouterView.vue';
-import EditUser from '../components/Patient/EditUser.vue';
+import EditUser from '../components/User/EditUser.vue';
 import Users from '../components/Patient/AllPatient.vue';
-import EmptyView from '../components/EmptyRouterView.vue';
+// import EmptyView from '../components/EmptyRouterView.vue';
 
 export const UserRoute = { 
   path: '/users', component:EmptyView, meta:{name:'Users'},

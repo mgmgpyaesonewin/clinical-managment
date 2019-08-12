@@ -29,12 +29,19 @@
             <div class="col-12 ">
 
 
-<div id="app">
-  <v-client-table :columns="columns" :data="patients" :options="options">
+<div >
+  <v-client-table 
+  @row-click="testing($event)"
+  :columns="columns" :data="patients" :options="options">
     <div slot="action" slot-scope="props" >
     <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
     <delete @deleteRow="deleterow($event)" :patients.sync='patients' :index='props.index' :data="props.row"></delete>
       </div>
+      <template slot="child_row" slot-scope="props">
+      <div><b>Address :</b> {{props.row.address}}</div>
+      <div><b>Gender :</b> {{props.row.gender}}</div>
+      <div><b>City :</b> {{props.row.city}}</div>
+    </template>
   </v-client-table>
 </div>
             </div>
@@ -100,6 +107,7 @@ th:nth-child(3) {
 }
 </style>
 <script>
+
 var patientmodel=()=>
  {
     return {
@@ -135,9 +143,10 @@ export default {
                 gender: 'Male',
             },
           errors:{},
-          columns: ['id','name','dob' ,'gender','address','city','phone_number','created_at','action'],
+          columns: ['id','name','dob' ,'phone_number','created_at','action'],
           patients:[],
           options: {
+            // skin:'table table-hover table-borderless',
               sortIcon: {
             base : 'fa',
             is: 'fa-sort',
@@ -154,6 +163,9 @@ export default {
         }
     },
     methods:{
+      testing(event){
+        console.log(event.row.id)
+      },
       deleterow(id){
         console.log('here')
         console.log(id)
