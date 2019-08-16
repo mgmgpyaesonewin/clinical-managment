@@ -19,7 +19,10 @@
                         <label class="col-md-12" for="example-email"> DOB </span>
                         </label>
                         <div class="col-md-12">
-                            <input type="text"  :class="{'is-invalid':  errors.dob ? true : false}" v-model="patient.dob" class="form-control" placeholder="Enter Patient Date of Birth">
+                            <date-picker
+                            :error="errors.dob"
+                                :date.sync="patient.dob"
+                            />
                              <div class="invalid-feedback">
                                {{errors.dob && errors.dob[0]}}
                             </div>
@@ -76,7 +79,12 @@
   </b-modal>
 
 </template>
-
+<style lang="css">
+    .bootstrap-datetimepicker-widget{
+        background-color: black !important;
+        z-index: 9040!important;
+    }
+</style>
 <script>
 var patientmodel= {
     name: null,
@@ -87,10 +95,11 @@ var patientmodel= {
     gender: 'Male',
 }
 import { BModal, VBModal,BButton } from 'bootstrap-vue'
-
+import datepicker from './../DatePicker'
 export default {
     components:{
-        BModal
+        BModal, 
+        datePicker:datepicker
     },
     props:['patient','errors','modal'],
     data(){

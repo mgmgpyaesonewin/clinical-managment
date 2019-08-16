@@ -48,7 +48,7 @@ class PatientController extends Controller
     public function show($id)
     {
         $patient = $this->patientrepo->getById($id);
-        return $patient;
+        return collect($patient)->except('hospital_id');
     }
 
     /**

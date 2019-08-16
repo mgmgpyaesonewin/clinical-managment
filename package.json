@@ -28,7 +28,9 @@
     "dependencies": {
         "bootstrap-datepicker": "^1.8.0",
         "bootstrap-vue": "^2.0.0-rc.27",
+        "moment": "^2.24.0",
         "vue-datatables-net": "^1.1.7",
+        "vue-fab": "^2.3.1",
         "vue-router": "^3.0.7",
         "vue-tables-2": "^1.4.70",
         "vue-toasted": "^1.1.27",

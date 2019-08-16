@@ -4,6 +4,8 @@ import VueRouter from 'vue-router';
 import mainComponent from './components/Main.vue';
 import {router} from './router';
 import store from "./store";
+import moment from 'moment';
+window.moment=moment
 import Toasted from 'vue-toasted';
 import Vue from "vue";
 import { ClientTable} from 'vue-tables-2';

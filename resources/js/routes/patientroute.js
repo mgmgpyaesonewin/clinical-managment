@@ -2,7 +2,7 @@
 // import editpatient from '../components/Patient/EditPatient.vue';
 import all from '../components/Patient/AllPatient.vue';
 import EmptyView from '../components/EmptyRouterView.vue';
-
+import detail from '../components/Patient/PatientDetail'
 export const patientroute = { 
     path:'/patients',  component:EmptyView,
     meta:{name:'Patients',link:'/patients',requiresAuth: true},
@@ -13,6 +13,14 @@ export const patientroute = {
             link:'/patients',
         }
     },
+    { path:'detail/:id',  component:detail,name:'patientdetail',
+    meta:{
+        name:'PatientDetail',
+        link:'',
+    }
+    },
+
+    
     // { path: 'add',  name:'addpatient',  component: addpatient,
     //     meta:{name:'Add',link:'/patients/add'}},
     // { path:'edit/:id', component:EmptyView ,

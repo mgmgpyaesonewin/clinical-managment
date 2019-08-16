@@ -10,7 +10,9 @@
 export default {
   props:['date','error'],
   mounted(){
-      console.log($('.mydatepicker').datepicker());
+      console.log($('.mydatepicker').datepicker({
+        format:'dd-mm-yyyy'
+      }));
       $(this.$el).datepicker();
     },
     beforeDestroy() {

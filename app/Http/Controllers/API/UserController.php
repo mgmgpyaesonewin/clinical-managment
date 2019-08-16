@@ -21,7 +21,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->paginate(15);
+        $users = $this->user->get();
         return $users;
     }
 
