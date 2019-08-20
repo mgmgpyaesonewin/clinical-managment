@@ -6,8 +6,10 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
         user: JSON.parse(localStorage.getItem('user')) || {},
+        consult:null,
     },
     getters:{
+      isConsult: state=>state.consult !== null,
       isLoggedIn: state => state.user.access_token !== null,
       isTokenValid: (state,getters) => {
         console.log(state.user)
@@ -21,6 +23,9 @@ const store = new Vuex.Store({
       setUser: (state, value) => {
         state.user = value;
       },
+      setConsult(state,value){
+        state.consult=value
+      }
     },
     actions:{
       saveUser: ({ commit }, data) => {

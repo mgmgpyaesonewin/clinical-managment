@@ -2,56 +2,59 @@
     <div>
         <div class="row page-titles">
       <div class="col-md-5 align-self-center">
-        <h4 class="text-themecolor">Patient Detail</h4>
     </div>
-      <div class="col-md-7 col-7 col-sm-7  align-self-center text-right">
-        <div class="d-flex justify-content-end align-items-center">
-           <breadcrum />        </div>
-    </div>
-    <!-- <div class="row"> -->
-        <div class="col-8 col-lg-8">
-              <b-tabs content-class="mt-3">
-        <b-tab @click="changetab(index)" v-for="(tab,index) in Tabs" :key="tab" :title="tab" >
+        <div class="col-12 col-lg-12">
+              <b-tabs  v-model="cindex" content-class="mt-3">
+        <b-tab @click="changetab(index)" v-for="(tab,index) in Tabs"  :key="tab" :title="tab" >
         </b-tab>
         </b-tabs>
-        <component :is="current"></component>
+        <component @setTab="changetab(6)" 
+        :is="current"></component>
           <!-- <profile/> -->
     </div>
-    <div class="col-4">
+    <!-- <div class="col-4">
         <h4 class="text-center">Detail</h4>
-    </div>
+    </div> -->
     <!-- </div> -->
     </div>
-    <fab
-   :position="position"
-   :bg-color="bgColor"
-   icon-size='small'
-   :actions="fabActions"
-   fixed-tooltip=true
-   @cache="cache"
-   @alertMe="alert"
-></fab>
+
     </div>
 </template>
 
 <script>
-
-import fab from 'vue-fab'
-import {BTabs,BTab,BNav,BNavItem} from 'bootstrap-vue'
+import Consultation from '../Consultation/AllConsultation'
+import CurrentConsult from '../Consultation/CurrentConsult'
+import Examination from '../Examination/AllExamination'
+import Investigation from '../Investigation/AllInvestigation'
+import Medication from '../Medication/AllMedication'
+import Problems from '../Problems/AllProblems';
+import {BTabs,BTab,BNav,BNavItem,VBModal} from 'bootstrap-vue'
 import Profile from './Profile'
 export default {
     components:{
         BTabs,
-          fab,
           BNav,
           BNavItem,
+          Problems,
+          Investigation,
         BTab,
-        Profile
-    }, data(){
+        Medication,
+        Profile,
+        Examination,
+        Consultation,
+        Selected_Consultation:CurrentConsult
+    },
+     directives:{
+       'b-modal': VBModal
+    },
+     data(){
       return {
-          Tabs : ['Profile','Investigation','Problems','Consultation','Medication'],
+          openConsultForm:false,
+          Tabs : ['Profile','Investigation','Examination',
+          'Problems','Consultation','Medication','Selected_Consultation'],
           current:'profile',
           bgColor: '#778899',
+          cindex:0,
           position: 'bottom-right',
           
           fabActions: [
@@ -70,14 +73,15 @@ export default {
   },
   methods:{
       changetab(index){
+          this.cindex=index
           this.current=this.Tabs[index]
       },
       cache(){
           console.log('Cache Cleared');
       },
-      alert(){
-          alert('Clicked on alert icon');
-      }
+     
+  },
+  mounted(){
   }
 }
 </script>

@@ -21,7 +21,7 @@ export default {
             patient:{}
         }
     },
-    async mounted(){
+    async created(){
     console.log(this.$route.params)
       let res= await  axios.get(`patients/${this.$route.params.id}`)
     this.patient=res.data
