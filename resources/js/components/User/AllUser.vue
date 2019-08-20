@@ -20,12 +20,12 @@
           @resetpatient="resetpatient()"
           @formsubmit="saveUser()"
         />
-        <!-- <user-form
+        <user-form
           :errors.sync="errors"
-          :patient.sync="patient"
+          :user.sync="user"
           modal="edit"
           @formsubmit="saveEditedUser()"
-        /> -->
+        />
       </div>
     </div>
     <div class="col-12">
@@ -38,12 +38,12 @@
         >
           <div slot="action" slot-scope="props">
             <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
-            <!-- <delete
+            <delete-user
               @deleteRow="deleterow($event)"
-              :patients.sync="patients"
+              :users.sync="users"
               :index="props.index"
               :data="props.row"
-            ></delete> -->
+            ></delete-user>
           </div>
           <template slot="child_row" slot-scope="props">
             <div>
@@ -158,7 +158,7 @@ export default {
       console.log(id);
     },
     binddata(id) {
-      this.user = this.users.find(p => p.id === id);
+      this.user = this.users.find(u => u.id === id);
     },
     resetpatient() {
       this.user = UserModel();
@@ -179,10 +179,10 @@ export default {
     },
     saveEditedUser() {
       axios
-        .put(`patients/${this.patient.id}`, this.patient)
+        .put(`users/${this.user.id}`, this.user)
         .then(response => {
           this.$toasted.show("Success !");
-          this.$router.push("/patients");
+          this.$router.push("/users");
           console.log(response.data);
         })
         .catch(error => {

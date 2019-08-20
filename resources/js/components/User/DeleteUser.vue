@@ -12,7 +12,7 @@ export default {
         this.$toasted.show('Deleted Successfully !')
         })
         .catch((err)=>{
-          this.$toasted.show('Error Deleting Patient Information',{icon:'fa-times-circle',type:'error'})
+          this.$toasted.show('Error Deleting User Information',{icon:'fa-times-circle',type:'error'})
       })
       }
         } 
