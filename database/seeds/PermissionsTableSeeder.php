@@ -12,11 +12,27 @@ class PermissionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('permissions')->insert([
-            'name' => 'create patients | edit patients | delete patients',
+            'name' => 'create patients',
             'guard_name' => 'web',
         ]);
         DB::table('permissions')->insert([
-            'name' => 'create users | edit users | delete users',
+            'name' => 'edit patients',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete patients',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'create users',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit users',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete users',
             'guard_name' => 'web',
         ]);
     }
