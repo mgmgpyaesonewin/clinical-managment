@@ -4,27 +4,212 @@
       <div class="col-md-5 align-self-center">
         <h4 class="text-themecolor">Information Of All Users</h4>
       </div>
-      <div class="col-md-7 col-12 align-self-center text-right">
+      <div class="col-md-7 col-7 col-sm-7 align-self-center text-right">
         <div class="d-flex justify-content-end align-items-center">
           <breadcrum />
-          <router-link type="button" to="/user/add" class="btn btn-info d-none d-lg-block m-l-15">
+          <button type="button" v-b-modal.create class="btn btn-info d-lg-block m-l-15">
             <i class="fa fa-plus-circle"></i> New User
-          </router-link>
+          </button>
         </div>
+      </div>
+      <div class="row">
+        <user-form
+          :errors.sync="errors"
+          :user.sync="this.user"
+          modal="create"
+          @resetpatient="resetpatient()"
+          @formsubmit="saveUser()"
+        />
+        <user-form
+          :errors.sync="errors"
+          :user.sync="user"
+          modal="edit"
+          @formsubmit="saveEditedUser()"
+        />
       </div>
     </div>
     <div class="col-12">
-      <div id="app">
-        <v-client-table :columns="columns" :data="users" :options="options">
+      <div>
+        <v-client-table
+          @row-click="testing($event)"
+          :columns="columns"
+          :data="users"
+          :options="options"
+        >
           <div slot="action" slot-scope="props">
-            <router-link :to="'/users/edit/'+props.row.id" class="fa fa-edit"></router-link>
-            <delete :patientdata.sync="patients" :index="props.index" :data="props.row"></delete>
+            <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
+            <delete-user
+              @deleteRow="deleterow($event)"
+              :users.sync="users"
+              :index="props.index"
+              :data="props.row"
+            ></delete-user>
           </div>
+          <template slot="child_row" slot-scope="props">
+            <div>
+              <b>Address :</b>
+              {{props.row.address}}
+            </div>
+            <div>
+              <b>Gender :</b>
+              {{props.row.gender}}
+            </div>
+            <div>
+              <b>City :</b>
+              {{props.row.city}}
+            </div>
+          </template>
         </v-client-table>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+let UserModel  = () => {
+  return {
+    name: null,
+    address: null,
+    dob: null,
+    nrc: null,
+    phone: null,
+    organization: null,
+    gender: "Male",
+    email: null,
+    password: null
+  };
+};
+
+import { BModal, VBModal, BButton } from "bootstrap-vue";
+import Vue from "vue";
+import UserForm from "./UserForm";
+import DeleteUser from "./DeleteUser.vue";
+export default {
+  components: {
+    'delete-user': DeleteUser,
+    BModal,
+    BButton,
+    'user-form': UserForm
+  },
+  directives: {
+    "b-modal": VBModal
+  },
+  data() {
+    return {
+      modal: "create",
+      user: {
+        name: null,
+        address: null,
+        dob: null,
+        nrc: null,
+        phone: null,
+        organization: null,
+        gender: "Male",
+        email: null,
+        password: null
+      },
+      errors: {},
+      columns: ["id", "name", "address", "dob", "nrc", "phone", "organization", "gender", "email", "created_at", "action"],
+      users: [],
+      options: {
+        // skin:'table table-hover table-borderless',
+        sortIcon: {
+          base: "fa",
+          is: "fa-sort",
+          up: "fa-sort-up",
+          down: "fa-sort-down"
+        },
+        templates: {
+          erase: "delete"
+        },
+        sortable: [
+          "id", 
+          "name", 
+          "address", 
+          "dob", 
+          "nrc", 
+          "phone", 
+          "organization", 
+          "gender", 
+          "email", 
+          "created_at"
+        ],
+        filterable: [
+          "id",
+          "name",
+          "dob",
+          "gender",
+          "address",
+          "city",
+          "phone_number",
+          "created_at"
+        ]
+      }
+    };
+  },
+  methods: {
+    testing(event) {
+      console.log(event.row.id);
+    },
+    deleterow(id) {
+      console.log("here");
+      console.log(id);
+      this.users = this.users.filter(p => p.id !== id);
+      console.log(id);
+    },
+    binddata(id) {
+      this.user = this.users.find(u => u.id === id);
+    },
+    resetpatient() {
+      this.user = UserModel();
+    },
+    saveUser() {
+      axios
+        .post("users", this.user)
+        .then(response => {
+          this.$toasted.show("Success !");
+          this.$router.push("/users");
+          this.fetchData();
+          this.resetpatient();
+        })
+        .catch(error => {
+          this.errors = error.response.data;
+          console.log(error.response.data);
+        });
+    },
+    saveEditedUser() {
+      axios
+        .put(`users/${this.user.id}`, this.user)
+        .then(response => {
+          this.$toasted.show("Success !");
+          this.$router.push("/users");
+          console.log(response.data);
+        })
+        .catch(error => {
+          this.errors = error.response.data;
+          console.log(error.response.data);
+        });
+    },
+    fetchData() {
+      axios
+        .get("users/")
+        .then(res => {
+          this.users = res.data;
+          console.log('####');
+          console.log(this.users);
+          console.log('####');
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  },
+  mounted() {
+    this.fetchData();
+  }
+};
+</script>
+
 <style lang="css">
 .table td,
 .table th {
@@ -79,71 +264,8 @@ th:nth-child(3) {
 .VueTables__child-row-toggler--open::before {
   content: "-";
 }
-</style>
-<script>
-import Vue from "vue";
-import deletecomponent from "./DeletePatient.vue";
-export default {
-  components: {
-    delete: deletecomponent
-  },
-  data() {
-    return {
-      columns: [
-        "id",
-        "name",
-        "dob",
-        "gender",
-        "address",
-        "city",
-        "phone_number",
-        "created_at",
-        "action"
-      ],
-      patients: [],
-      options: {
-        sortIcon: {
-          base: "fa",
-          is: "fa-sort",
-          up: "fa-sort-up",
-          down: "fa-sort-down"
-        },
-        templates: {
-          erase: "delete"
-        },
 
-        sortable: [
-          "name",
-          "dob",
-          "gender",
-          "address",
-          "city",
-          "phone_number",
-          "created_at"
-        ],
-        filterable: [
-          "name",
-          "dob",
-          "gender",
-          "address",
-          "city",
-          "phone_number",
-          "created_at"
-        ]
-      }
-    };
-  },
-  mounted() {
-    console.log(this.$toasted);
-    axios
-      .get("patients/")
-      .then(res => {
-        this.patients = res.data;
-        console.log(this.patients);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
-};
-</script>
+.modal-backdrop {
+  background-color: #00000085 !important;
+}
+</style>

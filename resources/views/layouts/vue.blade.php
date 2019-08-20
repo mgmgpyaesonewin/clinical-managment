@@ -16,7 +16,7 @@
         <link rel="stylesheet" href="{{ asset('css/template/responsive.css') }}">
         <link rel="stylesheet" href="{{ asset('css/template/tab-page.css') }}">
         <link rel="stylesheet" href="{{ asset('css/template/style.min.css') }}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/css/bootstrap-material-datetimepicker.min.css">
         <link rel="stylesheet" href="{{ asset('css/template/variable.css') }}">
