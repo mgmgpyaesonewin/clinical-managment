@@ -27,6 +27,7 @@ Route::group([
 Route::apiResources([
     'patients' => 'API\PatientController',
     'users' => 'API\UserController',
+    'consultations'=>'API\ConsultationController'
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -20,8 +20,9 @@
                         </label>
                         <div class="col-md-12">
                             <date-picker
-                            :error="errors.dob"
-                                :date.sync="patient.dob"
+                            :error.sync="errors.dob"
+                            :date.sync="patient.dob"
+                            @testing="setdate($event)"
                             />
                              <div class="invalid-feedback">
                                {{errors.dob && errors.dob[0]}}
@@ -95,7 +96,7 @@ var patientmodel= {
     gender: 'Male',
 }
 import { BModal, VBModal,BButton } from 'bootstrap-vue'
-import datepicker from './../DatePicker'
+import datepicker from './../NewDatepicker'
 export default {
     components:{
         BModal, 
@@ -107,6 +108,9 @@ export default {
         }
     },
     methods: { 
+        setdate(event){
+            this.patient.dob=event
+        },
         formsubmit(){
             this.$emit('formsubmit')
         }
