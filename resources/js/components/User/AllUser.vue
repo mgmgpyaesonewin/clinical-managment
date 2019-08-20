@@ -165,10 +165,10 @@ export default {
     },
     saveUser() {
       axios
-        .post("patients", this.patient)
+        .post("users", this.user)
         .then(response => {
           this.$toasted.show("Success !");
-          this.$router.push("/patients");
+          this.$router.push("/users");
           this.fetchData();
           this.resetpatient();
         })

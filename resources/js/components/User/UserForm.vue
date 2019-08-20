@@ -39,27 +39,44 @@
                    <div class="form-group">
                         <label class="col-md-12" for="example-email"> Phone No: </label>
                         <div class="col-md-12">
-                            <input type="text"  :class="{'is-invalid':  errors.phone_number ? true : false}" v-model="user.phone_number" class="form-control" placeholder="Enter Patient Phone No:">
+                            <input type="text"  :class="{'is-invalid':  errors.phone ? true : false}" v-model="user.phone" class="form-control" placeholder="Enter User Phone No:">
                              <div class="invalid-feedback">
-                               {{errors.phone_number && errors.phone_number[0]}}
+                               {{errors.phone && errors.phone[0]}}
                             </div>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-12" for="example-email"> City </label>
+                        <label class="col-md-12" for="example-email"> NRC </label>
                         <div class="col-md-12">
-                            <input  :class="{'is-invalid':  errors.city ? true : false}" type="text" v-model="user.city" class="form-control" placeholder="Enter City of Patient">
-                           <div class="invalid-feedback">
-                                {{errors.city && errors.city[0]}}
+                            <input  :class="{'is-invalid':  errors.nrc ? true : false}" type="text" v-model="user.nrc" class="form-control" placeholder="Enter NRC of User">
+                            <div class="invalid-feedback">
+                                {{errors.nrc && errors.nrc[0]}}
                             </div>
                         </div>
                     </div>
-                     <div class="form-group">
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Organization </label>
+                        <div class="col-md-12">
+                            <input  :class="{'is-invalid':  errors.organization ? true : false}" type="text" v-model="user.organization" class="form-control" placeholder="Enter Organization of User">
+                            <div class="invalid-feedback">
+                                {{errors.address && errors.address[0]}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Email </label>
+                        <div class="col-md-12">
+                            <input  :class="{'is-invalid':  errors.email ? true : false}" type="text" v-model="user.email" class="form-control" placeholder="Enter Email of User">
+                            <div class="invalid-feedback">
+                                {{errors.email && errors.email[0]}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
                         <label class="col-md-12" for="example-email"> Address </label>
                         <div class="col-md-12">
-                            
-                            <textarea  :class="{'is-invalid':  errors.address ? true : false}" class="form-control" placeholder="Enter Patient Address" id=""  v-model="patient.address"  cols="20" rows="5"></textarea>
-                           <div class="invalid-feedback">
+                            <textarea  :class="{'is-invalid':  errors.address ? true : false}" class="form-control" placeholder="Enter User Address" id=""  v-model="user.address"  cols="20" rows="5"></textarea>
+                            <div class="invalid-feedback">
                                 {{errors.address && errors.address[0]}}
                             </div>
                         </div>
@@ -67,7 +84,7 @@
                     <div class="col-12  text-center">                 
                        <button @click.prevent="formsubmit()" type="submit" class="btn  btn-info waves-effect waves-light m-r-10">Submit</button>            
                     </div>
-                        </form>
+                </form>
             </div>
         </div>
     </div>
