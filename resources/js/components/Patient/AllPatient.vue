@@ -37,6 +37,10 @@
           :options="options"
         >
           <div slot="action" slot-scope="props">
+            <router-link :to='`/patients/detail/${props.row.id}`'>
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </router-link>
+            <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-view"></a>
             <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
             <delete
               @deleteRow="deleterow($event)"

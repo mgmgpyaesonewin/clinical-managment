@@ -18,6 +18,18 @@
                         <li><a @click="$store.commit('setUser',{})"><i class="fa fa-power-off"></i> Logout</a></li>
                     </ul>
                 </li>
+                <router-link tag="li" to="/users">
+                    <a class="waves-effect waves-dark">
+                        <i class="fa fa-user-md"></i>
+                        <span class="hide-menu">Users</span>
+                    </a>
+                </router-link>
+                <router-link tag="li" to="/patients">
+                    <a class="waves-effect waves-dark">
+                        <i class="fa fa-user"></i>
+                        <span class="hide-menu">Patients</span>
+                    </a>
+                </router-link>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->
