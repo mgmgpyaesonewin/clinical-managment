@@ -27,6 +27,7 @@ Route::group([
 Route::apiResources([
     'patients' => 'API\PatientController',
     'users' => 'API\UserController',
+    'investigations'=>'API\InvestigationController',
     'consultations'=>'API\ConsultationController'
 ]);
 

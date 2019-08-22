@@ -13,8 +13,15 @@ class CreateInvestigationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('investigations', function (Blueprint $table) {
+        \Schema::create('investigations', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('term');
+            $table->string('value');
+            $table->string('consultation_id');
+            $table->string('doctor_id');
+            $table->string('code')->default('NN');
+            $table->string('snomed_ct')->default('aevrawer');
+            $table->string('range')->nullable();
             $table->timestamps();
         });
     }
