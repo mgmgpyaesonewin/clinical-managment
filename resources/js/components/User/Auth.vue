@@ -45,7 +45,7 @@ export default {
     },
     methods:{
         login(){
-            axios.post('auth/login/',this.user)
+            axios.post('/auth/login/',this.user)
             .then((res)=>{
                 // console.log(res.data);
                 this.$toasted.show('Success! ')
