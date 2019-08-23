@@ -15,7 +15,7 @@ class InvestigationRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,18 +27,21 @@ class InvestigationRequest extends FormRequest
     {
         throw new HttpResponseException(response()->json($validator->errors(), 422));
     }
-    protected function getValidatorInstance()
-    {
-        $data = $this->all();
-        $data['doctor_id']=auth('api')->user()->id;
-        $this->getInputSource()->replace($data);
-        // dd($this->all());
-        return parent::getValidatorInstance();
-    }
+    // protected function getValidatorInstance()
+    // {
+    //     $data = $this->all();
+    //     dd($data);
+    //     $data['doctor_id']=auth('api')->user()->id;
+    //     $this->getInputSource()->replace($data);
+    //     // dd($this->all());
+    //     return parent::getValidatorInstance();
+    // }
+    
     public function rules()
     {
         return['term'=>'required',
                'value'=>'required',
-               'doctor_id'=>'required']
+               'consultation_id'=>'required',
+               'doctor_id'=>'required'];
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\InvestigationRequest;
 use App\Repositories\Frontend\InvestigationRepository;
 
 class InvestigationController extends Controller
@@ -20,7 +21,13 @@ class InvestigationController extends Controller
     }
     public function index(Request $req)
     {
-        return $this->investRepo->with('doctor')
+        return $this->investRepo->with('consultation','doctor')
+        ->orderBy('created_at','desc')->get();
+    }
+
+    public function investigationPerConsultation(Request $req)
+    {
+        return $this->investRepo->with('consultation','doctor')
         ->where('consultation_id','=',$req->id)
         ->orderBy('created_at','desc')->get();
     }
@@ -30,9 +37,9 @@ class InvestigationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(InvestigationRequest $request)
     {
-        //
+        return $this->investRepo->create($request->validated());
     }
 
     /**
@@ -43,7 +50,7 @@ class InvestigationController extends Controller
      */
     public function show($id)
     {
-        //
+      
     }
 
     /**
@@ -53,9 +60,10 @@ class InvestigationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(InvestigationRequest $request, $id)
     {
-        //
+        $invest = $this->investRepo->updateById($id,$request->validated());
+        return $this->investRepo->with('doctor','consultation')->getById($invest->id);
     }
 
     /**

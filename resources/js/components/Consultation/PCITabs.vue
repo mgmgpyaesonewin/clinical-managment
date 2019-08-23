@@ -1,13 +1,13 @@
 <template>
     <div class="row">
         <div class="col-12">
-  <b-card no-body>
-    <b-tabs v-model="cindex" pills  vertical>
-      <b-tab @click="cindex=index" v-for="(tab,index) in ctabs" :key="tab" :title="tab" >
-          <component :is="tab"></component>
-      </b-tab>
-    </b-tabs>
-  </b-card>
+            <b-card no-body>
+                <b-tabs v-model="cindex" pills  vertical>
+                <b-tab @click="cindex=index" v-for="(tab,index) in ctabs" :key="tab" :title="tab" >
+                    <component :is="tab"></component>
+                </b-tab>
+                </b-tabs>
+            </b-card>
         </div>
     </div>
 </template>

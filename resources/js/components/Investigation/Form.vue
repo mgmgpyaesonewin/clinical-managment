@@ -1,12 +1,12 @@
 <template>
     <div>
-    <b-modal hide-footer title="Information of A Consultation">
+    <b-modal hide-footer :id="id" title="Information of A Consultation">
      <div class="col-sm-12">
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title"></h5>
                 <form class="form-material form-horizontal">
-                       <div class="form-group">
+                    <div class="form-group">
                         <div class="row mx-0">
                              <label class="col-md-6 " for="example-email"> Doctor
                         </label>
@@ -15,57 +15,52 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-12" for="example-email"> Title </span>
+                        <label class="col-md-12" for="example-email"> Term
                         </label>
                         <div class="col-md-12">
-                            <input type="text" v-model="consult.title" :class="{'is-invalid':  errors.title ? true : false}" class="form-control" placeholder="Enter Consult Title">
+                            <input type="text" v-model="invest.term" :class="{'is-invalid':  errors.term ? true : false}" class="form-control" placeholder="Enter Consult Term">
                             <div class="invalid-feedback">
-                                {{errors.title && errors.title[0]}}
+                                {{errors.term && errors.term[0]}}
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="form-group">
-                        <div class="row mx-0">
-                             <label class="col-md-6" for="example-email"> Date
-                        </label>
-                        <label class="col-md-6" for="example-email"> Time
-                        </label>
-                        </div>
-                       <div class="row mx-0">
-                        <div class="col-md-6">
-                            <date-picker
-                            :error="errors.date"
-                            :date.sync="consult.date"
-                            @testing="consult.date=$event"
-                            />
-                             <div class="invalid-feedback">
-                               {{errors.date && errors.date[0]}}
-                            </div>
-                        </div>
-                         <div class="col-md-6">
-                             <timepicker
-                             :error="errors.time"
-                             :time.sync="consult.time"
-                               @testing="consult.time=$event"
-                             />
-                             <div class="invalid-feedback">
-                               {{errors.time && errors.time[0]}}
-                            </div>
-                             
-
-                        </div>
-                       </div>
-                       
-                    </div> -->
-                 
-                     <div class="form-group">
-                        <label class="col-md-12" for="example-email"> Comment
+                    <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Value 
                         </label>
                         <div class="col-md-12">
-                            
-                            <textarea  :class="{'is-invalid':  errors.comment ? true : false}" class="form-control" placeholder="Enter consult Address" id=""  v-model="consult.comment"  cols="20" rows="5"></textarea>
-                           <div class="invalid-feedback">
-                                {{errors.comment && errors.comment[0]}}
+                            <input type="text" v-model="invest.value" :class="{'is-invalid':  errors.value ? true : false}" class="form-control" placeholder="Enter Consult value">
+                            <div class="invalid-feedback">
+                                {{errors.value && errors.value[0]}}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Code 
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text" v-model="invest.code" :class="{'is-invalid':  errors.code ? true : false}" class="form-control" placeholder="Enter Consult value">
+                            <div class="invalid-feedback">
+                                {{errors.code && errors.code[0]}}
+                            </div>
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Snomed CT 
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text" v-model="invest.snomed_ct" :class="{'is-invalid':  errors.snomed_ct ? true : false}" class="form-control" placeholder="Enter Consult value">
+                            <div class="invalid-feedback">
+                                {{errors.snomed_ct && errors.snomed_ct[0]}}
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                        <label class="col-md-12" for="example-email"> Range 
+                        </label>
+                        <div class="col-md-12">
+                            <input type="text" v-model="invest.range" :class="{'is-invalid':  errors.range ? true : false}" class="form-control" placeholder="Enter Consult value">
+                            <div class="invalid-feedback">
+                                {{errors.range && errors.range[0]}}
                             </div>
                         </div>
                     </div>
@@ -86,35 +81,22 @@ import timepicker from '../Timepicker'
 import { BModal, VBModal } from 'bootstrap-vue'
 
 export default {
+    props:['invest','errors','id'],
     components:{
         BModal,
         datePicker:datepicker,
         timepicker
     },
-    data(){
-        return{
-            errors:{},
-             consult:{
-                comment:null,
-                title:null,
-                patient_id:this.$route.params.id
-            },
 
-        }
-    },
     methods: {
       formsubmit(){
-          console.log(this.consult)
-          axios.post('consultations',this.consult)
-          .then((res)=>{
-                this.$toasted.show('Success !')
-          })
-          .catch((err)=>{
-            this.errors=err.response.data;
-            console.log(err.response.data)
-          })
+          console.log(this.invest)
+       this.$emit('submitform');
       }  
     },
+    mounted(){
+        console.log(this.invest.term)
+    }
     
 }
 </script>

@@ -16,7 +16,7 @@
                 </div>
                 <div class="row hover" @click="changetab(consultation.id)"
                   v-for="consultation in consultations" :key="consultation.id" >
-                 <div class="col-2 " >
+                 <div class="col-2 " style="font-size:12px" >
                  {{formattedDate(consultation.created_at)}}
                 </div>
                 <div class="col-8">
@@ -87,7 +87,6 @@ export default {
             this.$emit('setTab')
         },
       alert(){
-            console.log(this.$refs.consult)
             this.$refs.consult.$children[0].show()
       },
       formattedDate(date){
@@ -95,12 +94,9 @@ export default {
     }
     },
     mounted(){
-        console.log(moment());
         axios.get(`consultations?id=${this.$route.params.id}`)
         .then((res)=>{
             this.consultations=res.data
-            console.log(this.consultations)
-
             })
         .catch((err)=>console.log(err))
     }

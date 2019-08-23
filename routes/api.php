@@ -24,6 +24,7 @@ Route::group([
     Route::get('me', 'API\AuthController@me');
 
 });
+Route::get('investigationPerConsultation/{id}','API\InvestigationController@investigationPerConsultation');
 Route::apiResources([
     'patients' => 'API\PatientController',
     'users' => 'API\UserController',

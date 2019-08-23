@@ -27,27 +27,10 @@
                 </div>
                 <div class="col-12">
                     <hr>
-                    <div class="row">
-                       <div class="col-4">
-                            <pcicard
-                            ref='invest'
-                            @open="InvestOpen()"
-                            header='Investigation'
-                            />
-                       </div>
-                       <div class="col-4">
-                              <pcicard
-                            header='Problems'/>
-                       </div>
-                       <div class="col-4">
-                             <pcicard
-                            header='Medication'/>
-                       </div>
-                    </div>
-                </div>
-                </div>
-                </div>
                  <pcitabs/>
+                </div>
+                </div>
+                </div>
 
         </div>
  <iform
@@ -107,8 +90,6 @@ export default {
         axios.get(`consultations/${this.$store.state.consult}?id=${this.$route.params.id}`)
         .then((res)=>{
             this.consultation=res.data
-            console.log(this.consultation)
-
             })
         .catch((err)=>console.log(err))
     }
