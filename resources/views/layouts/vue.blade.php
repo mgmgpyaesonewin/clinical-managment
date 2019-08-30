@@ -35,6 +35,11 @@
             <script type="text/javascript" src="{{ asset('/js/template/custom.min.js') }}"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-material-datetimepicker/2.7.1/js/bootstrap-material-datetimepicker.min.js"></script>
             <script>
+              @auth
+                window.Permissions = {!! json_encode(Auth::user()->allPermissions, true) !!};
+              @else
+                window.Permissions = [];
+              @endauth
             </script>
     </body>
   </html>

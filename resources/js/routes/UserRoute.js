@@ -1,7 +1,4 @@
-import AddUser from '../components/User/AddUser.vue'
-import Auth from '../components/User/Auth.vue'
 import EmptyView from '../components/EmptyRouterView.vue';
-// import EditUser from '../components/Patient/EditUser.vue';
 import Users from '../components/User/AllUser.vue';
 
 export const UserRoute = { 
@@ -16,33 +13,6 @@ export const UserRoute = {
         link: '/users'
       }
     },
-    { 
-      path: 'add', 
-      name: 'adduser',
-      component: AddUser, 
-      meta: {
-        name:'Add'
-      }
-    },
     { path: 'login',  name:'login',  component: EmptyView, meta: {name:'Login',link:'/users/login'} },
-    { 
-      path: 'edit/:id', 
-      component: EmptyView ,
-      meta: {
-        name: 'Edit',
-        link: ''
-      },
-      // children: [
-      //   { 
-      //     path: '',
-      //     name: 'chooseuser',  
-      //     component: EditUser,
-      //     meta: {
-      //       name: '',
-      //       link: ''
-      //     }
-      //   },
-      // ]
-    }
   ] 
 };

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Http\Requests\RoleRequest;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\UserRequest;
-use App\Repositories\Frontend\UserRepository;
+use App\Repositories\Frontend\RoleRepository;
 
-class UserController extends Controller
+class RoleContoller extends Controller
 {
-    public $user;
-    public function __construct(UserRepository $userRepository)
+    public $role;
+    public function __construct(RoleRepository $roleRepository)
     {
-        $this->user = $userRepository;
+        $this->role = $roleRepository;
     }
     /**
      * Display a listing of the resource.
@@ -20,8 +20,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->get();
-        return $users;
+        //
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        
     }
 
     /**
@@ -30,10 +39,10 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserRequest $request)
+    public function store(RoleRequest $request)
     {
-        $user = $this->user->create($request->validated());
-        return $user;
+        $role = $this->role->create($request->validated());
+        return $role;
     }
 
     /**
@@ -44,7 +53,18 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
     }
 
     /**
@@ -54,10 +74,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = $this->user->updateById($id, $request->validated());
-        return $user;
+        //
     }
 
     /**
@@ -68,6 +87,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        $this->user->deleteById($id);
+        //
     }
 }
