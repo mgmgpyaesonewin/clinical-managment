@@ -24,12 +24,15 @@ Route::group([
     Route::get('me', 'API\AuthController@me');
 
 });
+Route::get('examinationPerConsultation/{id}','API\ExaminationController@examinationPerConsultation');
 Route::get('investigationPerConsultation/{id}','API\InvestigationController@investigationPerConsultation');
 Route::apiResources([
     'patients' => 'API\PatientController',
     'users' => 'API\UserController',
     'investigations'=>'API\InvestigationController',
-    'consultations'=>'API\ConsultationController'
+    'consultations'=>'API\ConsultationController',
+    'examinations'=>'API\ExaminationController'
+
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

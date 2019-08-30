@@ -19,9 +19,10 @@ class CreateInvestigationsTable extends Migration
             $table->string('value');
             $table->string('consultation_id');
             $table->string('doctor_id');
-            $table->string('code')->default('NN');
+            $table->string('code');
             $table->string('snomed_ct')->default('aevrawer');
             $table->string('range')->nullable();
+            $table->string('type');
             $table->timestamps();
         });
     }

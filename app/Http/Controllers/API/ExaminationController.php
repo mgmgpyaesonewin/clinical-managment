@@ -4,32 +4,31 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\InvestigationRequest;
-use App\Investigation;
+use App\Http\Requests\ExaminationRequest;
 use App\Repositories\Frontend\InvestigationRepository;
 
-class InvestigationController extends Controller
+class ExaminationController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $investRepo=null;
-    public function __construct(InvestigationRepository $repo)
+    public $ExamRepo=null;
+    public function __construct(InvestigationRepository $investrepo)
     {
-        $this->investRepo=$repo;
+        $this->ExamRepo=$investrepo;
     }
-    public function index(Request $req)
+    public function index()
     {
-        return $this->investRepo->with('consultation','doctor')
+        return $this->ExamRepo->with('consultation','doctor')
         ->orderBy('created_at','desc')->get();
     }
 
-    public function investigationPerConsultation(Request $req)
+    public function examinationPerConsultation(Request $req)
     {
-        return $this->investRepo->with('consultation','doctor')
-        ->where('type','i')
+        return $this->ExamRepo->with('consultation','doctor')
+        ->where('type','x')
         ->where('consultation_id','=',$req->id)
         ->orderBy('created_at','desc')->get();
     }
@@ -39,9 +38,10 @@ class InvestigationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InvestigationRequest $request)
+    public function store(ExaminationRequest $request)
     {
-        return $this->investRepo->create($request->validated());
+        // dd($request->validated());
+        return $this->ExamRepo->create($request->validated());
     }
 
     /**
@@ -52,7 +52,7 @@ class InvestigationController extends Controller
      */
     public function show($id)
     {
-      
+        //
     }
 
     /**
@@ -62,10 +62,10 @@ class InvestigationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(InvestigationRequest $request, $id)
+    public function update(ExaminationRequest $request, $id)
     {
-        $invest = $this->investRepo->updateById($id,$request->validated());
-        return $this->investRepo->with('doctor','consultation')->getById($invest->id);
+        $invest = $this->ExamRepo->updateById($id,$request->validated());
+        return $this->ExamRepo->with('doctor','consultation')->getById($invest->id);
     }
 
     /**
@@ -76,6 +76,6 @@ class InvestigationController extends Controller
      */
     public function destroy($id)
     {
-        $this->investRepo->deleteById($id);
+        $this->ExamRepo->deleteById($id);
     }
 }

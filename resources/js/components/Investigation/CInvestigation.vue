@@ -1,15 +1,37 @@
 <template>
-<div class="">
-    <div class="row">
+<div class="" style="top:150px;font-size:12px;padding:0">
+    <div class="row" >
         <div class="col-11">
-        <h4>All investigation</h4>
+        <h4>All {{name}}</h4>
         </div>
         <div class="col-1">
             <a v-b-modal.invest-add href="#">Add</a>
         </div>
-        
-        <div v-for="c in investigations" :key="c.id" class="col-12">
+                  <hr style="width:100%" >
+
+        <!-- <div v-for="c in investigations" :key="c.id" class="col-12">
             <a v-b-modal.invest-edit @click="bindbyid(c.id)"  href="#">edit</a>
+        </div> -->
+        <div class="col-12" style="overflow-y:scroll;height:450px" >
+            <div v-for="(c,index) in investigations" :key="c.id" class="row">
+              <div class="col-5">
+                  <div class="col-12">Term - {{c.term}}</div>
+                <div class="col-12">Value -{{c.value}}</div>
+              </div>
+            <div class="col-2">
+                <div class="col-12">Range</div>
+                <div class="col-12">{{c.range}}</div>
+            </div>
+            <div class="col-3">
+                <div class="col-12">Code:{{c.code}}</div>
+                <div class="col-12">Snomed CT:{{c.snomed_ct}}</div>
+            </div>
+            <div class="col-2">
+                <div class="col-12"><a href="#" v-b-modal.invest-edit  @click="bindbyid(c.id)">Edit</a></div>
+                <div class="col-12"><a @click.prevent="deleteInvestigation(c.id,index)" href="#" >Delete</a></div>
+            </div>
+            <hr style="width:100%">
+            </div>
         </div>
     </div>
      <iform
@@ -32,6 +54,7 @@ import iform from './Form'
 import {VBModal } from 'bootstrap-vue'
 
 export default {
+    props:['url','name'],
     components:{
         iform
     },
@@ -42,7 +65,7 @@ export default {
         return{
             investigations:[],
             invest:{
-                term:'gg',
+                term:'',
                 doctor_id:this.$store.state.user.data.id,
                 consultation_id:this.$store.state.consult,
                 value:null,
@@ -58,16 +81,30 @@ export default {
             this.invest=this.investigations.find((c)=>c.id===id)
         },
         submitform(){
-        axios.post('investigations',this.invest)
+        axios.post(`${this.url}s`,this.invest)
         .then((res)=>{
             this.$toasted.show('Success !')
+            this.investigations.unshift(res.data)
         })
         .catch((err)=>{
             this.ierrors=err.response.data
         })
         },
+        deleteInvestigation(id,index){
+            if(window.confirm('Do You Really Want to Delete?')){
+            axios.delete(`${this.url}s/${id}`)
+            .then((res)=>{
+            this.$toasted.show('Deleted Successfully !')
+            this.investigations=this.investigations.filter(i=>i.id!==id)
+            })
+            .catch((err)=>{
+                this.$toasted.show('Error Deleting Investigation Information',{icon:'fa-times-circle',type:'error'})
+            })
+            }
+
+        },
         updateform(){
-        axios.put(`investigations/${this.invest.id}`,this.invest)
+        axios.put(`${this.url}s/${this.invest.id}`,this.invest)
         .then((res)=>{
             this.$toasted.show('Success !')
         })
@@ -77,7 +114,7 @@ export default {
         }
     },
     mounted(){
-     axios(`investigationPerConsultation/${this.$store.state.consult}`)
+     axios(`${this.url}PerConsultation/${this.$store.state.consult}`)
      .then((res)=>{
          this.investigations=res.data
 
@@ -85,8 +122,9 @@ export default {
         console.log(this.investigations)
      })
      .catch((err)=>{
-            console.log(error)
+            console.log(err)
      })
+     
     }
 }
 </script>

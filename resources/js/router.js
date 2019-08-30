@@ -5,6 +5,7 @@ import store from './store';
 
 
 const CheckAuth = (to,from,next)=>{
+    store.commit('setConsult',null);
     if (to.matched.some(record => record.meta.requiresAuth)) {
         console.log(store.getters.isTokenValid)
         if (!store.getters.isTokenValid) {
