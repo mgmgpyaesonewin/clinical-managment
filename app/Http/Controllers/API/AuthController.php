@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\API;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class AuthController extends Controller
@@ -69,6 +68,15 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
+        // TODO: Check Permission
+        // $permissions = [];
+        // foreach (Permission::all() as $permission) {
+        //     if (auth('api')->user()->can($permission->name)) {
+        //         // dd($permission->name);
+        //         $permissions[] = $permission->name;
+        //     }
+        // }
+
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
