@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-1">Doctor</div>
                 <div class="col-1 ">
-                    <a @click.prevent="alert()" class="btn text-info" href="">New</a>
+                    <a @click.prevent="alert()" class="btn btn waves-effect waves-light btn-primary" href="">New</a>
                 </div>
                 </div>
                 <div class="row hover" @click="changetab(consultation.id)"
@@ -20,7 +20,7 @@
                  {{formattedDate(consultation.created_at)}}
                 </div>
                 <div class="col-8">
-                  <div class="col-12">Title : {{consultation.title}}, Comment : {{consultation.comment}}</div>
+                  <div><a href="#">Title : {{consultation.title}}, Comment : {{consultation.comment}}</a></div>
                 </div>
                 <div class="col-2">
                     {{consultation.doctor.name}}

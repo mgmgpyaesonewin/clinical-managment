@@ -11,7 +11,7 @@
                 </div>
                 <div class="col-1">Doctor</div>
                 <div class="col-1">
-                    <a  v-b-modal.consult class="" href="#">Edit</a>
+                    <a  v-b-modal.consult class="btn waves-effect waves-light btn-info" href="#">Edit</a>
                 </div>
                 </div>
                 <div class="row"
