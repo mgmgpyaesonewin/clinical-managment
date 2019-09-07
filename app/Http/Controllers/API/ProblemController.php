@@ -4,44 +4,41 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\InvestigationRequest;
-use App\Investigation;
-use App\Repositories\Frontend\InvestigationRepository;
+use App\Http\Requests\ProblemRequest;
+use App\Repositories\Frontend\ProblemRepository;
 
-class InvestigationController extends Controller
+class ProblemController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $investRepo=null;
-    public function __construct(InvestigationRepository $repo)
-    {
-        $this->investRepo=$repo;
-    }
-    public function index(Request $req)
-    {
-        return $this->investRepo->with('consultation','doctor')
-        ->orderBy('created_at','desc')->get();
-    }
 
-    public function investigationPerConsultation(Request $req)
+        public $prob;
+    public function __construct(ProblemRepository $repo)
     {
-        return $this->investRepo->with('consultation','doctor')
-        ->where('type','i')
+        $this->prob = $repo;
+    }
+    public function index()
+    {
+        //
+    }
+    public function problemPerConsultation(Request $req){
+        return $this->prob->with('consultation','consultation.doctor')
         ->where('consultation_id','=',$req->id)
         ->orderBy('created_at','desc')->get();
     }
+
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InvestigationRequest $request)
+    public function store(ProblemRequest $request)
     {
-        return $this->investRepo->create($request->validated());
+      return $this->prob->create($request->validated());
     }
 
     /**
@@ -52,7 +49,7 @@ class InvestigationController extends Controller
      */
     public function show($id)
     {
-      
+        //
     }
 
     /**
@@ -62,11 +59,9 @@ class InvestigationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(InvestigationRequest $request, $id)
+    public function update(ProblemRequest $request, $id)
     {
-        // dd($request->validated());
-        $invest = $this->investRepo->updateById($id,$request->validated());
-        return $this->investRepo->with('doctor','consultation')->getById($invest->id);
+        $patient = $this->prob->updateById($id,$request->validated());
     }
 
     /**
@@ -77,6 +72,7 @@ class InvestigationController extends Controller
      */
     public function destroy($id)
     {
-        $this->investRepo->deleteById($id);
+        $this->prob->deleteById($id);
+
     }
 }
