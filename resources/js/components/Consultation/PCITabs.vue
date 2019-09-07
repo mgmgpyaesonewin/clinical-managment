@@ -15,13 +15,13 @@
 import {BTabs,BTab,BCard,BCardText} from 'bootstrap-vue'
 import Investigation from '../Investigation/CInvestigation'
 import Examination from '../Investigation/CInvestigation'
-import Problems from '../Problems/CProblems'
+import Problem from '../Problems/CProblems'
 import Medication from '../Medication/CMedication'
 export default {
     data(){
         return{
             cindex:0,
-            ctabs:['Investigation','Problems','Medication','Examination']
+            ctabs:['Investigation','Problem','Medication','Examination']
         }
     },
     computed:{
@@ -30,7 +30,7 @@ export default {
         }
     },
     components:{
-        BTabs,BTab,BCard,BCardText,Investigation,Medication,Problems,Examination
+        BTabs,BTab,BCard,BCardText,Investigation,Medication,Problem,Examination
     }
 }
 </script>
