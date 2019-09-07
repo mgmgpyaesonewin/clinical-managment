@@ -31,8 +31,8 @@ Route::apiResources([
     'users' => 'API\UserController',
     'investigations'=>'API\InvestigationController',
     'consultations'=>'API\ConsultationController',
-    'examinations'=>'API\ExaminationController'
-
+    'examinations'=>'API\ExaminationController',
+    'roles' => 'API\RoleController'
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

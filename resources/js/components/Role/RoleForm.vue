@@ -6,7 +6,7 @@
           <h5 class="card-title"></h5>
           <form class="form-material form-horizontal">
             <div class="form-group">
-              <label class="col-md-12" for="example-email">Name</label>
+              <label class="col-md-12">Name</label>
               <div class="col-md-12">
                 <input
                   type="text"
@@ -32,20 +32,22 @@
   </b-modal>
 </template>
 <style lang="css">
-.bootstrap-datetimepicker-widget {
-  background-color: black !important;
-  z-index: 9040 !important;
-}
+  .bootstrap-datetimepicker-widget {
+    background-color: black !important;
+    z-index: 9040 !important;
+  }
 </style>
 <script>
+
 import { BModal, VBModal, BButton } from "bootstrap-vue";
-import datepicker from "./../DatePicker";
+import datepicker from './../DatePicker';
+
 export default {
   components: {
     BModal,
     datePicker: datepicker
   },
-  props: ["user", "errors", "modal"],
+  props: ['role', "errors", "modal"],
   data() {
     return {};
   },
@@ -57,7 +59,7 @@ export default {
   mounted() {
     this.$root.$on("bv::modal::show", (bvEvent, modalId) => {
       if (modalId === "create") {
-        this.$emit("resetpatient");
+        this.$emit("resetRole");
       }
     });
   }

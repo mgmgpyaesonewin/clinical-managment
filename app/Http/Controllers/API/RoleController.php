@@ -6,7 +6,7 @@ use App\Http\Requests\RoleRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Frontend\RoleRepository;
 
-class RoleContoller extends Controller
+class RoleController extends Controller
 {
     public $role;
     public function __construct(RoleRepository $roleRepository)
@@ -41,6 +41,7 @@ class RoleContoller extends Controller
      */
     public function store(RoleRequest $request)
     {
+        dd($request->validated());
         $role = $this->role->create($request->validated());
         return $role;
     }

@@ -115,7 +115,6 @@ export default {
         formsubmit(){
             this.$emit('formsubmit')
         }
-       
     },
     mounted(){
         this.$root.$on('bv::modal::show', (bvEvent, modalId) => {

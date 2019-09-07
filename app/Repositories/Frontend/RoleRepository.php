@@ -4,7 +4,7 @@ namespace App\Repositories\Frontend;
 use App\Repositories\BaseRepository;
 use Spatie\Permission\Models\Role;
 
-class UserRepository extends BaseRepository {
+class RoleRepository extends BaseRepository {
   
   public function model() {
       return Role::class;

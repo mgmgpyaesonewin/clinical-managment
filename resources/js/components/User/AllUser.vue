@@ -81,7 +81,6 @@ let UserModel  = () => {
 };
 
 import { BModal, VBModal, BButton } from "bootstrap-vue";
-import Vue from "vue";
 import UserForm from "./UserForm";
 import DeleteUser from "./DeleteUser.vue";
 export default {
