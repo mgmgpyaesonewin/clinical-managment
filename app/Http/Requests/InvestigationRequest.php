@@ -49,6 +49,7 @@ class InvestigationRequest extends FormRequest
                'consultation_id'=>'required',
                'code'=>'required',
                'type'=>'required',
+               'range'=>'nullable',
                'snomed_ct'=>'required',
                'doctor_id'=>'required'
             ];
