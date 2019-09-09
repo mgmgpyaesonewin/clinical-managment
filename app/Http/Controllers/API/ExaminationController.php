@@ -21,7 +21,9 @@ class ExaminationController extends Controller
     }
     public function index()
     {
-        return $this->ExamRepo->with('consultation','doctor')
+        return $this->ExamRepo
+        ->where('type', 'x')
+        ->with('consultation','doctor')
         ->orderBy('created_at','desc')->get();
     }
 

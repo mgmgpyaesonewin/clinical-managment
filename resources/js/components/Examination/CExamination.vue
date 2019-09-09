@@ -5,7 +5,7 @@
         <h4>All Examination</h4>
         </div>
         <div class="col-1">
-            <a v-b-modal.exam-add href="#">Add</a>
+            <a v-b-modal.exam-add href="#" class="btn waves-effect waves-light btn-primary">Add</a>
         </div>
         
         <div class="col-12" style="overflow-y:scroll;height:500px;" >
