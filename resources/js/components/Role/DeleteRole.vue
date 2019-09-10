@@ -1,7 +1,7 @@
 <script>
 import Swal from 'sweetalert2'
 export default {
-    props: ['data', 'index', 'patients'],
+    props: ['data', 'index', 'roles'],
     template: `<a href="#" class='fa fa-trash' @click.prevent='erase'></a>`,
     methods: {
         async alert() {
@@ -18,13 +18,13 @@ export default {
         async erase() {
             if( await this.alert()) {
                 const id = this.data.id
-                axios.delete(`/patients/${id}`)
+                axios.delete(`/roles/${id}`)
                 .then((res)=>{
                     this.$emit('deleteRow',id)
                     this.$toasted.show('Deleted Successfully !')
                 })
-                .catch((err)=>{
-                    this.$toasted.show('Error Deleting Patient Information',{icon:'fa-times-circle',type:'error'})
+                .catch((err)=>{ 
+                    this.$toasted.show('Error Deleting Role Information',{icon:'fa-times-circle',type:'error'})
                 })
             }
         } 

@@ -40,12 +40,10 @@
 <script>
 
 import { BModal, VBModal, BButton } from "bootstrap-vue";
-import datepicker from './../DatePicker';
 
 export default {
   components: {
-    BModal,
-    datePicker: datepicker
+    BModal
   },
   props: ['role', "errors", "modal"],
   data() {

@@ -244,7 +244,7 @@ export default {
 }
 
 th:nth-child(3) {
-  text-align: center;
+  text-align: left;
 }
 
 .VueTables__child-row-toggler {

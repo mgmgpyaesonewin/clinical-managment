@@ -82,14 +82,14 @@ export default {
             this.invest=this.investigations.find((c)=>c.id===id)
         },
         submitform(){
-        axios.post(`${this.url}s`,this.invest)
-        .then((res)=>{
-            this.$toasted.show('Success !')
-            this.investigations.unshift(res.data)
-        })
-        .catch((err)=>{
-            this.ierrors=err.response.data
-        })
+            axios.post(`${this.url}s`,this.invest)
+            .then((res)=>{
+                this.$toasted.show('Success !')
+                this.investigations.unshift(res.data)
+            })
+            .catch((err)=>{
+                this.ierrors=err.response.data
+            })
         },
         async alert() {
             let { value } = await Swal.fire({
@@ -104,14 +104,14 @@ export default {
         },
         async deleteInvestigation(id,index) {
             if(await this.alert()){
-            axios.delete(`${this.url}s/${id}`)
-            .then((res)=>{
-            this.$toasted.show('Deleted Successfully !')
-            this.investigations=this.investigations.filter(i=>i.id!==id)
-            })
-            .catch((err)=>{
-                this.$toasted.show('Error Deleting Investigation Information',{icon:'fa-times-circle',type:'error'})
-            })
+                axios.delete(`${this.url}s/${id}`)
+                .then((res)=>{
+                    this.$toasted.show('Deleted Successfully !')
+                    this.investigations=this.investigations.filter(i=>i.id!==id)
+                })
+                .catch((err)=>{
+                    this.$toasted.show('Error Deleting Investigation Information',{icon:'fa-times-circle',type:'error'})
+                })
             }
         },
         updateform(){

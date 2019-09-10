@@ -2,37 +2,31 @@
     <div>
         <div class="card mt-1" >
             <div class="card-body" style="font-size:13px;padding:0">
-                <div class="row " >
-                <div class="col-2">
-                  Date
+                <div class="row">
+                    <div class="col-2">Date</div>
+                    <div class="col-8">Text</div>
+                    <div class="col-1">Doctor</div>
+                    <div class="col-1">
+                        <a v-b-modal.consult class="btn waves-effect waves-light btn-info" href="#">Edit</a>
+                    </div>
                 </div>
-                <div class="col-8">
-                  Text
+                <div class="row">
+                    <div class="col-2 " style="font-size:12px;">
+                        {{formattedDate(consultation.created_at)}}
+                    </div>
+                    <div class="col-8">
+                        Title : {{consultation.title}}, Comment : {{consultation.comment}}
+                    </div>
+                    <div class="col-2">
+                        {{consultation.doctor.name}}
+                    </div>
+                    <div class="col-12">
+                        <hr>
+                    </div>
                 </div>
-                <div class="col-1">Doctor</div>
-                <div class="col-1">
-                    <a  v-b-modal.consult class="btn waves-effect waves-light btn-info" href="#">Edit</a>
-                </div>
-                </div>
-                <div class="row"
-                  >
-                 <div class="col-2 " style="font-size:12px;" >
-                 {{formattedDate(consultation.created_at)}}
-                </div>
-                <div class="col-8">
-                  Title : {{consultation.title}}, Comment : {{consultation.comment}}
-                </div>
-                <div class="col-2">
-                    {{consultation.doctor.name}}
-                </div>
-                <div class="col-12">
-                    <hr>
-                </div>
-                </div>
-                </div>
-                                 <pcitabs/>
-
-                <hr style="width:100%">
+            </div>
+            <pcitabs/>
+            <hr style="width:100%">
         </div>
  <iform
 ref="invest"

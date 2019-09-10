@@ -30,6 +30,12 @@
                         <span class="hide-menu">Patients</span>
                     </a>
                 </router-link>
+                <router-link tag="li" to="/roles">
+                    <a class="waves-effect waves-dark">
+                        <i class="fa fa-user"></i>
+                        <span class="hide-menu">Roles</span>
+                    </a>
+                </router-link>
             </ul>
         </nav>
         <!-- End Sidebar navigation -->

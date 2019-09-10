@@ -11,6 +11,7 @@ class RoleController extends Controller
     public $role;
     public function __construct(RoleRepository $roleRepository)
     {
+        $this->middleware('auth:api');
         $this->role = $roleRepository;
     }
     /**
@@ -20,7 +21,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        //
+        return $this->role->get();
     }
 
     /**
@@ -74,9 +75,10 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RoleRequest $request, $id)
     {
-        //
+        $role = $this->role->updateById($id,$request->validated());
+        return $role;
     }
 
     /**
@@ -87,6 +89,6 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->role->deleteById($id);
     }
 }

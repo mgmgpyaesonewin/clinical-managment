@@ -60,6 +60,7 @@
 <script>
 import pform from './Form'
 import {VBModal } from 'bootstrap-vue'
+import Swal from 'sweetalert2'
 
 export default {
     props:['url','name'],
@@ -79,7 +80,7 @@ export default {
             //     name:'Inactive',
             //     value: false,
             // }],
-             statusoption:['Active','Inactive'],
+            statusoption:['Active','Inactive'],
             problems:[],
             problem:{
                 patient_id:this.$route.params.id,
@@ -100,28 +101,38 @@ export default {
             this.problem=this.problems.find((c)=>c.id===id)
         },
         submitform(){
-        axios.post(`${this.url}s`,this.problem)
-        .then((res)=>{
-            this.$toasted.show('Success !')
-            this.problems.unshift(res.data)
-        })
-        .catch((err)=>{
-            this.ierrors=err.response.data.errors
-            console.log( this.ierrors);
-        })
-        },
-        deleteInvestigation(id,index){
-            if(window.confirm('Do You Really Want to Delete?')){
-            axios.delete(`${this.url}s/${id}`)
+            axios.post(`${this.url}s`,this.problem)
             .then((res)=>{
-            this.$toasted.show('Deleted Successfully !')
-            this.problems=this.problems.filter(i=>i.id!==id)
+                this.$toasted.show('Success !')
+                this.problems.unshift(res.data)
             })
             .catch((err)=>{
-                this.$toasted.show('Error Deleting Investigation Information',{icon:'fa-times-circle',type:'error'})
+                this.ierrors=err.response.data.errors
+                console.log( this.ierrors);
             })
+        },
+        async alert() {
+            let { value } = await Swal.fire({
+                title: 'Are you sure?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            });
+            return value;
+        },
+        async deleteInvestigation(id,index){
+            if(await this.alert()){
+                axios.delete(`${this.url}s/${id}`)
+                .then((res)=>{
+                    this.$toasted.show('Deleted Successfully !')
+                    this.problems=this.problems.filter(i=>i.id!==id)
+                })
+                .catch((err)=>{
+                    this.$toasted.show('Error Deleting Investigation Information',{icon:'fa-times-circle',type:'error'})
+                })
             }
-
         },
         updateform(){
         axios.put(`${this.url}s/${this.problem.id}`,this.problem)
