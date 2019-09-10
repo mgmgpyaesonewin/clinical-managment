@@ -19,7 +19,6 @@
           modal="create"
           @formsubmit="saveRole()"
         />
-
       </div>
     </div>
   </div>

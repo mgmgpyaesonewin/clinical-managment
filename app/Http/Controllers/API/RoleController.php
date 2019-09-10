@@ -41,7 +41,6 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        dd($request->validated());
         $role = $this->role->create($request->validated());
         return $role;
     }
