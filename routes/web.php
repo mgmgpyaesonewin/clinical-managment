@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+use App\Http\Controllers\API\ExaminationController;
+
 Route::get('/home/{vue_capture?}', function () {
     return view('home');
 })->where('vue_capture', '[\/\w\.-]*');

@@ -22,7 +22,7 @@ class InvestigationController extends Controller
     }
     public function index(Request $req)
     {
-        return $this->investRepo->with('consultation','doctor')
+        return $this->investRepo->where('type', 'i')->with('consultation','doctor')
         ->orderBy('created_at','desc')->get();
     }
 

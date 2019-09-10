@@ -22,7 +22,7 @@ class ProblemController extends Controller
     }
     public function index()
     {
-        //
+        return $this->prob->orderBy('created_at','desc')->get();
     }
     public function problemPerConsultation(Request $req){
         return $this->prob->with('consultation','consultation.doctor')

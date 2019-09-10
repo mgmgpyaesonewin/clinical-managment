@@ -5,7 +5,7 @@
         <h4>All {{name}}</h4>
         </div>
         <div class="col-1">
-            <a v-b-modal.invest-add href="#">Add</a>
+            <a v-b-modal.invest-add href="#" class="btn waves-effect waves-light btn-primary">Add</a>
         </div>
                   <hr style="width:100%" >
 
@@ -16,23 +16,23 @@
             <div v-for="(c,index) in problems" :key="c.id" class="row">
               <div class="col-3">
                   <div class="col-12">Name - {{c.name}}</div>
-                <div class="col-12">Code -{{c.code}}</div>
+                <div class="col-12">Code - {{c.code}}</div>
               </div>
             <div class="col-2">
                 <div class="col-12">Type - {{c.type}}</div>
-                <div class="col-12">Status -{{c.status}}</div>
+                <div class="col-12">Status - {{c.status}}</div>
             </div>
             <div class="col-3">
-                <div class="col-12">Start Date- {{c.start_time}}</div>
+                <div class="col-12">Start Date - {{c.start_time}}</div>
                 <div class="col-12">End Date - {{c.end_time}}</div>
             </div>
             <div class="col-2">
                 <div class="col-12">Authorizer</div>
                 <div class="col-12">{{$store.state.user.data.name}}</div>
             </div>
-            <div class="col-2">
-                <div class="col-12"><a href="#" v-b-modal.invest-edit  @click="bindbyid(c.id)">Edit</a></div>
-                <div class="col-12"><a @click.prevent="deleteInvestigation(c.id,index)" href="#" >Delete</a></div>
+            <div class="col-2 row">
+                <div class="col-6"><a class="btn waves-effect waves-light btn-info" href="#" v-b-modal.invest-edit  @click="bindbyid(c.id)">Edit</a></div>
+                <div class="col-6"><a class="btn waves-effect waves-light btn-danger" @click.prevent="deleteInvestigation(c.id,index)" href="#" >Delete</a></div>
             </div>
             <hr style="width:100%">
             </div>
