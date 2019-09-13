@@ -35,5 +35,61 @@ class PermissionsTableSeeder extends Seeder
             'name' => 'delete users',
             'guard_name' => 'web',
         ]);
+
+        // investigations
+        DB::table('permissions')->insert([
+            'name' => 'create investigations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit investigations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete investigations',
+            'guard_name' => 'web',
+        ]);
+
+        // investigations
+        DB::table('permissions')->insert([
+            'name' => 'create investigations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit investigations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete investigations',
+            'guard_name' => 'web',
+        ]);
+
+        // problems
+        DB::table('permissions')->insert([
+            'name' => 'create problems',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit problems',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete problems',
+            'guard_name' => 'web',
+        ]);
+
+        // examinations
+        DB::table('permissions')->insert([
+            'name' => 'create examinations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit examinations',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete examinations',
+            'guard_name' => 'web',
+        ]);
     }
 }
