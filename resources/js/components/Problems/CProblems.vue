@@ -43,6 +43,9 @@
     :problem.sync="problem"
         :statusoption="statusoption"
     :typeoption="typeoption"
+        :durationoption="durationoption"
+
+        :actionoption="actionoption"
     @submitform="submitform()"
     :errors="ierrors"
 />
@@ -50,6 +53,8 @@
     id="invest-edit"
     :problem.sync="problem"
     :statusoption="statusoption"
+    :durationoption="durationoption"
+    :actionoption="actionoption"
         :typeoption="typeoption"
     @submitform="updateform()"
     :errors="ierrors"
@@ -80,7 +85,9 @@ export default {
             //     name:'Inactive',
             //     value: false,
             // }],
-            statusoption:['Active','Inactive'],
+            actionoption:['Combine','Evolve','Group'],
+            durationoption:['7 days','14 days','28 days','3 mon','6 mon','1 yr','custom'],
+            statusoption:['Active Problem','Past/Ended Problem'],
             problems:[],
             problem:{
                 patient_id:this.$route.params.id,
@@ -89,6 +96,7 @@ export default {
                 start_time:null,
                 end_time:null,
                 status:'',
+                duration:null,
                 doctor_id:this.$store.state.user.data.id,
                 consultation_id:this.$store.state.consult,
                 code:null,

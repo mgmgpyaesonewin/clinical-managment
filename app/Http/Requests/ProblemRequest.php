@@ -31,6 +31,8 @@ class ProblemRequest extends FormRequest
             'patient_id'=> 'required',
             'status'  =>  'required',
             'start_time'=> 'nullable',
+            'action'=>'required',
+            'duration'=>'nullable',
             'end_time'=>'nullable',
         ];
     }
