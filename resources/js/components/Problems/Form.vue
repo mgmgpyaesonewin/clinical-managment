@@ -60,7 +60,33 @@
                             </div>
                         </div>
                     </div>
+                     <div class="form-group">
+                        <div class="row mx-0">
+                             <label class="col-md-6 " for="example-email"> Action
+                        </label>
+                            <select class="col-md-6 form-control" :class="{'is-invalid':  errors.action ? true : false}"
+                             v-model="problem.action" id="">
+                                <option v-for="option in actionoption" :key="option" :value="option">{{option}}</option>
+                            </select>
+                              <div class="ml-2 invalid-feedback">
+                                {{errors.action && errors.action[0]}}
+                            </div>
+                        </div>
+                    </div>
                     
+                    <div  v-if="checkforduration()" class="form-group">
+                        <div class="row mx-0">
+                             <label class="col-md-6 " for="example-email"> Duration
+                        </label>
+                            <select class="col-md-6 form-control" :class="{'is-invalid':  errors.duration ? true : false}"
+                             v-model="problem.duration" id="">
+                                <option v-for="option in durationoption" :key="option" :value="option">{{option}}</option>
+                            </select>
+                              <div class="ml-2 invalid-feedback">
+                                {{errors.duration && errors.duration[0]}}
+                            </div>
+                        </div>
+                    </div>
                      <div v-if="checkstatus()" class="form-group">
                         <div class="row mx-0">
                              <label class="col-md-6 " for="example-email"> Start date
@@ -113,14 +139,28 @@ import timepicker from '../Timepicker'
 import { BModal, VBModal } from 'bootstrap-vue'
 
 export default {
-    props:['problem','errors','id','typeoption','statusoption'],
+    props:['problem','errors','id','durationoption','typeoption','statusoption','actionoption'],
     components:{
         BModal,
         datePicker:datepicker,
         datePicker2:datepicker2,
         timepicker
     },
+    computed:{
+        statuschange(){
+            return this.problem.status;
+        }
+    },
+    watch:{
+        statuschange(val){
+           this.problem.start_time=null;
+           this.problem.end_time=null;
+        }
+    },
     methods: {
+    checkforduration(){
+        return this.problem.status==='Active Problem';
+    },
     setstartdate(event){
         console.log('start')
         this.problem.start_time=event
@@ -130,7 +170,7 @@ export default {
         this.problem.end_time=event
     },
     checkstatus(){
-        return this.problem.status==='Active';
+        return this.problem.status==='Past/Ended Problem' || this.problem.duration==='custom';
     },
     formsubmit(){
         console.log(this.problem)
