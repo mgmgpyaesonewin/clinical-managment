@@ -30,14 +30,15 @@
     <div>
       <v-client-table :data="roles" :columns="columns" :options="options">
         <div slot="action" slot-scope="props">
-            <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
-            <delete-role
-              @deleteRow="deleterow($event)"
-              :roles.sync="roles"
-              :index="props.index"
-              :data="props.row"
-            ></delete-role>
-          </div>
+          <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
+          <delete-role
+            @deleteRow="deleterow($event)"
+            :roles.sync="roles"
+            :index="props.index"
+            :data="props.row"
+          ></delete-role>
+          <router-link :to="{ name: 'Permissions', params: { name: props.row.name }}" class="fa fa-key"></router-link>
+        </div>
       </v-client-table>
     </div>
   </div>
@@ -104,14 +105,14 @@ th:nth-child(3) {
 <script>
 import { BModal, VBModal, BButton } from "bootstrap-vue";
 import RoleForm from "./RoleForm";
-import deletecomponent from "./DeleteRole.vue";
+import deletecomponent from "./DeleteRole.vue";``
 
 export default {
   components: {
     'role-form': RoleForm,
     BModal,
     BButton,
-    'delete-role': deletecomponent
+    'delete-role': deletecomponent,
   },
   directives: {
     "b-modal": VBModal
@@ -188,10 +189,10 @@ export default {
         .get('roles/')
         .then(res => this.roles = res.data)
         .catch(err => console.log(err));
-    }
+    },
   },
   mounted() {
     this.fetchRoles()
-  }
+  },
 }
 </script>

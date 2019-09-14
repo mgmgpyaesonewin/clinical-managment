@@ -11,6 +11,11 @@ class PermissionsTableSeeder extends Seeder
      */
     public function run()
     {
+        //patients
+        DB::table('permissions')->insert([
+            'name' => 'read patients',
+            'guard_name' => 'web',
+        ]);
         DB::table('permissions')->insert([
             'name' => 'create patients',
             'guard_name' => 'web',
@@ -21,6 +26,12 @@ class PermissionsTableSeeder extends Seeder
         ]);
         DB::table('permissions')->insert([
             'name' => 'delete patients',
+            'guard_name' => 'web',
+        ]);
+
+        //users
+        DB::table('permissions')->insert([
+            'name' => 'read users',
             'guard_name' => 'web',
         ]);
         DB::table('permissions')->insert([
@@ -38,19 +49,9 @@ class PermissionsTableSeeder extends Seeder
 
         // investigations
         DB::table('permissions')->insert([
-            'name' => 'create investigations',
+            'name' => 'read investigations',
             'guard_name' => 'web',
         ]);
-        DB::table('permissions')->insert([
-            'name' => 'edit investigations',
-            'guard_name' => 'web',
-        ]);
-        DB::table('permissions')->insert([
-            'name' => 'delete investigations',
-            'guard_name' => 'web',
-        ]);
-
-        // investigations
         DB::table('permissions')->insert([
             'name' => 'create investigations',
             'guard_name' => 'web',
@@ -66,6 +67,10 @@ class PermissionsTableSeeder extends Seeder
 
         // problems
         DB::table('permissions')->insert([
+            'name' => 'read problems',
+            'guard_name' => 'web',
+        ]);
+        DB::table('permissions')->insert([
             'name' => 'create problems',
             'guard_name' => 'web',
         ]);
@@ -79,6 +84,10 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         // examinations
+        DB::table('permissions')->insert([
+            'name' => 'read examinations',
+            'guard_name' => 'web',
+        ]);
         DB::table('permissions')->insert([
             'name' => 'create examinations',
             'guard_name' => 'web',
