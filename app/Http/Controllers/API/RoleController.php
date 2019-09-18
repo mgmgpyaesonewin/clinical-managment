@@ -5,6 +5,9 @@ namespace App\Http\Controllers\API;
 use App\Http\Requests\RoleRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Frontend\RoleRepository;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -90,5 +93,12 @@ class RoleController extends Controller
     public function destroy($id)
     {
         $this->role->deleteById($id);
+    }
+
+    public function assignPermissions(Request $request) 
+    {
+        $role = Role::where('id', $request->roleId)->first();
+        $permission = Permission::whereIn('id', $request->permissionIds)->get();
+        $role->givePermissionTo($permission);
     }
 }

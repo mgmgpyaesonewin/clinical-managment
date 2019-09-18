@@ -2,7 +2,7 @@
     <div class="card card-shadow border-info">
         <div class="card-header bg-info">
             <label>
-                <input type="checkbox" />
+                <input type="checkbox" @click="toggleSelect" :checked="selectAll"/>
                 <h5 class="m-b-0 text-white display-inline">{{ title | capitalize }}</h5>
             </label>
         </div>
@@ -29,7 +29,8 @@ export default {
     props: ['permissionsGroup'],
     data() {
         return {
-            title: ''
+            title: '',
+            permissionGroups: this.permissionsGroup,
         }
     },
     filters: {
@@ -37,6 +38,21 @@ export default {
             if (!value) return ''
             value = value.toString()
             return value.charAt(0).toUpperCase() + value.slice(1)
+        }
+    },
+    methods: {
+        toggleSelect: function() {
+            var select = this.selectAll;
+            this.permissionsGroup.forEach(function(permission) {
+                permission.selected = !select;
+            });
+        }
+    },
+    computed: {
+        selectAll: function() {
+            return this.permissionsGroup.every(function(permission){
+                return permission.selected;
+            });
         }
     },
     mounted() {

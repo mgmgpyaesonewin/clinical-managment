@@ -28,6 +28,7 @@ Route::get('examinationPerConsultation/{id}','API\ExaminationController@examinat
 Route::get('investigationPerConsultation/{id}','API\InvestigationController@investigationPerConsultation');
 Route::get('problemPerConsultation/{id}','API\ProblemController@problemPerConsultation');
 Route::get('permissions', 'API\PermissionController@index');
+Route::post('assignPermissions', 'API\RoleController@assignPermissions');
 
 Route::apiResources([
     'patients' => 'API\PatientController',

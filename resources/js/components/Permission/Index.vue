@@ -5,9 +5,16 @@
                 <h4 class="text-themecolor">Permissions</h4>
             </div>
         </div>
-        <h4>{{ name | capitalize }}</h4>
-        <div class="div" v-for="(permission,index) in permissions" :key="index">
-            <permission-card v-bind:permissionsGroup.sync="permission"></permission-card>
+        <div class="card">
+            <div class="card-body">
+                <form @submit.prevent="submit">
+                    <h4 class="card-title">{{ $route.query.name | capitalize }}</h4>
+                    <div class="div" v-for="(permission,index) in permissions" :key="index">
+                        <permission-card v-bind:permissionsGroup.sync="permission"></permission-card>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Assign Permissions</button>
+                </form>
+            </div>
         </div>
     </div>
 </template>
@@ -26,7 +33,23 @@ export default {
             permissions: []
         }
     },
-    props: ['name'],
+    props: ['id'],
+    methods : {
+        submit() {
+            axios.post('/assignPermissions', {
+                roleId: this.id,
+                permissionIds : this.permissions.flat()
+                    .filter(p => p.selected)
+                    .map(p => p.id)
+            })
+            .then((response) => {
+               
+            })
+            .catch ((error) => {
+                console.log(error);
+            })
+        }
+    },
     mounted() {
         axios.get('/permissions')
         .then((response) => {
@@ -35,7 +58,6 @@ export default {
             this.permissions = permissionArray.map((arr, index) => {
                 return index % 4 === 0 ? permissionArray.slice(index, index + 4) : null;
             }).filter(arr => arr);
-            console.log(this.permissions);
         })
         .catch((error) => {
             console.log(error);

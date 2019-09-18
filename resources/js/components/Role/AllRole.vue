@@ -37,7 +37,7 @@
             :index="props.index"
             :data="props.row"
           ></delete-role>
-          <router-link :to="{ name: 'Permissions', params: { name: props.row.name }}" class="fa fa-key"></router-link>
+          <router-link :to="{ name: 'Permissions', params: { id: props.row.id }, query: { name: props.row.name }}" class="fa fa-key"></router-link>
         </div>
       </v-client-table>
     </div>
@@ -105,14 +105,14 @@ th:nth-child(3) {
 <script>
 import { BModal, VBModal, BButton } from "bootstrap-vue";
 import RoleForm from "./RoleForm";
-import deletecomponent from "./DeleteRole.vue";``
+import deletecomponent from "./DeleteRole.vue";
 
 export default {
   components: {
     'role-form': RoleForm,
     BModal,
     BButton,
-    'delete-role': deletecomponent,
+    'delete-role': deletecomponent
   },
   directives: {
     "b-modal": VBModal
@@ -189,7 +189,7 @@ export default {
         .get('roles/')
         .then(res => this.roles = res.data)
         .catch(err => console.log(err));
-    },
+    }
   },
   mounted() {
     this.fetchRoles()
