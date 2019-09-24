@@ -43,7 +43,7 @@ export default {
                     .map(p => p.id)
             })
             .then((response) => {
-               
+               console.log(response);
             })
             .catch ((error) => {
                 console.log(error);

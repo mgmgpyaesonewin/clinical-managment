@@ -100,5 +100,6 @@ class RoleController extends Controller
         $role = Role::where('id', $request->roleId)->first();
         $permission = Permission::whereIn('id', $request->permissionIds)->get();
         $role->givePermissionTo($permission);
+        return response()->json(['message' => 'Assign Permissions successfully']);
     }
 }
