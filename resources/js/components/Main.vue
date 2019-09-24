@@ -9,7 +9,7 @@
             </div>
         </div>
         <footer class="footer">
-            © 2019 Eliteadmin by themedesigner.in
+            © 2019 Built with Care
         </footer>
     </div>
      <div v-else class="s">
