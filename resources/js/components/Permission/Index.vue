@@ -43,8 +43,9 @@ export default {
                     .map(p => p.id)
             })
             .then((response) => {
-               this.$toasted.show('Success !')
-                window.location = "/home/roles"
+                this.$router.push('/roles', () => {
+                    this.$toasted.show('Successfully Assigned Permissions');
+                });
             })
             .catch ((error) => {
                 console.log(error);
