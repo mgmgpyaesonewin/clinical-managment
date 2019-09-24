@@ -30,14 +30,15 @@
     <div>
       <v-client-table :data="roles" :columns="columns" :options="options">
         <div slot="action" slot-scope="props">
-            <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
-            <delete-role
-              @deleteRow="deleterow($event)"
-              :roles.sync="roles"
-              :index="props.index"
-              :data="props.row"
-            ></delete-role>
-          </div>
+          <a href="#" @click.prevent="binddata(props.row.id)" v-b-modal.edit class="fa fa-edit"></a>
+          <delete-role
+            @deleteRow="deleterow($event)"
+            :roles.sync="roles"
+            :index="props.index"
+            :data="props.row"
+          ></delete-role>
+          <router-link :to="{ name: 'Permissions', params: { id: props.row.id }, query: { name: props.row.name }}" class="fa fa-key"></router-link>
+        </div>
       </v-client-table>
     </div>
   </div>
@@ -192,6 +193,6 @@ export default {
   },
   mounted() {
     this.fetchRoles()
-  }
+  },
 }
 </script>

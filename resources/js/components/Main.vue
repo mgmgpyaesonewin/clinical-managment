@@ -4,10 +4,13 @@
        <Topnav></Topnav>
        <Sidebar></Sidebar>
         <div class="page-wrapper">
-          <div class="container-fluid">
-              <router-view></router-view>
-          </div>
+            <div class="container-fluid">
+                    <router-view></router-view>
+            </div>
         </div>
+        <footer class="footer">
+            © 2019 Built with Care
+        </footer>
     </div>
      <div v-else class="s">
           <div class="container-fluid">
