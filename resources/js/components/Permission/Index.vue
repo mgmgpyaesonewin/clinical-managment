@@ -39,7 +39,7 @@ export default {
             axios.post('/assignPermissions', {
                 roleId: this.id,
                 permissionIds : this.permissions.flat()
-                    .filter(p => p.selected)
+                    .filter(p => p.selected)                                                                                                                                                                                                                                           
                     .map(p => p.id)
             })
             .then((response) => {
@@ -51,10 +51,11 @@ export default {
         }
     },
     mounted() {
-        axios.get('/permissions')
+        axios.get(`/permissions/${this.id}`)
         .then((response) => {
-            let permissionArray = response.data;
-            permissionArray.map((p) => p.selected = false);
+            let { attachedPermissions } = response.data;
+            let permissionArray = response.data.permissions;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+            permissionArray.map((p) => p.selected = attachedPermissions.includes(p.id));
             this.permissions = permissionArray.map((arr, index) => {
                 return index % 4 === 0 ? permissionArray.slice(index, index + 4) : null;
             }).filter(arr => arr);

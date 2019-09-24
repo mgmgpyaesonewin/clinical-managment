@@ -22,7 +22,7 @@ class PatientsTableSeeder extends Seeder
                 'hospital_id' => 1,
                 'address' => $faker->address,
                 'city' => $faker->city,
-                'phone_number' => $faker->phoneNumber
+                'phone_number' => $faker->phoneNumber,
             ]);
         endfor;
     }

@@ -4,6 +4,8 @@ namespace App\Http\Controllers\API;
 
 use App\Repositories\Frontend\PermissionRepository;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -14,8 +16,14 @@ class PermissionController extends Controller
         $this->permission = $permissionRepository;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->permission->get();
+        $id = $request->id;
+        $permissions = $this->permission->get();
+        $attached_permissions = Role::find($id)->permissions->pluck('id');
+        return response()->json([
+            'permissions' => $permissions,
+            'attachedPermissions' => $attached_permissions
+        ]);
     }
 }
