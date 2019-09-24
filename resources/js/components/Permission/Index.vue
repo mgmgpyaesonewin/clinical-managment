@@ -43,7 +43,8 @@ export default {
                     .map(p => p.id)
             })
             .then((response) => {
-               console.log(response);
+               this.$toasted.show('Success !')
+                window.location = "/home/roles"
             })
             .catch ((error) => {
                 console.log(error);
