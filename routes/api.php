@@ -27,6 +27,7 @@ Route::group([
 Route::get('examinationPerConsultation/{id}','API\ExaminationController@examinationPerConsultation');
 Route::get('investigationPerConsultation/{id}','API\InvestigationController@investigationPerConsultation');
 Route::get('problemPerConsultation/{id}','API\ProblemController@problemPerConsultation');
+Route::get('medicationPerConsultation/{id}','API\MedicationController@medicationPerConsultationPerConsultation');
 
 Route::apiResources([
     'patients' => 'API\PatientController',
@@ -34,6 +35,7 @@ Route::apiResources([
     'users' => 'API\UserController',
     'investigations'=>'API\InvestigationController',
     'consultations'=>'API\ConsultationController',
+    'medications'=>'API\MedicationController',
     'examinations'=>'API\ExaminationController',
     'roles' => 'API\RoleController'
 ]);
