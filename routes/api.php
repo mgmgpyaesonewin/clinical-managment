@@ -27,7 +27,8 @@ Route::group([
 Route::get('examinationPerConsultation/{id}','API\ExaminationController@examinationPerConsultation');
 Route::get('investigationPerConsultation/{id}','API\InvestigationController@investigationPerConsultation');
 Route::get('problemPerConsultation/{id}','API\ProblemController@problemPerConsultation');
-Route::get('permissions', 'API\PermissionController@index');
+Route::get('medicationPerConsultation/{id}','API\MedicationController@medicationPerConsultationPerConsultation');
+Route::get('permissions/{id?}', 'API\PermissionController@index');
 Route::post('assignPermissions', 'API\RoleController@assignPermissions');
 
 Route::apiResources([
@@ -36,6 +37,7 @@ Route::apiResources([
     'users' => 'API\UserController',
     'investigations'=>'API\InvestigationController',
     'consultations'=>'API\ConsultationController',
+    'medications'=>'API\MedicationController',
     'examinations'=>'API\ExaminationController',
     'roles' => 'API\RoleController'
 ]);
