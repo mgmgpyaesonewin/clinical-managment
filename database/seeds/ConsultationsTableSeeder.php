@@ -23,7 +23,7 @@ class ConsultationsTableSeeder extends Seeder
         endfor;
         for($i = 0; $i < 3; $i ++):
             DB::table('consultations')->insert([
-                'title' => 'GP Surgery',
+                'title' => 'JS Medical Practice',
                 'comment' => $faker->text,
                 'patient_id' => 2,
                 'doctor_id' => 1,
@@ -32,7 +32,7 @@ class ConsultationsTableSeeder extends Seeder
         endfor;
         for($i = 0; $i < 3; $i ++):
             DB::table('consultations')->insert([
-                'title' => 'GP Surgery',
+                'title' => 'JS Medical Practice - Philip Lane Sites',
                 'comment' => $faker->text,
                 'patient_id' => 3,
                 'doctor_id' => 1,
