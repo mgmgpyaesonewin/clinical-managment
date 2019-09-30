@@ -9,7 +9,7 @@
             </div>
         </div>
         <footer class="footer">
-            © 2019 Built with Care
+            © 2019 BRS Clinical
         </footer>
     </div>
      <div v-else class="s">
