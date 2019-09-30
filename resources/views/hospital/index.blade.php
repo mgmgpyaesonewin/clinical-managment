@@ -15,6 +15,13 @@
     </div>
 </div>
 <div class="row">
+    <div class="col-sm-12">
+        @if(session()->get('success'))
+            <div class="alert alert-success">
+            {{ session()->get('success') }}  
+            </div>
+        @endif
+    </div>
     <div class="col-12">
         <div class="card">
             <div class="card-body">
@@ -37,8 +44,8 @@
                                 <td>{{$hospital->name}}</td>
                                 <td>{{$hospital->address}}</td>
                                 <td>{{$hospital->phone_num}}</td>
-                                <td>{{$hospital->start_date->format('d/m/Y')}}</td>
-                                <td>{{$hospital->end_date->format('d/m/Y')}}</td>
+                                <td>{{$hospital->start_date}}</td>
+                                <td>{{$hospital->end_date}}</td>
                                 <td class="text-nowrap">
                                     <a href="{{ route('hospital.edit', $hospital->id) }}"><button type="button" class="btn waves-effect waves-light btn-info"><i class="far fa-edit"></i> Edit</button></a> 
                                     <form style="display: inline" action="{{route('hospital.destroy', $hospital->id)}}" method="post">

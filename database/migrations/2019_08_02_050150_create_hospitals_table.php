@@ -18,8 +18,8 @@ class CreateHospitalsTable extends Migration
             $table->string('name');
             $table->string('address');
             $table->string('phone_num');
-            $table->date('start_date');
-            $table->date('end_date');
+            $table->string('start_date');
+            $table->string('end_date');
             $table->timestamps();
         });
     }

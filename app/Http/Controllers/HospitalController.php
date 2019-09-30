@@ -6,6 +6,7 @@ use App\Hospital;
 use Illuminate\Http\Request;
 use App\Repositories\Frontend\HospitalRepository;
 use App\Http\Requests\HospitalRequest;
+use App\Repositories\Frontend\UserRepository;
 use Illuminate\Support\Facades\Log;
 
 class HospitalController extends Controller
@@ -33,7 +34,7 @@ class HospitalController extends Controller
      */
     public function create()
     {
-         return view('hospital.create');
+        return view('hospital.create');
     }
 
     /**
@@ -42,9 +43,16 @@ class HospitalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HospitalRequest $request)
+    public function store(HospitalRequest $request, UserRepository $userRepo)
     {  
+        $user_info = $request->only('email','password','username');
         $hospital = $this->hospital->create($request->validated());
+        $user = $userRepo->create([
+            'name' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password,
+            'hospital_id' => $hospital->id
+        ]);
         return redirect('hospital')->with('success', 'Hospital has been added');
     }
 
@@ -65,9 +73,11 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id,UserRepository $userRepo)
     {
-        $hospital = $this->hospital->getById($id);
+        $hospital = $this->hospital->getById($id)->first();
+        $user= $userRepo->getById($hospital->id)->orderBy('id','asc')->first();
+        $hospital->user = $user;
         return view('hospital.edit', compact('hospital'));
     }
 
@@ -78,10 +88,16 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function update(HospitalRequest $request, $id)
+    public function update(HospitalRequest $request, $id, UserRepository $userRepo)
     {
         Log::emergency('Showing user profile for user: '.$id);
         $hospital = $this->hospital->updateById($id, $request->validated());
+        $user = $userRepo->updateById($id, [
+            'name' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password,
+            'hospital_id' => $hospital->id
+        ]);
         return redirect('hospital')->with('success', 'Hospital has been updated');
     }
 
