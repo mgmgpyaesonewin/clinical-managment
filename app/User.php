@@ -20,7 +20,7 @@ class User extends Authenticatable implements JWTSubject
      */
     protected $guard_name = 'web';
     protected $fillable = [
-        'name', 'address', 'dob', 'nrc', 'phone', 'organization', 'gender', 'email', 'password'
+        'name', 'address', 'dob', 'nrc', 'phone', 'organization', 'gender', 'email', 'password', 'hospital_id'
     ];
     protected $attributes = [
         'password' => 'abc@123',
@@ -56,5 +56,10 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
     }
 }
