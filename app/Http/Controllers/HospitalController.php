@@ -6,6 +6,8 @@ use App\Hospital;
 use Illuminate\Http\Request;
 use App\Repositories\Frontend\HospitalRepository;
 use App\Http\Requests\HospitalRequest;
+use App\Repositories\Frontend\PermissionRepository;
+use App\Repositories\Frontend\RoleRepository;
 use App\Repositories\Frontend\UserRepository;
 use Illuminate\Support\Facades\Log;
 
@@ -43,7 +45,7 @@ class HospitalController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HospitalRequest $request, UserRepository $userRepo)
+    public function store(HospitalRequest $request, UserRepository $userRepo, RoleRepository $roleRep, PermissionRepository $permissionRepo)
     {  
         $user_info = $request->only('email','password','username');
         $hospital = $this->hospital->create($request->validated());
@@ -53,6 +55,14 @@ class HospitalController extends Controller
             'password' => $request->password,
             'hospital_id' => $hospital->id
         ]);
+        $role = $roleRep->create([
+            'name' => $hospital->id.'#SuperAdmin',
+            'hospital_id' => $hospital->id,
+            'guard_name' => 'api'
+        ]);
+        $permission = $permissionRepo->get();
+        $role->givePermissionTo($permission);
+        $user->assignRole($role);
         return redirect('hospital')->with('success', 'Hospital has been added');
     }
 
