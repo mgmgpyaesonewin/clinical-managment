@@ -18,14 +18,14 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => 'Pyae Sone',
+        'name' => $faker->name,
         'address' => $faker->address,
         'dob' => '14/12/1995',
         'nrc' => '12/SaKhaNa(N)082719',
         'phone' => $faker->phoneNumber,
         'organization' => 'Group of Hospital',
         'gender' => 'male',
-        'email' => 'pyae@gmail.com',
+        'email' => $faker->email,
         'password' => bcrypt('abcd1234')
     ];
 });
