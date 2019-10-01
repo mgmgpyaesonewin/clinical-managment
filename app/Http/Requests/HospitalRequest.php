@@ -35,7 +35,7 @@ class HospitalRequest extends FormRequest
             'address' => 'required', 
             'phone_num' => 'required',
             'start_date' => 'required', 
-            'end_date' => 'required'
+            'end_date' => 'required',
         ];
     }
 }

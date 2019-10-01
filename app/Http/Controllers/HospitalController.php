@@ -9,6 +9,7 @@ use App\Repositories\Frontend\PermissionRepository;
 use App\Repositories\Frontend\RoleRepository;
 use App\Repositories\Frontend\UserRepository;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class HospitalController extends Controller
 {
@@ -46,12 +47,11 @@ class HospitalController extends Controller
      */
     public function store(HospitalRequest $request, UserRepository $userRepo, RoleRepository $roleRep, PermissionRepository $permissionRepo)
     {  
-        $user_info = $request->only('email','password','username');
         $hospital = $this->hospital->create($request->validated());
         $user = $userRepo->create([
             'name' => $request->username,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
             'hospital_id' => $hospital->id
         ]);
         $role = $roleRep->create([
@@ -82,10 +82,10 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,UserRepository $userRepo)
+    public function edit($id, UserRepository $userRepo)
     {
-        $hospital = $this->hospital->getById($id)->first();
-        $user= $userRepo->getById($hospital->id)->orderBy('id','asc')->first();
+        $hospital = $this->hospital->getById($id);
+        $user= $userRepo->where('hospital_id', '==', $hospital->id)->first();
         $hospital->user = $user;
         return view('hospital.edit', compact('hospital'));
     }
@@ -101,10 +101,10 @@ class HospitalController extends Controller
     {
         Log::emergency('Showing user profile for user: '.$id);
         $hospital = $this->hospital->updateById($id, $request->validated());
-        $user = $userRepo->updateById($id, [
+        $user = $userRepo->updateById($request->user_id, [
             'name' => $request->username,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => bcrypt($request->password),
             'hospital_id' => $hospital->id
         ]);
         return redirect('hospital')->with('success', 'Hospital has been updated');
