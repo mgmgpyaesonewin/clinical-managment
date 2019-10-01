@@ -8,6 +8,7 @@ use App\Repositories\Frontend\HospitalRepository;
 use App\Http\Requests\HospitalRequest;
 use App\Repositories\Frontend\UserRepository;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Hash;
 
 class HospitalController extends Controller
 {
@@ -50,7 +51,7 @@ class HospitalController extends Controller
         $user = $userRepo->create([
             'name' => $request->username,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'hospital_id' => $hospital->id
         ]);
         return redirect('hospital')->with('success', 'Hospital has been added');
@@ -73,10 +74,10 @@ class HospitalController extends Controller
      * @param  \App\Hospital  $hospital
      * @return \Illuminate\Http\Response
      */
-    public function edit($id,UserRepository $userRepo)
+    public function edit($id, UserRepository $userRepo)
     {
-        $hospital = $this->hospital->getById($id)->first();
-        $user= $userRepo->getById($hospital->id)->orderBy('id','asc')->first();
+        $hospital = $this->hospital->getById($id);
+        $user= $userRepo->where('hospital_id', '==', $hospital->id)->first();
         $hospital->user = $user;
         return view('hospital.edit', compact('hospital'));
     }
@@ -95,7 +96,7 @@ class HospitalController extends Controller
         $user = $userRepo->updateById($id, [
             'name' => $request->username,
             'email' => $request->email,
-            'password' => $request->password,
+            'password' => Hash::make($request->password),
             'hospital_id' => $hospital->id
         ]);
         return redirect('hospital')->with('success', 'Hospital has been updated');
