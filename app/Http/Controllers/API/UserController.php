@@ -5,12 +5,14 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Repositories\Frontend\UserRepository;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
     public $user;
     public function __construct(UserRepository $userRepository)
     {
+        $this->middleware('auth:api');
         $this->user = $userRepository;
     }
     /**
@@ -20,8 +22,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = $this->user->get();
-        return $users;
+        $hospital_id = Auth::user()->hospital_id;
+        return $this->user->where('hospital_id', '==', $hospital_id)->get();
     }
 
     /**

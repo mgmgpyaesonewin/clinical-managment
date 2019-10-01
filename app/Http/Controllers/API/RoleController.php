@@ -6,8 +6,8 @@ use App\Http\Requests\RoleRequest;
 use App\Http\Controllers\Controller;
 use App\Repositories\Frontend\RoleRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -24,7 +24,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return $this->role->get();
+        $hospital_id = Auth::user()->hospital_id;
+        return $this->role->where('hospital_id', '==', $hospital_id)->get();
     }
 
     /**
@@ -97,7 +98,7 @@ class RoleController extends Controller
 
     public function assignPermissions(Request $request) 
     {
-        $role = Role::where('id', $request->roleId)->first();
+        $role = $this->role->where('id', $request->roleId)->first();
         $permission = Permission::whereIn('id', $request->permissionIds)->get();
         $role->syncPermissions($permission);
         return response()->json(['message' => 'Assign Permissions successfully']);

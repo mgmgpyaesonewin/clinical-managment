@@ -48,12 +48,11 @@ class HospitalController extends Controller
      */
     public function store(HospitalRequest $request, UserRepository $userRepo, RoleRepository $roleRep, PermissionRepository $permissionRepo)
     {  
-        $user_info = $request->only('email','password','username');
         $hospital = $this->hospital->create($request->validated());
         $user = $userRepo->create([
             'name' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
             'hospital_id' => $hospital->id
         ]);
         $role = $roleRep->create([
@@ -103,10 +102,10 @@ class HospitalController extends Controller
     {
         Log::emergency('Showing user profile for user: '.$id);
         $hospital = $this->hospital->updateById($id, $request->validated());
-        $user = $userRepo->updateById($id, [
+        $user = $userRepo->updateById($request->user_id, [
             'name' => $request->username,
             'email' => $request->email,
-            'password' => Hash::make($request->password),
+            'password' => bcrypt($request->password),
             'hospital_id' => $hospital->id
         ]);
         return redirect('hospital')->with('success', 'Hospital has been updated');
