@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Hospital;
-use Illuminate\Http\Request;
 use App\Repositories\Frontend\HospitalRepository;
 use App\Http\Requests\HospitalRequest;
 use App\Repositories\Frontend\PermissionRepository;

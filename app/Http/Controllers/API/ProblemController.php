@@ -26,8 +26,16 @@ class ProblemController extends Controller
     }
     public function problemPerConsultation(Request $req){
         return $this->prob->with('consultation','consultation.doctor')
-        ->where('consultation_id','=',$req->id)
-        ->orderBy('created_at','desc')->get();
+            ->where('consultation_id','=',$req->id)
+            ->orderBy('created_at','desc')
+            ->get();
+    }
+
+    public function problemsPerPatient(Request $req){
+        return $this->prob->with('consultation','consultation.doctor')
+            ->where('patient_id','=',$req->id)
+            ->orderBy('created_at','desc')
+            ->get();
     }
 
     /**
