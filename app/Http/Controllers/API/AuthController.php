@@ -68,21 +68,12 @@ class AuthController extends Controller
      */
     protected function respondWithToken($token)
     {
-        // TODO: Check Permission
-        // $permissions = [];
-        // foreach (Permission::all() as $permission) {
-        //     if (auth('api')->user()->can($permission->name)) {
-        //         $permissions[] = $permission->name;
-        //     }
-        // }
-        // dd($permissions);
-
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' =>  Carbon::now()->addDays(30)->timestamp,
             'data'=> auth('api')->user(),
-            'permissions' => $permissions
+            'permissions' => auth('api')->user()->getAllPermissions()->pluck('name')
         ]);
     }
 }
