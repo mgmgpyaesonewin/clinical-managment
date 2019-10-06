@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestigationRequest;
 use App\Investigation;
+use App\Http\Requests\NewInvestRequest;
 use App\Repositories\Frontend\InvestigationRepository;
 
 class InvestigationController extends Controller
@@ -39,7 +40,7 @@ class InvestigationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InvestigationRequest $request)
+    public function store(NewInvestRequest $request)
     {
         return $this->investRepo->create($request->validated());
     }

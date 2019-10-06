@@ -1,11 +1,12 @@
 <?php
 
+
 namespace App\Http\Requests;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class ExaminationRequest extends FormRequest
+class InvestigationRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -33,7 +34,7 @@ class ExaminationRequest extends FormRequest
     protected function getValidatorInstance()
     {
         $data = $this->all();
-        $data['type']='x';
+        $data['type']='i';
         $this->getInputSource()->replace($data);
         return parent::getValidatorInstance();
     }
@@ -41,16 +42,7 @@ class ExaminationRequest extends FormRequest
     public function rules()
     {
         return[
-               'term'=>'required',
-               'value'=>'required',
-               'doctor_id'=>'required',
-               'type'=>'required',
-               'range'=>'nullable',
-               'consultation_id'=>'required',
-               'code'=>'required',
-               'type'=>'required',
-            //    'snomed_ct'=>'required',
-               'doctor_id'=>'required'
+               'term'=>'required'
             ];
     }
 }
