@@ -5,8 +5,9 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestigationRequest;
-use App\Investigation;
 use App\Http\Requests\NewInvestRequest;
+use App\Investigation;
+// use App\Http\Requests\NewInvestRequest;
 use App\Repositories\Frontend\InvestigationRepository;
 
 class InvestigationController extends Controller
@@ -42,6 +43,7 @@ class InvestigationController extends Controller
      */
     public function store(NewInvestRequest $request)
     {
+        // dd($request);
         return $this->investRepo->create($request->validated());
     }
 
