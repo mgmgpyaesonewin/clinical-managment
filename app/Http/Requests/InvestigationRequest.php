@@ -46,11 +46,11 @@ class InvestigationRequest extends FormRequest
                'value'=>'required',
                'doctor_id'=>'required',
                'type'=>'required',
-               'consultation_id'=>'required',
+            //    'consultation_id'=>'required',
                'code'=>'required',
                'type'=>'required',
                'range'=>'nullable',
-               'snomed_ct'=>'required',
+            //    'snomed_ct'=>'required',
                'doctor_id'=>'required'
             ];
     }

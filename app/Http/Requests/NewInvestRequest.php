@@ -43,7 +43,9 @@ class NewInvestRequest extends FormRequest
     {
         return[
                'term'=>'required',
+               'doctor_id'=>'required',
                'type'=>'nullable',
+               'patient_id'=> 'required',
                'code'=>'required',
             ];
     }

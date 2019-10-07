@@ -17,7 +17,7 @@ class CreateInvestigationsTable extends Migration
             $table->bigIncrements('id');
             $table->string('term');
             $table->string('value')->nullable();
-            $table->string('consultation_id')->nullable();
+            $table->string('patient_id');
             $table->string('doctor_id')->nullable();
             $table->string('code')->nullable();
             // $table->string('snomed_ct')->default('aevrawer');
