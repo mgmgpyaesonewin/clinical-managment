@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
 use App\Repositories\Frontend\PatientRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -37,7 +38,6 @@ class PatientController extends Controller
 
         
         return $fake;
-        return $this->patientrepo->all();
     }
 
     /**
@@ -48,9 +48,7 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        // dd($request->validated());
         $patient = $this->patientrepo->create($request->validated());
-
         return $patient;
     }
 
