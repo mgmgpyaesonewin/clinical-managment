@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
 use App\Repositories\Frontend\PatientRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -22,7 +23,8 @@ class PatientController extends Controller
     }
     public function index(Request $request)
     {
-        return $this->patientrepo->where('hospital_id','=',1)->get();
+        $hospital_id = Auth::user()->hospital_id;
+        return $this->patientrepo->where('hospital_id','=',$hospital_id)->get();
     }
 
     /**
@@ -33,9 +35,7 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        // dd($request->validated());
         $patient = $this->patientrepo->create($request->validated());
-
         return $patient;
     }
 

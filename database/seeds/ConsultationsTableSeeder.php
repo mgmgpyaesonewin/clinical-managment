@@ -10,8 +10,4 @@ class ConsultationsTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        factory(Consultation::class, 3)->create();
-    }
 }
