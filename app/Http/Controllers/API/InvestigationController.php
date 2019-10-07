@@ -5,8 +5,11 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\InvestigationRequest;
+use App\Http\Requests\NewInvestRequest;
 use App\Investigation;
+// use App\Http\Requests\NewInvestRequest;
 use App\Repositories\Frontend\InvestigationRepository;
+use Illuminate\Support\Facades\DB;
 
 class InvestigationController extends Controller
 {
@@ -22,16 +25,18 @@ class InvestigationController extends Controller
     }
     public function index(Request $req)
     {
-        return $this->investRepo->where('type', 'i')->with('consultation','doctor')
-        ->orderBy('created_at','desc')->get();
+        // dd(auth('api')->user());
+        return $this->investRepo->perHospital();
+        
     }
 
-    public function investigationPerConsultation(Request $req)
+    public function investigationPerPatient(Request $req)
     {
-        return $this->investRepo->with('consultation','doctor')
+        $allinvest= $this->investRepo->with('doctor','patient')
         ->where('type','i')
-        ->where('consultation_id','=',$req->id)
+        ->where('patient_id','=',$req->id)
         ->orderBy('created_at','desc')->get();
+        return $allinvest;
     }
     /**
      * Store a newly created resource in storage.
@@ -39,9 +44,11 @@ class InvestigationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(InvestigationRequest $request)
+    public function store(NewInvestRequest $request)
     {
-        return $this->investRepo->create($request->validated());
+        // dd($request->validated());
+        $invest = $this->investRepo->create($request->validated());
+        return $this->investRepo->with('doctor')->getById($invest->id);
     }
 
     /**
@@ -66,7 +73,7 @@ class InvestigationController extends Controller
     {
         // dd($request->validated());
         $invest = $this->investRepo->updateById($id,$request->validated());
-        return $this->investRepo->with('doctor','consultation')->getById($invest->id);
+        return $this->investRepo->with('doctor','patient')->getById($invest->id);
     }
 
     /**

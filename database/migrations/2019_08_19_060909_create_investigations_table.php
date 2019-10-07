@@ -16,13 +16,13 @@ class CreateInvestigationsTable extends Migration
         \Schema::create('investigations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('term');
-            $table->string('value');
-            $table->string('consultation_id');
-            $table->string('doctor_id');
-            $table->string('code');
-            $table->string('snomed_ct')->default('aevrawer');
+            $table->string('value')->nullable();
+            $table->string('patient_id');
+            $table->string('doctor_id')->nullable();
+            $table->string('code')->nullable();
+            // $table->string('snomed_ct')->default('aevrawer');
             $table->string('range')->nullable();
-            $table->string('type');
+            $table->string('type')->nullable();
             $table->timestamps();
         });
     }
