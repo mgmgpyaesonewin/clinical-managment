@@ -25,8 +25,21 @@ class InvestigationController extends Controller
     }
     public function index(Request $req)
     {
-        // dd(auth('api')->user());
-        return $this->investRepo->perHospital();
+      $null = $req->status=='pending' ? 'pending' : null;
+      $notnull = $req->status=='completed' ? 'completed' : null;
+
+        return $this->investRepo->perHospital()
+        ->when($null,function($query){
+            $query->whereNull('value');
+        })
+        ->when($notnull,function($query){
+            $query->whereNotNull('value');
+        })
+        ->when($req->search,function($q)use($req){
+            $q->where('p.name', 'like', '%'.$req->search.'%');
+        })
+        ->get();
+        
         
     }
 

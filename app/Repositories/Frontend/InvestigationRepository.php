@@ -13,8 +13,7 @@ class InvestigationRepository extends BaseRepository{
         ->join('hospitals as h' ,'p.hospital_id','h.id')
         ->where('h.id',auth('api')->user()->hospital_id)
         ->with('doctor','patient')
-        ->select('investigations.*','p.hospital_id')
-        ->orderBy('created_at','desc')
-        ->get();
+        ->select('investigations.*','p.hospital_id','p.name')
+        ->orderBy('created_at','desc');
     }
 }
