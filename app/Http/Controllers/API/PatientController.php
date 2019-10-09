@@ -18,13 +18,26 @@ class PatientController extends Controller
     public $patientrepo;
     public function __construct(PatientRepository $repo)
     {   
-        $this->middleware('auth:api');
+        // $this->middleware('auth:api');
         $this->patientrepo=$repo;
     }
     public function index(Request $request)
     {
-        $hospital_id = Auth::user()->hospital_id;
-        return $this->patientrepo->where('hospital_id','=',$hospital_id)->get();
+        // dd($request->query('query'));
+        $paginator = $this->patientrepo
+        ->where('hospital_id','=',1)
+        ->when($request->query('query'),function($query) use($request){
+            return $query->where('id',$request->query('query'));
+        })
+        ->orderBy('created_at','desc')->paginate(5);
+        // $paginator->count=$paginator->total;
+       $fake= $paginator->toArray();
+      
+    //    dd($fake);
+       $fake['count']=$fake['total'];
+
+        
+        return $fake;
     }
 
     /**
