@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
 use App\Repositories\Frontend\PatientRepository;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -17,12 +18,26 @@ class PatientController extends Controller
     public $patientrepo;
     public function __construct(PatientRepository $repo)
     {   
-        $this->middleware('auth:api');
+        // $this->middleware('auth:api');
         $this->patientrepo=$repo;
     }
     public function index(Request $request)
     {
-        return $this->patientrepo->where('hospital_id','=',1)->get();
+        // dd($request->query('query'));
+        $paginator = $this->patientrepo
+        ->where('hospital_id','=',1)
+        ->when($request->query('query'),function($query) use($request){
+            return $query->where('id',$request->query('query'));
+        })
+        ->orderBy('created_at','desc')->paginate(5);
+        // $paginator->count=$paginator->total;
+       $fake= $paginator->toArray();
+      
+    //    dd($fake);
+       $fake['count']=$fake['total'];
+
+        
+        return $fake;
     }
 
     /**
@@ -33,9 +48,7 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        // dd($request->validated());
         $patient = $this->patientrepo->create($request->validated());
-
         return $patient;
     }
 

@@ -6,7 +6,7 @@ use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
-class InvestigationRequest extends FormRequest
+class NewInvestRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -43,15 +43,10 @@ class InvestigationRequest extends FormRequest
     {
         return[
                'term'=>'required',
-               'value'=>'required',
                'doctor_id'=>'required',
-               'type'=>'required',
-            //    'consultation_id'=>'required',
+               'type'=>'nullable',
+               'patient_id'=> 'required',
                'code'=>'required',
-               'type'=>'required',
-               'range'=>'nullable',
-            //    'snomed_ct'=>'required',
-               'doctor_id'=>'required'
             ];
     }
 }

@@ -25,7 +25,8 @@ class RoleController extends Controller
     public function index()
     {
         $hospital_id = Auth::user()->hospital_id;
-        return $this->role->where('hospital_id', '==', $hospital_id)->get();
+        // dd($hospital_id);
+        return $this->role->where('hospital_id', $hospital_id)->get();
     }
 
     /**

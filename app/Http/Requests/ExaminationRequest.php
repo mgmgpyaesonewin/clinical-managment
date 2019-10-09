@@ -49,7 +49,7 @@ class ExaminationRequest extends FormRequest
                'consultation_id'=>'required',
                'code'=>'required',
                'type'=>'required',
-               'snomed_ct'=>'required',
+            //    'snomed_ct'=>'required',
                'doctor_id'=>'required'
             ];
     }

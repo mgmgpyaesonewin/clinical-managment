@@ -36,7 +36,9 @@ class PatientRequest extends FormRequest
             'gender'=>  'required',
             'address'=> 'required',
             'city'  =>  'required',
-            'phone_number'=> 'required'
+            'phone_number'=> 'required',
+            'user_id' => 'required',
+            'hospital_id' => 'required'
         ];
     }
 }

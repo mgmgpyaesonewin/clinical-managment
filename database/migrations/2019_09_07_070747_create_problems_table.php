@@ -21,7 +21,7 @@ class CreateProblemsTable extends Migration
             $table->string('status');
             $table->date('start_time')->nullable();
             $table->string('action');
-            $table->string('duration');
+            $table->string('duration')->nullable();
             $table->date('end_time')->nullable();
             $table->string('consultation_id');
             $table->string('patient_id');

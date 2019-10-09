@@ -83,6 +83,24 @@ class PermissionsTableSeeder extends Seeder
             'guard_name' => 'api',
         ]);
 
+         // medications
+        DB::table('permissions')->insert([
+            'name' => 'read medications',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'create medications',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit medications',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete medications',
+            'guard_name' => 'api',
+        ]);
+
         // examinations
         DB::table('permissions')->insert([
             'name' => 'read examinations',
@@ -98,6 +116,24 @@ class PermissionsTableSeeder extends Seeder
         ]);
         DB::table('permissions')->insert([
             'name' => 'delete examinations',
+            'guard_name' => 'api',
+        ]);
+
+         // consultations
+        DB::table('permissions')->insert([
+            'name' => 'read consultations',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'create consultations',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'edit consultations',
+            'guard_name' => 'api',
+        ]);
+        DB::table('permissions')->insert([
+            'name' => 'delete consultations',
             'guard_name' => 'api',
         ]);
     }
