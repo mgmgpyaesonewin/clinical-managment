@@ -15,13 +15,10 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('start_date');
-            $table->string('end_date');
+            $table->string('date');
             $table->string('start_time');
             $table->string('end_time');
-            $table->string('day_name');
-            $table->string('interval');
-            $table->string('table_slot');
+            $table->string('doctor_id');
             $table->timestamps();
         });
     }
