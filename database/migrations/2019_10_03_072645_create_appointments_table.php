@@ -19,8 +19,7 @@ class CreateAppointmentsTable extends Migration
             $table->string('authorizer_id');
             $table->string('doctor_id');
             $table->string('session_id');
-            $table->date('session_interval_id');
-            $table->string('session_id');
+            $table->string('session_interval_id');
             $table->timestamps();
         });
     }

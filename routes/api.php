@@ -40,6 +40,7 @@ Route::apiResources([
     'consultations'=>'API\ConsultationController',
     'medications'=>'API\MedicationController',
     'examinations'=>'API\ExaminationController',
+    'sessions'=>'API\SessionController',
     'roles' => 'API\RoleController'
 ]);
 

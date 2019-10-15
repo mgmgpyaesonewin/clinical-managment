@@ -16,10 +16,10 @@ class CreateSessionIntervalsTable extends Migration
         Schema::create('session_intervals', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('session_id');
-            $table->string('start_interval_time');
-            $table->string('end_interval_time');
+            $table->string('time');
             $table->string('date');
             $table->string('booked');
+            $table->string('doctor_id');
             $table->timestamps();
         });
     }

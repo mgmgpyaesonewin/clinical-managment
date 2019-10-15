@@ -6,7 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
-    protected $casts = [
-        'dayname' => 'array',
-    ];
+   protected $guarded=[];
+
+
+
+   public function slots()
+   {
+       return $this->hasMany('App\SessionInterval','session_id');
+   }
+
 }
