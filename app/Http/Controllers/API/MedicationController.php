@@ -31,7 +31,6 @@ class MedicationController extends Controller
     public function store(MedicationRequest $request)
     {
         $data=$request->validated();
-        // dd($this->m_repo);
         return $this->m_repo->create($data);
     }
     public function medicationPerConsultationPerConsultation(Request $req){

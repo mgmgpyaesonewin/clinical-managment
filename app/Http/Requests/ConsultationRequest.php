@@ -31,11 +31,9 @@ class ConsultationRequest extends FormRequest
         $data = $this->all();
         $data['doctor_id']=auth('api')->user()->id;
         // if($data['date']){
-        //     // dd($data['date']);
         //     $data['date']=date('Y-m-d',strtotime($data['date']));
         // }
         $this->getInputSource()->replace($data);
-        // dd($this->all());
         return parent::getValidatorInstance();
     }
     

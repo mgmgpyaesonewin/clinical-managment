@@ -10,20 +10,26 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ProductsTest extends TestCase
 {
     use RefreshDatabase;
-    /** 
-     * @test 
-     * **/
-    public function a_product_can_be_added()
+
+    private function data()
     {
-        $this->withoutExceptionHandling();
-        $response = $this->post('/api/products', [
+        return [
             'name' => 'Cool Product',
             'quantity' => 2,
             'price' => 200,
             'description' => 'Cool super cool, Cool super cool, Cool super cool,',
             'min_order' => 2,
             'max_order' => 2,
-        ]);
+        ];
+    }
+
+    /** 
+     * @test 
+     * **/
+    public function a_product_can_be_added()
+    {
+        $this->withoutExceptionHandling();
+        $response = $this->post('/api/products', $this->data());
 
         $response->assertOk();
         $this->assertCount(1, Product::all());
@@ -32,12 +38,16 @@ class ProductsTest extends TestCase
     /**  
      * @test 
      * **/
-    public function a_name_is_required()
+    public function fields_are_required()
     {
-        $response = $this->post('/api/products', [
-            'name' => ''
-        ]);
-        $response->assertSessionHasErrors('name');
+        collect(['name', 'quantity', 'price', 'min_order', 'max_order'])
+            ->each(function ($field) {
+                $response = $this->post('/api/products',
+                    array_merge($this->data(), [$field => '']));
+
+                $response->assertSessionHasErrors($field);
+                $this->assertCount(0, Product::all());
+            });
     }
 
     /** 
@@ -59,10 +69,47 @@ class ProductsTest extends TestCase
             'name' => 'Super Cool Product',
             'quantity' => 3,
             'price' => 300,
+            'description' => 'Cool super cool, Cool super cool, Cool super cool,',
+            'min_order' => 2,
+            'max_order' => 2,
         ]);
 
         $this->assertEquals('Super Cool Product', Product::first()->name);
         $this->assertEquals(3, Product::first()->quantity);
         $this->assertEquals(300, Product::first()->price);
     }
+
+    /** 
+     * @test 
+     * **/
+    public function a_product_can_be_deleted()
+    {
+        $this->withoutExceptionHandling();
+        $this->post('/api/products/', [
+            'name' => 'Super Cool Product',
+            'quantity' => 3,
+            'price' => 300,
+            'description' => 'Cool super cool, Cool super cool, Cool super cool,',
+            'min_order' => 2,
+            'max_order' => 2,
+        ]);
+        $this->assertCount(1, Product::all());
+        $product = Product::first();
+        $this->delete('/api/products/'.$product->id);
+        $this->assertCount(0, Product::all());
+    }
+
+    /** 
+     * @test 
+     * **/
+    public function lists_of_product_can_be_retreived()
+    {
+        $this->withoutExceptionHandling();
+        factory(Product::class, 5)->create();
+        $response = $this->get('/api/products');
+        dd(json_decode($response->getContent()));
+        $response->assertJsonCount(5)
+            ->assertJson([['id' => 1]]);
+    }
+
 }

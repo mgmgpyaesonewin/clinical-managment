@@ -23,7 +23,6 @@ class ConsultationController extends Controller
 
     public function index(Request $req)
     {
-        // dd(auth('api')->check());
         return $this->consultrepo->with('doctor')->where('patient_id','=',$req->id)->orderBy('created_at','desc')->get();
     }
     /**
@@ -34,8 +33,6 @@ class ConsultationController extends Controller
      */
     public function store(ConsultationRequest $request)
     {
-
-        // dd($request->validated());
      $consult= $this->consultrepo->with('doctor')
        ->create($request->validated());
        return $this->consultrepo->with('doctor')->getById($consult->id);
