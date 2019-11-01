@@ -59,7 +59,6 @@ class InvestigationController extends Controller
      */
     public function store(NewInvestRequest $request)
     {
-        // dd($request->validated());
         $invest = $this->investRepo->create($request->validated());
         return $this->investRepo->with('doctor')->getById($invest->id);
     }
@@ -84,7 +83,6 @@ class InvestigationController extends Controller
      */
     public function update(InvestigationRequest $request, $id)
     {
-        // dd($request->validated());
         $invest = $this->investRepo->updateById($id,$request->validated());
         return $this->investRepo->with('doctor','patient')->getById($invest->id);
     }

@@ -35,7 +35,6 @@ class SessionController extends Controller
     public function store(SessionRequest $req)
     {
         $data=$req->validated();
-        // dd($data);
         return $this->session_repo->create($data)->slots()->createMany($req->intervals);
     }
 

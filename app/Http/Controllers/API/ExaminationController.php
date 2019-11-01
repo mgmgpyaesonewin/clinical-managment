@@ -42,7 +42,6 @@ class ExaminationController extends Controller
      */
     public function store(ExaminationRequest $request)
     {
-        // dd($request->validated());
         return $this->ExamRepo->create($request->validated());
     }
 

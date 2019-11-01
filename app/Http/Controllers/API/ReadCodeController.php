@@ -4,22 +4,19 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MedicationRequest;
-use App\Repositories\Frontend\MedicationRepository;
+use App\Imports\ReadCodesImport;
+use Maatwebsite\Excel\Facades\Excel;
 
-class MedicationController extends Controller
+class ReadCodeController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public $m_repo;
-    public function __construct(MedicationRepository $repo){
-        $this->m_repo=$repo;
-    }
     public function index()
     {
+        //
     }
 
     /**
@@ -28,16 +25,13 @@ class MedicationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(MedicationRequest $request)
+    public function store(Request $request)
     {
-        $data=$request->validated();
-        return $this->m_repo->create($data);
+        $file = $request->file('excel');
+        Excel::import(new ReadCodesImport, $file);
+        return response()->json(['success' => 'done'], 201);
     }
-    public function medicationPerConsultationPerConsultation(Request $req){
-        return $this->m_repo->with('consultation','doctor')
-        ->where('consultation_id','=',$req->id)
-        ->orderBy('created_at','desc')->get();
-    }
+
     /**
      * Display the specified resource.
      *
@@ -56,10 +50,9 @@ class MedicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(MedicationRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $invest = $this->m_repo->updateById($id,$request->validated());
-        return $this->m_repo->with('doctor','consultation')->getById($invest->id);
+        //
     }
 
     /**
@@ -70,6 +63,6 @@ class MedicationController extends Controller
      */
     public function destroy($id)
     {
-        $this->m_repo->deleteById($id);
+        //
     }
 }

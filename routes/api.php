@@ -21,6 +21,8 @@ Route::group([
     Route::post('login', 'API\AuthController@login');
     Route::post('logout', 'API\AuthController@logout');
     Route::post('refresh', 'API\AuthController@refresh');
+    Route::post('import', 'API\ReadCodeController@store');
+    Route::post('checkout', 'API\OrderController@store');
     Route::get('me', 'API\AuthController@me');
 });
 
@@ -41,7 +43,8 @@ Route::apiResources([
     'medications'=>'API\MedicationController',
     'examinations'=>'API\ExaminationController',
     'sessions'=>'API\SessionController',
-    'roles' => 'API\RoleController'
+    'roles' => 'API\RoleController',
+    'products' => 'API\ProductController'
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

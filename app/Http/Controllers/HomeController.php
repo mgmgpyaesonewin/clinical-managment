@@ -25,9 +25,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // dd(Role::where('hospital_id',1)->get());
-        // // dd(auth()->user()->hasPermissionTo('new permission'));
-        // dd(auth()->user()->role);
         return view('home');
     }
 }
