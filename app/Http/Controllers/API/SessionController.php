@@ -22,6 +22,7 @@ class SessionController extends Controller
     public function index(Request $req)
     {
       return $this->session_repo
+            ->with('slots')
             ->where('doctor_id',$req->id)
             ->get();
     }

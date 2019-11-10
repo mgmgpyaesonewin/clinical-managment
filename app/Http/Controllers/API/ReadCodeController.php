@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Imports\ReadCodesImport;
+use App\ReadCode;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReadCodeController extends Controller
@@ -16,7 +17,7 @@ class ReadCodeController extends Controller
      */
     public function index()
     {
-        //
+        return ReadCode::all();
     }
 
     /**

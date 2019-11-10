@@ -30,9 +30,9 @@ class ProductsTest extends TestCase
     {
         $this->withoutExceptionHandling();
         $response = $this->post('/api/products', $this->data());
-
         $response->assertOk();
         $this->assertCount(1, Product::all());
+        // $response->assertStatus(201); TODO: check issue
     }
 
     /**  
@@ -107,9 +107,19 @@ class ProductsTest extends TestCase
         $this->withoutExceptionHandling();
         factory(Product::class, 5)->create();
         $response = $this->get('/api/products');
-        dd(json_decode($response->getContent()));
-        $response->assertJsonCount(5)
-            ->assertJson([['id' => 1]]);
+        $response->assertJsonCount(1)
+            ->assertJson([
+                'data' => [
+                    [
+                        'product_id' => 1,
+                        'created_at' => '1 second ago',
+                        'updated_at' => '1 second ago'
+                    ],
+                    [
+                        'product_id' => 2
+                    ],
+                ]
+            ]);
     }
 
 }

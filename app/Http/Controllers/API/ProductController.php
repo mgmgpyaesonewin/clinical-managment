@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Product;
+use App\Http\Resources\Product as ProductResource;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
@@ -15,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return Product::all();
+        return ProductResource::collection(Product::all());
     }
 
     /**
@@ -44,7 +46,10 @@ class ProductController extends Controller
             'min_order' => 'required',
             'max_order' => 'required',
         ]);
-        Product::create($data);
+        $product = Product::create($data);
+        return (new ProductResource($product))
+            ->response()
+            ->setStatusCode(201);
     }
 
     /**
