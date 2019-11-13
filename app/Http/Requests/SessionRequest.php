@@ -32,6 +32,7 @@ class SessionRequest extends FormRequest
             'start_time'=>  'required',
             'end_time'=> 'required',
             'interval'=> 'required',
+            'cmt'=>'required',
             'doctor_id'  =>  'required',
         ];
     }

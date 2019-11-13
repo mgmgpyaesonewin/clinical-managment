@@ -18,6 +18,7 @@ class CreateSessionsTable extends Migration
             $table->string('date');
             $table->string('start_time');
             $table->integer('interval');
+            $table->string('cmt');
             $table->string('end_time');
             $table->string('doctor_id');
             $table->timestamps();

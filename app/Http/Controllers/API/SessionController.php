@@ -70,6 +70,8 @@ class SessionController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $session = $this->session_repo->getById($id);   
+       $session->slots()->delete();
+       $session->delete();
     }
 }
