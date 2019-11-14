@@ -45,7 +45,8 @@ Route::apiResources([
     'examinations'=>'API\ExaminationController',
     'sessions'=>'API\SessionController',
     'roles' => 'API\RoleController',
-    'products' => 'API\ProductController'
+    'products' => 'API\ProductController',
+    'appointments' => 'API\AppointmentController',
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

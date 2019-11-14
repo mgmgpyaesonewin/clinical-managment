@@ -22,9 +22,13 @@ class SessionController extends Controller
     }
     public function index(Request $req)
     {
-      return $this->session_repo
+        $date = $req->date;
+        return $this->session_repo
             ->with('slots')
             ->where('doctor_id',$req->id)
+            ->when($date, function ($query, $date) {
+                return $query->whereDate('date', $date);
+            })
             ->get();
     }
 
