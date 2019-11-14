@@ -79,4 +79,57 @@ class ReservationTest extends TestCase
         $session_interval = SessionInterval::where('id',$selected_session_interval_id)->first()->get();
         $this->assertTrue($session_interval->contains('id', 1));
     }
+
+    /** @test **/
+    public function get_all_slots_via_a_doctor_on_a_date()
+    {
+        $this->withoutExceptionHandling();
+
+        $user = factory(User::class)->create();
+        $doctor = factory(User::class)->create();
+        $patient = factory(Patient::class)->create();
+        $faker = \Faker\Factory::create(); 
+        $tomorrow =  Carbon::createFromTimeStamp($faker->dateTimeBetween('now', '+01 days')->getTimestamp());
+        $end_time = Carbon::createFromFormat('Y-m-d H:i:s', $tomorrow)->addHours(3);
+        $this->actingAs($user, 'api')->json('POST','/api/sessions', [
+            'date' => $tomorrow->format('d-m-Y'),
+            'start_time' => "12:00",
+            'end_time' => "13:00",
+            'interval' => 15,
+            'intervals' => 
+                array (
+                  0 => 
+                  array (
+                    'booked' => false,
+                    'date' => '2019-11-21',
+                    'doctor_id' => 2,
+                    'time' => '12:00',
+                  ),
+                  1 => 
+                  array (
+                    'booked' => false,
+                    'date' => '2019-11-21',
+                    'doctor_id' => 2,
+                    'time' => '12:15',
+                  ),
+                  2 => 
+                  array (
+                    'booked' => false,
+                    'date' => '2019-11-21',
+                    'doctor_id' => 2,
+                    'time' => '12:30',
+                  ),
+                  3 => 
+                  array (
+                    'booked' => false,
+                    'date' => '2019-11-21',
+                    'doctor_id' => 2,
+                    'time' => '12:45',
+                  ),
+                ),
+            'doctor_id' => $doctor->id,
+            'cmt' => $faker->text
+        ]);
+        $sessions = $this->actingAs($user, 'api')->get('/api/sessions?id='.$doctor->id)->getOriginalContent();
+    }
 }
