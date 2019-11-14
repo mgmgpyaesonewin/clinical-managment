@@ -7,6 +7,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 
 class ReadCodesImport implements ToModel
 {
+    
     /**
     * @param array $row
     *
@@ -14,18 +15,21 @@ class ReadCodesImport implements ToModel
     */
     public function model(array $row)
     {
-        return new ReadCode([
-            'code' => $row[0],
-            'block_id' => $row[1],
-            'title' => $row[2],
-            'class_kind' => $row[3],
-            'depth_in_kind' => $row[4],
-            'is_residual' => $row[5],
-            'primary_location' => $row[6],
-            'chapter_no' => $row[7],
-            'browser_link' => $row[8],
-            'is_leaf' => $row[9],
-            'no_of_non_residual_children' => $row[10],
-        ]);
+        if($row[3]=='category'){
+            return new ReadCode([
+                'code' => $row[0],
+                'block_id' => $row[1],
+                'title' => $row[2],
+                'class_kind' => $row[3],
+                'depth_in_kind' => $row[4],
+                'is_residual' => $row[5],
+                // 'primary_location' => $row[6],
+                'chapter_no' => $row[6],
+                // 'browser_link' => $row[8],
+                'is_leaf' => $row[7],
+                'no_of_non_residual_children' => $row[8],
+            ]);
+        }
+
     }
 }

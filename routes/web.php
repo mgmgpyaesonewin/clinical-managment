@@ -34,5 +34,7 @@ Route::get('/permissions', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/import','API\ReadCodeController@index');
+Route::post('/import','API\ReadCodeController@store');
 
 Route::resource('/hospital', 'HospitalController');

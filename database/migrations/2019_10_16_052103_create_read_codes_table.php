@@ -21,9 +21,7 @@ class CreateReadCodesTable extends Migration
             $table->string('class_kind');
             $table->string('depth_in_kind');
             $table->string('is_residual');
-            $table->string('primary_location');
             $table->string('chapter_no');
-            $table->string('browser_link');
             $table->string('is_leaf');
             $table->string('no_of_non_residual_children');
             $table->timestamps();

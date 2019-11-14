@@ -17,7 +17,7 @@ class ReadCodeController extends Controller
      */
     public function index()
     {
-        return ReadCode::all();
+      return view('test.import');
     }
 
     /**
@@ -28,9 +28,12 @@ class ReadCodeController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
         $file = $request->file('excel');
-        Excel::import(new ReadCodesImport, $file);
-        return response()->json(['success' => 'done'], 201);
+        // dd($file);
+         Excel::import(new ReadCodesImport, $file);
+        return $file;
+        // return response()->json(['success' => 'done'], 201);
     }
 
     /**
