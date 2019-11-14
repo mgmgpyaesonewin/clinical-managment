@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SessionRequest;
+use App\Repositories\Frontend\SessionIntervalRepository;
 use App\Repositories\Frontend\SessionRepository;
 
 class SessionController extends Controller
@@ -35,8 +36,14 @@ class SessionController extends Controller
      */
     public function store(SessionRequest $req)
     {
+        // dd($req->validated());
         $data=$req->validated();
-        return $this->session_repo->create($data)->slots()->createMany($req->intervals);
+        $arrayDates= explode(',',$data['date']);
+        foreach ($arrayDates as $key => $value) {
+            $data['date']=$value;
+            $this->session_repo->create($data)->slots()->createMany($req->intervals);
+        }
+        return 'true';
     }
 
     /**
@@ -57,9 +64,16 @@ class SessionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SessionRequest $req, $id,SessionIntervalRepository $si)
     {
-        //
+        
+        $data= $this->session_repo->getById($id);
+        $data->update($req->validated());
+        // dd($req->validated());
+        $check=$si->where('session_id',$id)->delete();
+        $data->slots()->createMany($req->intervals);
+        return $data;
+        
     }
 
     /**
