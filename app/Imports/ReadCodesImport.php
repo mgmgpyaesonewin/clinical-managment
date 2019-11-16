@@ -19,7 +19,7 @@ class ReadCodesImport implements ToModel
             return new ReadCode([
                 'code' => $row[0],
                 'block_id' => $row[1],
-                'title' => $row[2],
+                'title' => ltrim($row[2], ' -'),
                 'class_kind' => $row[3],
                 'depth_in_kind' => $row[4],
                 'is_residual' => $row[5],
