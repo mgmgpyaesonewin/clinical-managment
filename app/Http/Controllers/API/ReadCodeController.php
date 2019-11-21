@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Imports\ReadCodesImport;
 use App\ReadCode;
+use Illuminate\Support\Facades\Redis;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReadCodeController extends Controller
@@ -15,9 +16,14 @@ class ReadCodeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
-      return view('test.import');
+    
+        return ReadCode::where('code','like',"%$req->key%")
+        ->orWhere('title','like',"%$req->key%")
+        ->select('code','title')->get();
+       
+        
     }
 
     /**

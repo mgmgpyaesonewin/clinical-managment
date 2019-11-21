@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Investigation extends Model
 {
-    protected $fillable=['term','value','doctor_id','code','patient_id','type','snomed_ct','range'];
+    protected $guarded=[];
     
     public function doctor()
     {
@@ -16,5 +16,10 @@ class Investigation extends Model
     public function patient()
     {
         return $this->belongsTo('App\Patient','patient_id');
+    }
+
+    public function consultation(){
+        return $this->belongsTo('App\Consultation','consultation_id');
+
     }
 }

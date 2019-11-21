@@ -24,7 +24,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $paginator = $this->patientrepo
-        ->where('hospital_id','=',1)
+        ->where('hospital_id','=',$request->hosid)
         ->when($request->query('query'),function($query) use($request){
             return $query->where('id',$request->query('query'));
         })

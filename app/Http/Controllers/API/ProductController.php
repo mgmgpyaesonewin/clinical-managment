@@ -42,6 +42,7 @@ class ProductController extends Controller
             'name' => 'required',
             'quantity' => 'required',
             'price' => 'required',
+            'hospital_id'=> 'required',
             'description' => 'required',
             'min_order' => 'required',
             'max_order' => 'required',
