@@ -24,11 +24,11 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $paginator = $this->patientrepo
-            ->where('hospital_id', '=', 1)
-            ->when($request->query('query'), function ($query) use ($request) {
-                return $query->where('id', $request->query('query'));
-            })
-            ->orderBy('created_at', 'desc')->paginate(5);
+        ->where('hospital_id','=',$request->hosid)
+        ->when($request->query('query'),function($query) use($request){
+            return $query->where('id',$request->query('query'));
+        })
+        ->orderBy('created_at','desc')->paginate(5);
         // $paginator->count=$paginator->total;
         $fake = $paginator->toArray();
         $fake['count'] = $fake['total'];

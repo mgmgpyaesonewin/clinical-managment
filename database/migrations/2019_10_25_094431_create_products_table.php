@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name');
             $table->integer('quantity');
             $table->string('price');
+            $table->string('hospital_id');
             $table->string('description');
             $table->integer('min_order');
             $table->integer('max_order');

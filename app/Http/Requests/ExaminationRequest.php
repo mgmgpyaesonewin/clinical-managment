@@ -46,6 +46,7 @@ class ExaminationRequest extends FormRequest
                'doctor_id'=>'required',
                'type'=>'required',
                'range'=>'nullable',
+               'patient_id'=> 'nullable',
                'consultation_id'=>'required',
                'code'=>'required',
                'type'=>'required',
