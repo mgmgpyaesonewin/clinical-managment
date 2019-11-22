@@ -34,6 +34,7 @@ Route::get('medicationPerConsultation/{id}','API\MedicationController@medication
 Route::get('permissions/{id?}', 'API\PermissionController@index');
 Route::post('assignPermissions', 'API\RoleController@assignPermissions');
 Route::get('codes', 'API\ReadCodeController@index');
+Route::get('patients/all', 'API\PatientController@all');
 
 Route::apiResources([
     'patients' => 'API\PatientController',

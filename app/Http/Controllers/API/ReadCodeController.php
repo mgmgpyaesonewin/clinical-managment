@@ -17,7 +17,8 @@ class ReadCodeController extends Controller
      */
     public function index()
     {
-      return view('test.import');
+        return ReadCode::all();
+    //   return view('test.import');
     }
 
     /**

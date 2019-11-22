@@ -50,7 +50,8 @@ class ExaminationRequest extends FormRequest
                'code'=>'required',
                'type'=>'required',
             //    'snomed_ct'=>'required',
-               'doctor_id'=>'required'
+               'doctor_id'=>'required',
+               'patient_id'=>'required',
             ];
     }
 }
