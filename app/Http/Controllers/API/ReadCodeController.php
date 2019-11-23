@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Imports\ReadCodesImport;
 use App\ReadCode;
-use Illuminate\Support\Facades\Redis;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReadCodeController extends Controller
@@ -18,10 +17,16 @@ class ReadCodeController extends Controller
      */
     public function index(Request $req)
     {
-        return ReadCode::where('code','like',"%$req->key%")
-        ->orWhere('title','like',"%$req->key%")
-        ->select('code','title')->get();
-    }
+        return ReadCode::search($req->key)->get();
+        // return ReadCode::where('code','like',"%$req->key%")
+        // ->orWhere('title','like',"%$req->key%")
+        // ->select('code','title')->get();
+    }    
+
+    public function search(Request $req)
+    {
+        return ReadCode::search($req->key);
+    }    
 
     /**
      * Store a newly created resource in storage.
