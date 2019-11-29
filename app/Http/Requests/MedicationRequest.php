@@ -27,7 +27,7 @@ class MedicationRequest extends FormRequest
      */
     public function rules()
     {
-        return  [
+        return [
             'drug' => 'required',
             'dosage' => 'required',
             'qty' => 'required',

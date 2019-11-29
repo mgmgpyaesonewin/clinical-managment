@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public $user;
+    private $user;
     public function __construct(UserRepository $userRepository)
     {
         $this->middleware('auth:api');
@@ -58,8 +58,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, $id)
     {
-        $user = $this->user->updateById($id, $request->validated());
-        return $user;
+        return $this->user->updateById($id, $request->validated());
     }
 
     /**

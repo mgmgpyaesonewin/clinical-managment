@@ -39,7 +39,7 @@ class ReadCodeController extends Controller
         // dd($request);
         $file = $request->file('excel');
         // dd($file);
-         Excel::import(new ReadCodesImport, $file);
+        Excel::import(new ReadCodesImport(), $file);
         return $file;
         // return response()->json(['success' => 'done'], 201);
     }
@@ -75,6 +75,6 @@ class ReadCodeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        
     }
 }

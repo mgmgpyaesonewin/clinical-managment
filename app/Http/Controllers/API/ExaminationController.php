@@ -14,7 +14,7 @@ class ExaminationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $ExamRepo=null;
+    private $ExamRepo=null;
     public function __construct(InvestigationRepository $investrepo)
     {
         $this->ExamRepo=$investrepo;

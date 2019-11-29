@@ -7,9 +7,8 @@ use Spatie\Permission\Models\Permission;
 
 class PermissionRepository extends BaseRepository
 {
-
-	public function model()
-	{
-		return Permission::class;
-	}
+    public function model()
+    {
+        return Permission::class;
+    }
 }

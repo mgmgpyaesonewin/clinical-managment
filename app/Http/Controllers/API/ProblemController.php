@@ -15,7 +15,7 @@ class ProblemController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-        public $prob;
+    private $prob;
     public function __construct(ProblemRepository $repo)
     {
         $this->prob = $repo;

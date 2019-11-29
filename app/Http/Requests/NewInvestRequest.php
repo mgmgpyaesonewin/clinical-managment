@@ -41,7 +41,7 @@ class NewInvestRequest extends FormRequest
     
     public function rules()
     {
-        return[
+        return [
                'term'=>'required',
                'doctor_id'=>'required',
                'type'=>'nullable',

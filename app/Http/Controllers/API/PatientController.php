@@ -15,7 +15,7 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $patientrepo;
+    private $patientrepo;
     public function __construct(PatientRepository $repo)
     {
         $this->middleware('auth:api');
@@ -49,8 +49,7 @@ class PatientController extends Controller
      */
     public function store(PatientRequest $request)
     {
-        $patient = $this->patientrepo->create($request->validated());
-        return $patient;
+        return $this->patientrepo->create($request->validated());
     }
 
     /**
@@ -74,8 +73,7 @@ class PatientController extends Controller
      */
     public function update(PatientRequest $request, $id)
     {
-        $patient = $this->patientrepo->updateById($id, $request->validated());
-        return $patient;
+        return $this->patientrepo->updateById($id, $request->validated());
     }
 
     /**

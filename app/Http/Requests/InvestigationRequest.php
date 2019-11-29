@@ -41,7 +41,7 @@ class InvestigationRequest extends FormRequest
     
     public function rules()
     {
-        return[
+        return [
                'term'=>'required',
                'value'=>'required',
                'doctor_id'=>'required',

@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\API;
-use Carbon\Carbon;
+
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 
 class AuthController extends Controller
 {
@@ -20,7 +21,7 @@ class AuthController extends Controller
     {
         $credentials = request(['email', 'password']);
 
-        if (! $token = auth('api')->attempt($credentials)) {
+        if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }
 
@@ -62,7 +63,7 @@ class AuthController extends Controller
     /**
      * Get the token array structure.
      *
-     * @param  string $token
+     * @param string $token
      *
      * @return \Illuminate\Http\JsonResponse
      */
@@ -71,9 +72,9 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' =>  Carbon::now()->addDays(30)->timestamp,
-            'data'=> auth('api')->user(),
-            'permissions' => auth('api')->user()->getAllPermissions()->pluck('name')
+            'expires_in' => Carbon::now()->addDays(30)->timestamp,
+            'data' => auth('api')->user(),
+            'permissions' => auth('api')->user()->getAllPermissions()->pluck('name'),
         ]);
     }
 }

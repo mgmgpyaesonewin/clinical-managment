@@ -11,7 +11,7 @@ use Spatie\Permission\Models\Permission;
 
 class RoleController extends Controller
 {
-    public $role;
+    private $role;
     public function __construct(RoleRepository $roleRepository)
     {
         $this->middleware('auth:api');
@@ -46,8 +46,7 @@ class RoleController extends Controller
      */
     public function store(RoleRequest $request)
     {
-        $role = $this->role->create($request->validated());
-        return $role;
+        return $this->role->create($request->validated());
     }
 
     /**
@@ -81,8 +80,7 @@ class RoleController extends Controller
      */
     public function update(RoleRequest $request, $id)
     {
-        $role = $this->role->updateById($id,$request->validated());
-        return $role;
+        return $this->role->updateById($id,$request->validated());
     }
 
     /**

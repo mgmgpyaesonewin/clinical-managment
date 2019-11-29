@@ -26,11 +26,12 @@ Route::group([
     Route::get('me', 'API\AuthController@me');
 });
 
-Route::get('examinationPerConsultation/{id}','API\ExaminationController@examinationPerConsultation');
-Route::get('investigationPerPatient/{id}','API\InvestigationController@investigationPerPatient');
-Route::get('problemPerConsultation/{id}','API\ProblemController@problemPerConsultation');
-Route::get('problemsPerPatient/{id}','API\ProblemController@problemsPerPatient');
-Route::get('medicationPerConsultation/{id}','API\MedicationController@medicationPerConsultationPerConsultation');
+
+Route::get('examinationPerConsultation/{id}', 'API\ExaminationController@examinationPerConsultation');
+Route::get('investigationPerPatient/{id}', 'API\InvestigationController@investigationPerPatient');
+Route::get('problemPerConsultation/{id}', 'API\ProblemController@problemPerConsultation');
+Route::get('problemsPerPatient/{id}', 'API\ProblemController@problemsPerPatient');
+Route::get('medicationPerConsultation/{id}', 'API\MedicationController@medicationPerConsultationPerConsultation');
 Route::get('permissions/{id?}', 'API\PermissionController@index');
 Route::post('assignPermissions', 'API\RoleController@assignPermissions');
 Route::get('codes', 'API\ReadCodeController@index');

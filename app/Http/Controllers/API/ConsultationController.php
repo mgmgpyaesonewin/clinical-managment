@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConsultationRequest;
 use App\Repositories\Frontend\ConsultationRepository;
-use DateTime;
 
 class ConsultationController extends Controller
 {
@@ -15,15 +14,15 @@ class ConsultationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $consultrepo=null;
+    protected $consultrepo = null;
     public function __construct(ConsultationRepository $repo)
     {
-        $this->consultrepo=$repo;
+        $this->consultrepo = $repo;
     }
 
     public function index(Request $req)
     {
-        return $this->consultrepo->with('doctor')->where('patient_id','=',$req->id)->orderBy('created_at','desc')->get();
+        return $this->consultrepo->with('doctor')->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
     }
     /**
      * Store a newly created resource in storage.
@@ -33,10 +32,9 @@ class ConsultationController extends Controller
      */
     public function store(ConsultationRequest $request)
     {
-     $consult= $this->consultrepo->with('doctor')
-       ->create($request->validated());
-       return $this->consultrepo->with('doctor')->getById($consult->id);
-
+        $consult = $this->consultrepo->with('doctor')
+            ->create($request->validated());
+        return $this->consultrepo->with('doctor')->getById($consult->id);
     }
 
     /**
@@ -60,7 +58,7 @@ class ConsultationController extends Controller
      */
     public function update(ConsultationRequest $request, $id)
     {
-        $consult = $this->consultrepo->updateById($id,$request->validated());
+        $consult = $this->consultrepo->updateById($id, $request->validated());
         return $this->consultrepo->with('doctor')->getById($consult->id);
     }
 

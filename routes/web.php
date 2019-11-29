@@ -19,15 +19,15 @@ Route::get('/home/{vue_capture?}', function () {
 
 Auth::routes(['register' => false]);
 
-Route::get('/', function () {
+Route::get('/', static function () {
     return view('landing_page');
 });
 
-Route::get('/roles', function () {
+Route::get('/roles', static function () {
     return view('role');
 });
 
-Route::get('/permissions', function () {
+Route::get('/permissions', static function () {
     return view('permission');
 });
 

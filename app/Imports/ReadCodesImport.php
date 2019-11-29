@@ -15,7 +15,7 @@ class ReadCodesImport implements ToModel
     */
     public function model(array $row)
     {
-        if($row[3]=='category'){
+        if($row[3]==='category'){
             return new ReadCode([
                 'code' => $row[0],
                 'block_id' => $row[1],
