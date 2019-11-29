@@ -14,7 +14,7 @@ class MedicationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $m_repo;
+    protected $m_repo;
     public function __construct(MedicationRepository $repo){
         $this->m_repo=$repo;
     }

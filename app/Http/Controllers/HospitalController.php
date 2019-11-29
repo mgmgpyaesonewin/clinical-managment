@@ -101,7 +101,7 @@ class HospitalController extends Controller
     {
         Log::emergency('Showing user profile for user: '.$id);
         $hospital = $this->hospital->updateById($id, $request->validated());
-        $user = $userRepo->updateById($request->user_id, [
+        $userRepo->updateById($request->user_id, [
             'name' => $request->username,
             'email' => $request->email,
             'password' => bcrypt($request->password),

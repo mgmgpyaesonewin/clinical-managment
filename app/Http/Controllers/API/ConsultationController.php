@@ -15,7 +15,7 @@ class ConsultationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $consultrepo=null;
+    protected $consultrepo=null;
     public function __construct(ConsultationRepository $repo)
     {
         $this->consultrepo=$repo;

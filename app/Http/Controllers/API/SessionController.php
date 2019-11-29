@@ -15,7 +15,7 @@ class SessionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public $session_repo;
+    protected $session_repo;
     public function __construct(SessionRepository $repo)
     {
         $this->session_repo= $repo;    
@@ -70,14 +70,11 @@ class SessionController extends Controller
      */
     public function update(SessionRequest $req, $id,SessionIntervalRepository $si)
     {
-        
         $data= $this->session_repo->getById($id);
         $data->update($req->validated());
-        // dd($req->validated());
-        $check=$si->where('session_id',$id)->delete();
+        $si->where('session_id',$id)->delete();
         $data->slots()->createMany($req->intervals);
         return $data;
-        
     }
 
     /**

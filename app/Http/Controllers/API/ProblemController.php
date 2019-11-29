@@ -69,7 +69,7 @@ class ProblemController extends Controller
      */
     public function update(ProblemRequest $request, $id)
     {
-        $patient = $this->prob->updateById($id,$request->validated());
+        $this->prob->updateById($id,$request->validated());
     }
 
     /**

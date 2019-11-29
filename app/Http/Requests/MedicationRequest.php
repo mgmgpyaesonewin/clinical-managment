@@ -27,12 +27,14 @@ class MedicationRequest extends FormRequest
      */
     public function rules()
     {
-       return  ['drug'=>'required',
-        'dosage'=>'required',
-        'qty'=>"required",
-        'duration'=>"required",
-        'type'=>"required",
-        'doctor_id'=>"required",
-        'consultation_id'=>"required"];
+        return  [
+            'drug' => 'required',
+            'dosage' => 'required',
+            'qty' => 'required',
+            'duration' => 'required',
+            'type' => 'required',
+            'doctor_id' => 'required',
+            'consultation_id' => 'required'
+        ];
     }
 }
