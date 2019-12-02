@@ -12,7 +12,7 @@ class AuthController extends Controller
         $this->middleware('auth:api', ['except' => ['login']]);
     }
 
-    /**
+    /**login.html
      * Get a JWT via given credentials.
      *
      * @return \Illuminate\Http\JsonResponse
@@ -20,7 +20,6 @@ class AuthController extends Controller
     public function login()
     {
         $credentials = request(['email', 'password']);
-
         if (!$token = auth('api')->attempt($credentials)) {
             return response()->json(['error' => 'Unauthorized'], 401);
         }

@@ -17,6 +17,7 @@ class ReadCodeController extends Controller
      */
     public function index(Request $req)
     {
+        
         return ReadCode::search($req->key)->get();
         // return ReadCode::where('code','like',"%$req->key%")
         // ->orWhere('title','like',"%$req->key%")

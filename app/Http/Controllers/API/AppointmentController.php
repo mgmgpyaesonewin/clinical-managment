@@ -14,7 +14,7 @@ class AppointmentController extends Controller
 
     public function __construct(AppointmentRepository $appointmentRepo)
     {
-        $this->middleware('auth:api');
+        // $this->middleware('auth:api');
         $this->appointment = $appointmentRepo;
     }
 
@@ -23,8 +23,20 @@ class AppointmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $req)
     {
+        $date= $req->date;
+        return $this->appointment
+        ->where('appointments.doctor_id',$req->id)
+        ->where('s.date',$date)
+        ->join('sessions as s','s.id','appointments.session_id')
+        ->select('s.date','appointments.*')
+        ->with([
+        'session',
+        'patient',
+        'session_interval'
+        ])
+        ->get();
     }
 
     /**
@@ -36,8 +48,9 @@ class AppointmentController extends Controller
      */
     public function store(AppointmentRequest $request)
     {
+
         $data = $request->validated();
-        $data['authorizer_id'] = Auth::user()->id;
+        $data['authorizer_id'] = auth('api')->user()->id;
 
         return $this->appointment->create($data);
     }

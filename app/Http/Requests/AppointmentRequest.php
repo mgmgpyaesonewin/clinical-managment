@@ -12,10 +12,10 @@ class AppointmentRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return Auth::user()->count() > 0;
-    }
+    // public function authorize()
+    // {
+    //     return Auth::user()->count() > 0;
+    // }
 
     /**
      * Get the validation rules that apply to the request.

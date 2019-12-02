@@ -35,6 +35,7 @@ class InvestigationController extends Controller
             ->when($notnull, function ($query) {
                 $query->whereNotNull('value');
             })
+            ->where('type','i')
             ->when($req->search, function ($q) use ($req) {
                 $q->where('p.name', 'like', '%' . $req->search . '%');
             })
