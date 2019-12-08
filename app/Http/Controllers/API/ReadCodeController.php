@@ -38,25 +38,25 @@ class ReadCodeController extends Controller
                             'session_intervals.booked')
                             ->with('doctor')
                             ->get()
-                            ->groupBy(['date', 'doctor_id',])
-                            ;
-    $newarray=array();
-    foreach ($data as $key => $value) {
-       foreach ($value as $k => $v) {
-            $count =0;
-            $doctor=null;
-          foreach ($v as $lkey => $la) {
-            if($la['booked']){
-                $count++;
-            }
-            $doctor=$la->doctor;
-          }
-          $newarray[$key][$k]=['count'=>$count,'maxcount'=>count($v),'doctor'=>$doctor];
-          $count=0;
-          $doctor=null;
-       }
-    }  
-    return $newarray;
+                            ->groupBy(['date', 'doctor_id',])->toArray();
+    return $data;
+    // $newarray=array();
+    // foreach ($data as $key => $value) {
+    //    foreach ($value as $k => $v) {
+    //         $count =0;
+    //         $doctor=null;
+    //       foreach ($v as $lkey => $la) {
+    //         if($la['booked']){
+    //             $count++;
+    //         }
+    //         $doctor=$la->doctor;
+    //       }
+    //       $newarray[$key][$k]=['count'=>$count,'maxcount'=>count($v),'doctor'=>$doctor];
+    //       $count=0;
+    //       $doctor=null;
+    //    }
+    // }  
+    // return $newarray;
     }
 
     /**
