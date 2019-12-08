@@ -12,4 +12,8 @@ class SessionInterval extends Model
    {
        return $this->belongsTo('App\Session');
    }
+   public function doctor()
+   {
+       return $this->belongsTo('App\User','doctor_id');
+   }
 }

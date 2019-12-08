@@ -6,9 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Imports\ReadCodesImport;
 use App\ReadCode;
 use App\SessionInterval;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+
+use function PHPSTORM_META\map;
 
 class ReadCodeController extends Controller
 {
@@ -27,21 +29,34 @@ class ReadCodeController extends Controller
 
     public function search(Request $req)
     {
-        return SessionInterval::join('sessions as s', 'session_intervals.session_id', 's.id')
-            ->select('session_intervals.doctor_id', 's.date', 'session_intervals.id', DB::raw('COUNT(session_intervals.id) as max_slots'), 'session_intervals.booked')
-            ->whereIn('session_intervals.doctor_id', [2, 3])
-            ->groupBy('session_intervals.id')
-            ->get()
-        ;
-        // ->groupBy(['date', 'doctor_id', 'max_slots'])
-
-        // foreach ($data as $key => $value) {
-        //     foreach ($value as $key => $v) {
-        //         $value[$key]['count'] = count($value);
-        //         $v->map(function ($value, $index) {
-        //         });
-        //     }
-        // }
+    //    return $req->all();
+     $data=SessionInterval::join('sessions as s','s.id','session_intervals.session_id')
+                            ->whereIn('s.doctor_id',$req->id)
+                            ->whereDate('s.date','>=',$req->fromdate)
+                            ->whereDate('s.date','<=',$req->todate)
+                            ->select('s.*','session_intervals.id',
+                            'session_intervals.booked')
+                            ->with('doctor')
+                            ->get()
+                            ->groupBy(['date', 'doctor_id',])
+                            ;
+    $newarray=array();
+    foreach ($data as $key => $value) {
+       foreach ($value as $k => $v) {
+            $count =0;
+            $doctor=null;
+          foreach ($v as $lkey => $la) {
+            if($la['booked']){
+                $count++;
+            }
+            $doctor=$la->doctor;
+          }
+          $newarray[$key][$k]=['count'=>$count,'maxcount'=>count($v),'doctor'=>$doctor];
+          $count=0;
+          $doctor=null;
+       }
+    }  
+    return $newarray;
     }
 
     /**
