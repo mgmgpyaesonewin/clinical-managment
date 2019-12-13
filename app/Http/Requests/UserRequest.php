@@ -40,6 +40,7 @@ class UserRequest extends FormRequest
             'name'  =>  'required|String',
             'email'   =>  'required|String',
             'nrc'=>  'required',
+            'is_doctor'=> 'required',
             'dob'=> 'required',
             'gender'  =>  'required',
             'phone'=> 'required',

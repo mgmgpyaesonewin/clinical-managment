@@ -24,7 +24,6 @@ class ProblemRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'  =>  'required|String',
             'type'=>'required',
             'code'   =>  'required|String',
             'consultation_id'=>  'required',

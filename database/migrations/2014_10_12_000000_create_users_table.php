@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('address')->nullable();
             $table->string('dob')->nullable();
             $table->string('nrc')->nullable();
+            $table->boolean('is_doctor')->default(false);
             $table->string('phone')->nullable();
             $table->string('organization')->nullable();
             $table->string('gender')->nullable();

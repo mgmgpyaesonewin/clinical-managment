@@ -34,6 +34,7 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
+        // dd($request->all());
         $user = $this->user->create($request->validated());
         return $user;
     }

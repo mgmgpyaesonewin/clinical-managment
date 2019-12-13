@@ -35,7 +35,8 @@ class ProblemController extends Controller
         return $this->prob->with('consultation','consultation.doctor')
             ->where('patient_id','=',$req->id)
             ->orderBy('created_at','desc')
-            ->get();
+            ->get()
+            ->groupBy(['type','status']);
     }
 
     /**

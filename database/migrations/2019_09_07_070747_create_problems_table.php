@@ -17,7 +17,6 @@ class CreateProblemsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->string('code');
-            $table->string('name');
             $table->string('status');
             $table->date('start_time')->nullable();
             $table->string('action');

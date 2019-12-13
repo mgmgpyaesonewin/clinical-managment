@@ -40,6 +40,7 @@ class ConsultationRequest extends FormRequest
     public function rules()
     {
         return [
+            'type'=> 'required',
             'title'  =>  'required|String',
             'comment'   =>  'required|String',
             'patient_id'=>  'required',

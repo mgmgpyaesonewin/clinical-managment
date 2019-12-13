@@ -17,6 +17,7 @@ class CreateConsultation extends Migration
             $table->bigIncrements('id');
             // $table->date('date');
             // $table->string('time');
+            $table->string('type');
             $table->string('title');
             $table->text('comment');
             $table->string('patient_id');
