@@ -24,7 +24,7 @@ class PatientController extends Controller
     public function index(Request $request)
     {
         $paginator = $this->patientrepo
-        ->where('hospital_id','=',$request->hosid)
+        ->hospital()
         ->when($request->query('query'),function($query) use($request){
             return $query->where('id',$request->query('query'));
         })
@@ -34,11 +34,18 @@ class PatientController extends Controller
         $fake['count'] = $fake['total'];
         return $fake;
     }
-
+    public function searchPatient(Request $req){
+        return $this->patientrepo
+                    ->orWhere('name','like',"%$req->key%")
+                    // ->orWhere('nrc','like',"%$req->key%")
+                    ->hospital()
+                    ->select('name','id')
+                    ->get();
+    }
     public function all()
     {
         return $this->patientrepo
-            ->where('hospital_id', '=', 1)
+            ->where('hospital_id', auth('api')->user()->hospital_id)
             ->orderBy('created_at', 'desc')->all();
     }
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\UserRequest;
 use App\Repositories\Frontend\UserRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -25,7 +26,13 @@ class UserController extends Controller
         $hospital_id = Auth::user()->hospital_id;
         return $this->user->where('hospital_id', '==', $hospital_id)->get();
     }
-
+    public function searchUser(Request $req){
+        return $this->user
+                    ->orWhere('name','like',"%$req->key%")
+                    ->orWhere('nrc','like',"%$req->key%")
+                    ->select('name','nrc','id')
+                    ->get();
+    }
     /**
      * Store a newly created resource in storage.
      *
