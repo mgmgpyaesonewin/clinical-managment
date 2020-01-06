@@ -39,7 +39,7 @@ class PatientController extends Controller
                     ->orWhere('name','like',"%$req->key%")
                     // ->orWhere('nrc','like',"%$req->key%")
                     ->hospital()
-                    ->select('name','id')
+                    // ->select('name','id')
                     ->get();
     }
     public function all()

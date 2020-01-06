@@ -35,6 +35,7 @@ class PatientRequest extends FormRequest
             'dob'   =>  'required|String',
             'gender'=>  'required',
             'address'=> 'required',
+            'nrc' => 'required',
             'city'  =>  'required',
             'phone_number'=> 'required',
             'user_id' => 'required',
