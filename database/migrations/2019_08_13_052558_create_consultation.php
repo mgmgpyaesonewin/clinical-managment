@@ -15,13 +15,12 @@ class CreateConsultation extends Migration
     {
         Schema::create('consultations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            // $table->date('date');
-            // $table->string('time');
             $table->string('type');
             $table->string('title');
-            $table->text('comment');
+            $table->text('comment')->nullable();
             $table->string('patient_id');
             $table->string('doctor_id');
+            $table->text('address');
             $table->string('appointment_id')->default(1);
             $table->timestamps();
         });

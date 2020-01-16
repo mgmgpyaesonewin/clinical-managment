@@ -42,10 +42,9 @@ class ConsultationRequest extends FormRequest
         return [
             'type'=> 'required',
             'title'  =>  'required|String',
-            'comment'   =>  'required|String',
+            'comment'   =>  'nullable',
+            'address' => 'required|String',
             'patient_id'=>  'required',
-            // 'time'=> 'required',
-            // 'date'  =>  'required',
             'doctor_id'=>'required',
         ];
     }

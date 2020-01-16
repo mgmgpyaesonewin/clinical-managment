@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Consultation extends Model
 {
 
-    protected $fillable=['type','patient_id','title','comment','date','time','doctor_id','appointment_id'];
+    protected $fillable=['type','address','patient_id','title','comment','date','time','doctor_id','appointment_id'];
     public function getcreatedAtAttribute($value){
         $time=Carbon::createFromFormat('Y-m-d H:i:s',$value)->setTimeZone('Asia/Rangoon')->format('Y-m-d H:i:s');
         return $time;
