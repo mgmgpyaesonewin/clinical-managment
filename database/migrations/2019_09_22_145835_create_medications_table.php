@@ -19,6 +19,7 @@ class CreateMedicationsTable extends Migration
             $table->string('drug');
             $table->integer('qty');
             $table->integer('duration');
+            $table->string('patient_id');
             $table->string('type');
             $table->string('doctor_id');
             $table->string('consultation_id');
