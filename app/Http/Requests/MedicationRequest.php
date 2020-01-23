@@ -34,6 +34,7 @@ class MedicationRequest extends FormRequest
             'duration' => 'required',
             'type' => 'required',
             'doctor_id' => 'required',
+            'patient_id'=>'required',
             'consultation_id' => 'required'
         ];
     }

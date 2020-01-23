@@ -46,6 +46,13 @@ class MedicationController extends Controller
             ->orderBy('created_at', 'desc')->get();
     }
 
+    public function medicationPerConsultationPerPatient(Request $req)
+    {
+        return $this->m_repo->with('consultation', 'doctor')
+            ->where('patient_id', '=', $req->id)
+            ->orderBy('created_at', 'desc')->get();
+    }
+
     /**
      * Display the specified resource.
      *

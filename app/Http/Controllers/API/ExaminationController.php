@@ -34,6 +34,14 @@ class ExaminationController extends Controller
         ->where('consultation_id','=',$req->id)
         ->orderBy('created_at','desc')->get();
     }
+
+    public function examinationPerPatient(Request $req)
+    {
+        return $this->ExamRepo->with('consultation','doctor')
+        ->where('type','x')
+        ->where('patient_id','=',$req->id)
+        ->orderBy('created_at','desc')->get();
+    }
     /**
      * Store a newly created resource in storage.
      *
