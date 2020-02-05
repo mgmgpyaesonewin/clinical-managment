@@ -26,10 +26,10 @@ class ReadCodeController extends Controller
         // ->orWhere('title','like',"%$req->key%")
         // ->select('code','title')->get();
     }
-
     public function search(Request $req)
     {
     //    return $req->all();
+    return self::test();
      $data=SessionInterval::join('sessions as s','s.id','session_intervals.session_id')
                             ->whereIn('s.doctor_id',$req->id)
                             ->whereDate('s.date','>=',$req->fromdate)
