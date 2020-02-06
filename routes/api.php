@@ -41,6 +41,7 @@ Route::get('searchuser', 'API\UserController@searchUser');
 Route::get('searchpatient', 'API\PatientController@searchpatient');
 
 Route::apiResources([
+    'requests' => 'API\RequestController',
     'patients' => 'API\PatientController',
     'problems' => 'API\ProblemController',
     'users' => 'API\UserController',
@@ -55,6 +56,7 @@ Route::apiResources([
     'products' => 'API\ProductController',
     'appointments' => 'API\AppointmentController',
     'requests' => 'API\ConsultationRequestController',
+    'dailyservices' => 'API\DailyServiceController',
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {
