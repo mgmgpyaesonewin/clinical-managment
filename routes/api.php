@@ -37,8 +37,8 @@ Route::post('assignPermissions', 'API\RoleController@assignPermissions');
 Route::get('codes', 'API\ReadCodeController@index');
 Route::get('week', 'API\ReadCodeController@search');
 Route::get('patients/all', 'API\PatientController@all');
-Route::get('searchuser','API\UserController@searchUser');
-Route::get('searchpatient','API\PatientController@searchpatient');
+Route::get('searchuser', 'API\UserController@searchUser');
+Route::get('searchpatient', 'API\PatientController@searchpatient');
 
 Route::apiResources([
     'patients' => 'API\PatientController',
@@ -54,6 +54,7 @@ Route::apiResources([
     'additionalservices' => 'API\AdditionalServiceController',
     'products' => 'API\ProductController',
     'appointments' => 'API\AppointmentController',
+    'requests' => 'API\ConsultationRequestController',
 ]);
 
 // Route::middleware('auth:api')->get('/user', function (Request $request) {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ConsultationRequest;
 use App\Repositories\Frontend\ConsultationRepository;
+use Illuminate\Http\Request;
 
 class ConsultationController extends Controller
 {
@@ -14,7 +14,8 @@ class ConsultationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    protected $consultrepo = null;
+    protected $consultrepo;
+
     public function __construct(ConsultationRepository $repo)
     {
         $this->consultrepo = $repo;
@@ -22,54 +23,62 @@ class ConsultationController extends Controller
 
     public function index(Request $req)
     {
-        return $this->consultrepo->with('doctor')->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
+        return $this->consultrepo->with(['doctor', 'problems.requests'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
     }
+
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(ConsultationRequest $request)
     {
         $consult = $this->consultrepo->with('doctor')
-            ->create($request->validated());
+            ->create($request->validated())
+        ;
+
         return $this->consultrepo->with('doctor')->getById($consult->id);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
         $consult = $this->consultrepo->with('doctor')->getById($id);
+
         return collect($consult)->except('hospital_id');
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(ConsultationRequest $request, $id)
     {
         $consult = $this->consultrepo->updateById($id, $request->validated());
+
         return $this->consultrepo->with('doctor')->getById($consult->id);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
     }
 }
