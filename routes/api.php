@@ -39,6 +39,7 @@ Route::get('week', 'API\ReadCodeController@search');
 Route::get('patients/all', 'API\PatientController@all');
 Route::get('searchuser', 'API\UserController@searchUser');
 Route::get('searchpatient', 'API\PatientController@searchpatient');
+Route::post('saveExamination', 'API\ExaminationController@saveExamination');
 
 Route::apiResources([
     'requests' => 'API\RequestController',
