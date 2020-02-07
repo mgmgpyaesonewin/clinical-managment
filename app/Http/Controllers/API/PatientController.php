@@ -58,7 +58,12 @@ class PatientController extends Controller
     {
         return $this->patientrepo->create($request->validated());
     }
-
+    public function updateDeposit(Request $request,$id){
+        // return $request->all();
+        $patient=$this->patientrepo->getById($id);
+     $patient->increment('deposit',$request->deposit);
+     return $patient;
+    }
     /**
      * Display the specified resource.
      *
