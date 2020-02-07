@@ -1,13 +1,23 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Http\Exceptions\HttpResponseException;
+
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
-
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class RequestValidation extends FormRequest
 {
+    public function rules()
+    {
+        return [
+            'dataobject' => 'required',
+            'patient_id' => 'required',
+            'problem_id' => 'required',
+            'consultation_id' => 'required',
+        ];
+    }
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -26,14 +36,5 @@ class RequestValidation extends FormRequest
     protected function failedValidation(Validator $validator)
     {
         throw new HttpResponseException(response()->json($validator->errors(), 422));
-    }
-
-    public function rules()
-    {
-        return [
-          'dataobject'=>'required',
-          'patient_id'=>'required',
-          'consultation_id'=>'required'
-        ];
     }
 }

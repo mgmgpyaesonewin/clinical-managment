@@ -56,7 +56,8 @@ Route::apiResources([
     'additionalservices' => 'API\AdditionalServiceController',
     'products' => 'API\ProductController',
     'appointments' => 'API\AppointmentController',
-    'requests' => 'API\ConsultationRequestController',
+    // 'requests' => 'API\ConsultationRequestController',
+    'requests' => 'API\RequestController',
     'dailyservices' => 'API\DailyServiceController',
 ]);
 
