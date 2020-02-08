@@ -15,7 +15,7 @@ class Problem extends Model
 
     public function requests()
     {
-        return $this->hasMany('App\ConsultationRequest', 'problem_id');
+        return $this->hasMany('App\Request', 'problem_id');
     }
 
     public function examinations()
