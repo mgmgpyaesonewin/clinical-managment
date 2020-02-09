@@ -23,7 +23,8 @@ class ConsultationController extends Controller
 
     public function index(Request $req)
     {
-        return $this->consultrepo->with(['doctor', 'problems.requests', 'problems.examinations'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
+        // 'problems.requests', 'problems.examinations'
+        return $this->consultrepo->with('doctor')->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
     }
 
     /**
