@@ -36,10 +36,8 @@ class DailyServiceController extends Controller
     //    return $request->validated();
         $data['patient_id']= $request->patient_id;
         $data['start_date']=$request->start_date;
-        
         $dailyservice= $this->repo->create($data);
         $services=$request->services;
-        // return $services;
        return $dailyservice->dummpyservices()->createMany($services);
 
     }
@@ -64,7 +62,9 @@ class DailyServiceController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $services=$request->services;
+        $dailyservice=$this->repo->getById($id);
+        return $dailyservice->services()->sync($services);
     }
 
     /**

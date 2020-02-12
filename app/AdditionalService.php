@@ -8,4 +8,8 @@ class AdditionalService extends Model
 {
     protected $guarded=[];
 
+
+public function service(){
+    return $this->belongsTo('App\Service', 'service_id');
+}
 }

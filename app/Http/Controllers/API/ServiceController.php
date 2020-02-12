@@ -5,7 +5,11 @@ namespace App\Http\Controllers\API;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ServiceRequest;
+use App\Repositories\Frontend\AdditionalServiceRepository;
+use App\Repositories\Frontend\DailyServiceRepository;
 use App\Repositories\Frontend\ServiceRepository;
+use App\ServiceGroup;
+
 class ServiceController extends Controller
 {
     /**
@@ -45,7 +49,19 @@ class ServiceController extends Controller
     {
         //
     }
-
+    public function getServices(Request $req,DailyServiceRepository $daily_repo,AdditionalServiceRepository $As_repo ){
+    //   return $req->all();
+        $data['ds']=$daily_repo->where('patient_id',$req->id)
+        ->whereNull('end_date')
+        ->with('services')
+        ->get()[0];
+        // return $data;
+        $data['as']=$As_repo->where('patient_id',$req->id)
+        ->where('date',$req->date)
+        ->with('service')
+        ->get();
+        return $data;
+  }
     /**
      * Update the specified resource in storage.
      *
@@ -68,5 +84,11 @@ class ServiceController extends Controller
     {
     return (string)$this->Srepo->getById($id)->delete();
         
+    }
+    public function removeGroupService(Request $req,ServiceGroup $sg){
+    
+        $sg->where('daily_service_id', $req->daily_service_id)
+        ->where('service_id',$req->service_id)->delete();
+   
     }
 }

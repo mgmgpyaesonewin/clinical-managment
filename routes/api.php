@@ -41,6 +41,9 @@ Route::get('searchuser', 'API\UserController@searchUser');
 Route::get('searchpatient', 'API\PatientController@searchpatient');
 Route::post('saveExamination', 'API\ExaminationController@saveExamination');
 Route::put('patients/{id}/deposit', 'API\PatientController@updateDeposit');
+Route::get('getservices', 'API\ServiceController@getServices');
+Route::delete('servicegroups', 'API\ServiceController@removeGroupService');
+Route::post('servicegroups', 'API\ServiceController@createGroupService');
 
 Route::apiResources([
     'requests' => 'API\RequestController',
