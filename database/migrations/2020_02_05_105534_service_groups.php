@@ -17,6 +17,7 @@ class ServiceGroups extends Migration
             $table->bigIncrements('id');
             $table->string('service_id');
             $table->string('daily_service_id');
+            $table->string('user_id');
             $table->timestamps();
         });
     }

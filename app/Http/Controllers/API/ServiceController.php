@@ -54,7 +54,8 @@ class ServiceController extends Controller
         $data['ds']=$daily_repo->where('patient_id',$req->id)
         ->whereNull('end_date')
         ->with('services')
-        ->get()[0];
+        ->get();
+        
         // return $data;
         $data['as']=$As_repo->where('patient_id',$req->id)
         ->where('date',$req->date)

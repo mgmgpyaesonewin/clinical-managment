@@ -21,8 +21,13 @@ class AdditionalServiceController extends Controller
         $this->ASRepo = $repo;
     }
 
-    public function index()
+    public function index(Request $req)
     {
+        $data=$this->ASRepo->where('patient_id',$req->id)
+        ->where('date',$req->date)
+        ->with('service')
+        ->get();
+        return $data;
     }
 
     /**

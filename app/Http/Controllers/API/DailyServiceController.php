@@ -20,9 +20,13 @@ class DailyServiceController extends Controller
         // $this->middleware('auth:api');
         $this->repo = $repo;
     }
-    public function index(DailyServiceRepository $repo)
+    public function index(DailyServiceRepository $repo,Request $req)
     {
-        $this->$repo=$repo;
+        $data=$repo->where('patient_id',$req->id)
+        ->whereNull('end_date')
+        ->with('services')
+        ->get();
+        return $data;
     }
 
     /**
@@ -64,7 +68,8 @@ class DailyServiceController extends Controller
     {
         $services=$request->services;
         $dailyservice=$this->repo->getById($id);
-        return $dailyservice->services()->sync($services);
+        $dailyservice->services()->detach();
+        return $dailyservice->services()->attach($services,['user_id'=>$request->user_id]);
     }
 
     /**
