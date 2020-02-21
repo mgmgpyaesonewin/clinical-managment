@@ -53,7 +53,8 @@ class ConsultationController extends Controller
      */
     public function show($id)
     {
-        $consult = $this->consultrepo->with('doctor')->getById($id);
+        $consult = $this->consultrepo->with(['doctor', 'problems.requests', 'problems.examinations'])->getById($id);
+        // return Consultation::with(['doctor', 'problems.requests', 'problems.examinations'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
 
         return collect($consult)->except('hospital_id');
     }
