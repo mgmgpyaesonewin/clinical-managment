@@ -12,9 +12,11 @@ class Service extends Model
     {
         parent::boot();
 
-        static::addGlobalScope(new Hscope);
+        // static::addGlobalScope(new Hscope);
     }
     protected $guarded=[];
 
-
+    public function scopeHospital($query){
+        return $query->where('hospital_id',auth('api')->user()->hospital_id);
+    }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PatientRequest;
 use App\Repositories\Frontend\PatientRepository;
+use App\TransactionActivity;
 use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
@@ -58,10 +59,18 @@ class PatientController extends Controller
     {
         return $this->patientrepo->create($request->validated());
     }
-    public function updateDeposit(Request $request,$id){
+    public function updateDeposit(Request $request,$id,TransactionActivity $trans){
         // return $request->all();
-        $patient=$this->patientrepo->getById($id);
+     $patient=$this->patientrepo->getById($id);
      $patient->increment('deposit',$request->deposit);
+     $deposit= [
+         'user_id'=>auth('api')->user()->id,
+         'patient_id'=> $id,
+         'amount' => $request->deposit,
+         'cmt' => 'Deposit Added',
+         'type'=> '+'
+     ];
+     $trans->create($deposit);
      return $patient;
     }
     /**

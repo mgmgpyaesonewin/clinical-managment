@@ -25,7 +25,9 @@ class ServiceController extends Controller
 
     public function index()
     {
-        return $this->Srepo->get();
+        return $this->Srepo
+        ->hospital()
+        ->get();
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 
+use App\Repositories\Frontend\DailyServiceRepository;
+use App\TransactionActivity;
 use Illuminate\Http\Request;
 
 /*
@@ -24,7 +26,9 @@ Route::group([
     Route::post('checkout', 'API\OrderController@store');
     Route::get('me', 'API\AuthController@me');
 });
+Route::get('test',function(DailyServiceRepository $dsrepo,TransactionActivity $trans){
 
+});
 Route::get('examinationPerConsultation/{id}', 'API\ExaminationController@examinationPerConsultation');
 Route::get('investigationPerPatient/{id}', 'API\InvestigationController@investigationPerPatient');
 Route::get('examinationPerPatient/{id}', 'API\ExaminationController@examinationPerPatient');
