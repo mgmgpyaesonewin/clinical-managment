@@ -14,7 +14,8 @@ class AddColumnsToPatient extends Migration
     public function up()
     {
         Schema::table('patients', function (Blueprint $table) {
-            $table->integer('deposit')->nullable();
+            $table->integer('deposit')->default(0);
+            $table->string('type');
         });
     }
 

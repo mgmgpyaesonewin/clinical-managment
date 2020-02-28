@@ -19,6 +19,8 @@ class Hospital extends Model
         return $this->hasMany('App\User');
     }
 
+    
+
     // public function getStartDateAttribute($value)
     // {
     //     $this->attributes['start_date'] = Carbon::createFromFormat('d/m/Y', $value);

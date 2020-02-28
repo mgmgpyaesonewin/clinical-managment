@@ -50,6 +50,7 @@ class CalculateCharges extends Command
                     'type'=> "-",
                     'amount'=> $sg->service->price,
                 ];
+                dump($transdata);
                 $trans->create($transdata);
             }    
         }

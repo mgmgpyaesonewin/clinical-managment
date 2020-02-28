@@ -19,7 +19,7 @@ class PatientController extends Controller
     private $patientrepo;
     public function __construct(PatientRepository $repo)
     {
-        $this->middleware('auth:api');
+        // $this->middleware('auth:api');
         $this->patientrepo = $repo;
     }
     public function index(Request $request)
@@ -71,6 +71,7 @@ class PatientController extends Controller
          'type'=> '+'
      ];
      $trans->create($deposit);
+     $patient=$this->patientrepo->with('activity')->getById($id);
      return $patient;
     }
     /**
@@ -81,7 +82,11 @@ class PatientController extends Controller
      */
     public function show($id)
     {
-        $patient = $this->patientrepo->getById($id);
+        $patient = $this->patientrepo
+        ->with('activity')
+
+        ->where('id',$id)
+        ->first();
         return collect($patient)->except('hospital_id');
     }
 
