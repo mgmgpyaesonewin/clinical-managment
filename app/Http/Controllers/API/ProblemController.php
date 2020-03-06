@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers\API;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProblemRequest;
 use App\Repositories\Frontend\ProblemRepository;
+use Illuminate\Http\Request;
 
 class ProblemController extends Controller
 {
@@ -14,74 +14,87 @@ class ProblemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-
     private $prob;
+
     public function __construct(ProblemRepository $repo)
     {
         $this->prob = $repo;
     }
+
     public function index()
     {
-        return $this->prob->orderBy('created_at','desc')->get();
-    }
-    public function problemPerConsultation(Request $req){
-        return $this->prob->with('consultation','consultation.doctor')
-            ->where('consultation_id','=',$req->id)
-            ->orderBy('created_at','desc')
-            ->get();
+        return $this->prob->orderBy('created_at', 'desc')->get();
     }
 
-    public function problemsPerPatient(Request $req){
-        return $this->prob->with('consultation','consultation.doctor')
-            ->where('patient_id','=',$req->id)
-            ->orderBy('created_at','desc')
+    public function getProblemByID(Request $req)
+    {
+        return $this->prob->where('id', $req->id)->first();
+    }
+
+    public function problemPerConsultation(Request $req)
+    {
+        return $this->prob->with('consultation', 'consultation.doctor')
+            ->where('consultation_id', '=', $req->id)
+            ->orderBy('created_at', 'desc')
             ->get()
-            ->groupBy(['type','status']);
+        ;
+    }
+
+    public function problemsPerPatient(Request $req)
+    {
+        return $this->prob->with('consultation', 'consultation.doctor')
+            ->where('patient_id', '=', $req->id)
+            ->orderBy('created_at', 'desc')
+            ->get()
+            ->groupBy(['type', 'status'])
+        ;
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function store(ProblemRequest $request)
     {
-      return $this->prob->create($request->validated());
+        return $this->prob->create($request->validated());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int                      $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function update(ProblemRequest $request, $id)
     {
-        $this->prob->updateById($id,$request->validated());
+        $this->prob->updateById($id, $request->validated());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         $this->prob->deleteById($id);
-
     }
 }

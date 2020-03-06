@@ -26,8 +26,7 @@ Route::group([
     Route::post('checkout', 'API\OrderController@store');
     Route::get('me', 'API\AuthController@me');
 });
-Route::get('test',function(DailyServiceRepository $dsrepo,TransactionActivity $trans){
-
+Route::get('test', function (DailyServiceRepository $dsrepo, TransactionActivity $trans) {
 });
 Route::get('examinationPerConsultation/{id}', 'API\ExaminationController@examinationPerConsultation');
 Route::get('investigationPerPatient/{id}', 'API\InvestigationController@investigationPerPatient');
@@ -35,6 +34,7 @@ Route::get('examinationPerPatient/{id}', 'API\ExaminationController@examinationP
 Route::get('medicationPerPatient/{id}', 'API\MedicationController@medicationPerConsultationPerPatient');
 Route::get('problemPerConsultation/{id}', 'API\ProblemController@problemPerConsultation');
 Route::get('problemsPerPatient/{id}', 'API\ProblemController@problemsPerPatient');
+Route::get('problem/{id}', 'API\ProblemController@getProblemByID');
 Route::get('medicationPerConsultation/{id}', 'API\MedicationController@medicationPerConsultationPerConsultation');
 Route::get('permissions/{id?}', 'API\PermissionController@index');
 Route::post('assignPermissions', 'API\RoleController@assignPermissions');
