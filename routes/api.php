@@ -26,6 +26,7 @@ Route::group([
     Route::post('checkout', 'API\OrderController@store');
     Route::get('me', 'API\AuthController@me');
 });
+
 Route::get('test', function (DailyServiceRepository $dsrepo, TransactionActivity $trans) {
 });
 Route::get('examinationPerConsultation/{id}', 'API\ExaminationController@examinationPerConsultation');
@@ -51,6 +52,7 @@ Route::post('servicegroups', 'API\ServiceController@createGroupService');
 
 Route::apiResources([
     'requests' => 'API\RequestController',
+    'reportdocuments'=>'API\ReportDocumentController',
     'patients' => 'API\PatientController',
     'problems' => 'API\ProblemController',
     'users' => 'API\UserController',
