@@ -24,7 +24,7 @@ class ConsultationController extends Controller
 
     public function index(Request $req)
     {
-        return Consultation::with(['doctor', 'problems.requests', 'problems.examinations'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
+        return Consultation::with(['doctor', 'problems.requests', 'problems.examinations', 'medications'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
         // return $this->consultrepo->with(['doctor', 'problems.requests', 'problems.examinations'])->where('patient_id', '=', $req->id)->orderBy('created_at', 'desc')->get();
     }
 
@@ -42,6 +42,15 @@ class ConsultationController extends Controller
         ;
 
         return $this->consultrepo->with('doctor')->getById($consult->id);
+    }
+
+    public function saveComment(Request $request)
+    {
+        $consultation = Consultation::find($request->id);
+        $consultation->comment = $request->comment;
+        $consultation->save();
+
+        return response()->json(['success' => 'Saved'], 201);
     }
 
     /**

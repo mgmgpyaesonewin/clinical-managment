@@ -23,4 +23,9 @@ class Consultation extends Model
     {
         return $this->hasMany('App\Problem', 'consultation_id');
     }
+
+    public function medications()
+    {
+        return $this->hasMany('App\Medication', 'consultation_id');
+    }
 }

@@ -46,6 +46,11 @@ class ExaminationController extends Controller
             ->orderBy('created_at', 'desc')->get();
     }
 
+    public function getExaminationByProbID(Request $req)
+    {
+        return Examination::where('problem_id', $req->id)->get();
+    }
+
     /**
      * Store a newly created resource in storage.
      *
