@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Requests;
-use Illuminate\Http\Exceptions\HttpResponseException;
+
 use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
 
 class MedicationRequest extends FormRequest
 {
@@ -16,10 +17,7 @@ class MedicationRequest extends FormRequest
     {
         return true;
     }
-    protected function failedValidation(Validator $validator)
-    {
-        throw new HttpResponseException(response()->json($validator->errors(), 422));
-    }
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -34,8 +32,14 @@ class MedicationRequest extends FormRequest
             'duration' => 'required',
             'type' => 'required',
             'doctor_id' => 'required',
-            'patient_id'=>'required',
-            'consultation_id' => 'required'
+            'patient_id' => 'required',
+            'consultation_id' => 'required',
+            'problem_id' => 'required',
         ];
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        throw new HttpResponseException(response()->json($validator->errors(), 422));
     }
 }

@@ -51,6 +51,7 @@ Route::put('patients/{id}/deposit', 'API\PatientController@updateDeposit');
 Route::get('getservices', 'API\ServiceController@getServices');
 Route::delete('servicegroups', 'API\ServiceController@removeGroupService');
 Route::post('servicegroups', 'API\ServiceController@createGroupService');
+Route::post('getRequetsByProblemID', 'API\RequestController@getRequetsByProblemID');
 
 Route::apiResources([
     'requests' => 'API\RequestController',
@@ -69,7 +70,6 @@ Route::apiResources([
     'products' => 'API\ProductController',
     'appointments' => 'API\AppointmentController',
     // 'requests' => 'API\ConsultationRequestController',
-    'requests' => 'API\RequestController',
     'dailyservices' => 'API\DailyServiceController',
 ]);
 

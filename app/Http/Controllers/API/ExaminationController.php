@@ -40,10 +40,11 @@ class ExaminationController extends Controller
 
     public function examinationPerPatient(Request $req)
     {
-        return $this->ExamRepo->with('consultation', 'doctor')
-            ->where('type', 'x')
-            ->where('patient_id', '=', $req->id)
-            ->orderBy('created_at', 'desc')->get();
+        // return $this->ExamRepo->with('consultation', 'doctor')
+        //     ->where('type', 'x')
+        //     ->where('patient_id', '=', $req->id)
+        //     ->orderBy('created_at', 'desc')->get();
+        return Examination::where('patient_id', $req->id)->get();
     }
 
     public function getExaminationByProbID(Request $req)
@@ -99,7 +100,8 @@ class ExaminationController extends Controller
      */
     public function destroy($id)
     {
-        $this->ExamRepo->deleteById($id);
+        // $this->ExamRepo->deleteById($id);
+        return Examination::destroy($id);
     }
 
     public function saveExamination(Request $request)

@@ -22,8 +22,14 @@ class Problem extends Model
     {
         return $this->hasMany('App\Examination', 'problem_id');
     }
-    public function reportdocuments(){
-        return $this->hasMany('App\ReportDocument','problem_id');
+
+    public function medications()
+    {
+        return $this->hasMany('App\Medication', 'problem_id');
+    }
+
+    public function reportdocuments()
+    {
+        return $this->hasMany('App\ReportDocument', 'problem_id');
     }
 }
-
