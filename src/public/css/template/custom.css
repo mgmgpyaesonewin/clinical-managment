@@ -1,0 +1,8 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-nav {
+    padding: 0 !important;
+}
