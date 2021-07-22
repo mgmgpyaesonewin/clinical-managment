@@ -10,3 +10,7 @@ RUN set -ex \
     libpng-dev
 
 RUN docker-php-ext-install pdo pdo_pgsql gd
+
+RUN chown -R www-data:www-data /var/www/html
+
+RUN chmod -R 755 /var/www/html/storage
