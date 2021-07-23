@@ -11,6 +11,9 @@ RUN set -ex \
 
 RUN docker-php-ext-install pdo pdo_pgsql gd
 
-RUN chown -R www-data:www-data /var/www/html
+RUN apk --no-cache add pcre-dev ${PHPIZE_DEPS} \
+    && pecl install redis \
+    && docker-php-ext-enable redis \
+    && apk del pcre-dev ${PHPIZE_DEPS}
 
-RUN chmod -R 755 /var/www/html/storage
+# RUN chown -R www-data:www-data *
