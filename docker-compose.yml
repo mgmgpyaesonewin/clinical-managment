@@ -29,7 +29,7 @@ services:
       dockerfile: php.dockerfile
     container_name: php
     volumes: 
-      - ./src:/var/www/html
+      - ./src/backend:/var/www/html/backend
     networks: 
       - laravel
 
@@ -53,8 +53,8 @@ services:
       dockerfile: composer.dockerfile
     container_name: composer
     volumes: 
-      - ./src:/var/www/html
-    working_dir: /var/www/html
+      - ./src/backend:/var/www/html/backend
+    working_dir: /var/www/html/backend
     networks: 
       - laravel
   
@@ -64,7 +64,7 @@ services:
       dockerfile: php.dockerfile
     container_name: artisan
     volumes:
-      - ./src:/var/www/html
+      - ./src/backend:/var/www/html/backend
     working_dir: /var/www/html
     entrypoint: ["php", "artisan"]
     networks: 
@@ -76,9 +76,8 @@ services:
       dockerfile: php.dockerfile
     container_name: phpunit
     volumes:
-      - ./src:/var/www/html
+      - ./src/backend:/var/www/html/backend
     working_dir: /var/www/html
-    entrypoint: ["var/www/html/vendor/bin/phpunit"]
     networks:
       - laravel
 
@@ -86,8 +85,8 @@ services:
     image: node:14.17.3-alpine
     container_name: npm
     volumes: 
-      - ./src:/var/www/html
-    working_dir: /var/www/html
+      - ./src/frontend:/var/www/html/frontend
+    working_dir: /var/www/html/frontend
     entrypoint: ['npm']
     networks: 
       - laravel
