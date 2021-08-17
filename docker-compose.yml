@@ -81,16 +81,6 @@ services:
     networks:
       - laravel
 
-  npm:
-    image: node:14.17.3-alpine
-    container_name: npm
-    volumes: 
-      - ./src/frontend:/var/www/html/frontend
-    working_dir: /var/www/html/frontend
-    entrypoint: ['npm']
-    networks: 
-      - laravel
-
   redis:
     image: redis:latest
     container_name: redis
